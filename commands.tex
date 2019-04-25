@@ -1,0 +1,101 @@
+% Packages
+\usepackage{xspace}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  citecolor=blue,
+  linkcolor=blue,
+  urlcolor=magenta
+}
+\usepackage{topcapt}
+\usepackage{multirow}
+
+% Words
+\newcommand {\etal}{\mbox{et al.}\xspace}
+\newcommand {\ie}{\mbox{i.e.}\xspace}
+\newcommand {\eg}{\mbox{e.g.}\xspace}
+\newcommand {\etc}{\mbox{etc.}\xspace}
+\newcommand {\vs}{\mbox{vs.}\xspace}
+
+% Particles
+\newcommand{\Pp}{\ensuremath{\mathrm{p}}}
+\newcommand{\PZ}{\ensuremath{\mathrm{Z}}}
+\newcommand{\Pgm}{\ensuremath{\mathrm{\mu}}}
+
+% Units
+\newcommand{\unit}[1]{\ensuremath{\text{\,#1}}\xspace}
+%% Energy
+\newcommand{\keV}{\ensuremath{\,\text{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\keVns}{\ensuremath{\text{ke\hspace{-.08em}V}}\xspace}
+\newcommand{\GeV}{\ensuremath{\,\text{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\GeVns}{\ensuremath{\text{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\MeV}{\ensuremath{\,\text{Me\hspace{-.08em}V}}\xspace}
+\newcommand{\MeVns}{\ensuremath{\text{Me\hspace{-.08em}V}}\xspace}
+%% Length
+\newcommand{\cm}{\ensuremath{\,\text{cm}}\xspace}
+\newcommand{\mm}{\ensuremath{\,\text{mm}}\xspace}
+%% Time
+\newcommand{\mus}{\ensuremath{\,\mu\text{s}}\xspace}
+%% Other
+\newcommand{\fbinv} {\mbox{\ensuremath{\,\text{fb}^{-1}}}\xspace}
+\newcommand{\percms}{\ensuremath{\,\text{cm}^{-2}\,\text{s}^{-1}}\xspace}
+\newcommand{\muA}{\ensuremath{\,\mu}A\xspace}
+
+% Names
+\newcommand{\GEANTfour}{{\textsc{Geant4}}\xspace}
+\newcommand {\Lone}{Level-1\xspace}
+
+% Symbols
+\newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
+
+% Combo symbols
+\newcommand{\pp}{\Pp\Pp\xspace}
+\newcommand{\ZMM}{\PZ$\to$\Pgm\Pgm\xspace}
+\newcommand{\chem}[2]{$^{#1}$#2}
+
+% Constants
+\newcommand{\reflumi}{\ensuremath{10^{34}}\percms}
+
+% Formatting
+\newcommand{\posstyle}[1]{#1}
+
+% CMS formatting wants Fig. in the middle of a sentence,
+% and Eq. and Eqs. always, but I don't
+%\newcommand{\Eq}{Eq.}
+%\newcommand{\Eqs}{Eqs.}
+%\newcommand{\Fig}{Figure}
+%\newcommand{\FigDot}{Fig.}
+%\newcommand{\Figs}{Figures}
+%\newcommand{\FigsDot}{Figs.}
+%\newcommand{\Sec}{Section}
+%\newcommand{\Secs}{Sections}
+%\newcommand{\Tab}{Table}
+%\newcommand{\Tabs}{Tables}
+\newcommand{\Eq}{Equation}
+\newcommand{\Eqs}{Equations}
+\newcommand{\Fig}{Figure}
+\newcommand{\FigDot}{Figure}
+\newcommand{\Figs}{Figures}
+\newcommand{\FigsDot}{Figures}
+\newcommand{\Sec}{Section}
+\newcommand{\Secs}{Sections}
+\newcommand{\Tab}{Table}
+\newcommand{\Tabs}{Tables}
+
+% Math
+\newcommand{\dd}[1]{\ensuremath{\mathop{}\!\mathrm{d}#1}}
+
+\newlength\dummyFigWidth
+\setlength\dummyFigWidth{0.85\textwidth}
+\newlength\halfFigWidth
+\setlength\halfFigWidth{0.6\dummyFigWidth}
+\newlength\twoThirdsFigWidth
+\setlength\twoThirdsFigWidth{0.77\dummyFigWidth}
+\newlength\fullFigWidth
+\setlength\fullFigWidth{1.17\dummyFigWidth}
+
+\clubpenalty=9999
+\widowpenalty=9999
+\newcommand{\ExtraClearPage}{\clearpage}

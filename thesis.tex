@@ -1,0 +1,90 @@
+
+\documentclass [PhD] {uclathes}
+
+\input {commands.tex}                         % personal LaTeX macros
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Usually things live in separate flies.
+%
+% \input {prelim}                           % preliminary page info
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                      %
+%                          PRELIMINARY PAGES                           %
+%                                                                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title          {My Very First PhD Thesis}
+\author         {Abhigyan (Riju) Dasgupta}
+\department     {Physics}
+% Note:  degreeyear should be optional, but as of  5-Feb-96
+% it seems required or you get a year of ``2''.   -johnh
+\degreeyear     {2019}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chair          {Robert Cousins}
+\member         {Zvi Bern}
+\member         {Jay Hauser}
+\member         {David Saltzberg}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\dedication     {\textsl{Dedication}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\acknowledgments {(Acknowledgments omitted for brevity.)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vitaitem   {2009--2013}
+            {Undergraduate Research Assistant, CONCEPT Laboratory, UC Berkeley.}
+\vitaitem   {2013}
+            {B.A.~(Physics) and B.A.~(Mathematics), UC Berkeley.}
+\vitaitem   {2013--2015}
+            {Teaching Assistant, Physics Department, UCLA.}
+\vitaitem   {2015--present}
+            {Graduate Student Researcher, Physics Department, UCLA.
+             Based full time at CERN on the Franco-Swiss border.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\publication    {\textsl{Title} Info}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\abstract       {(Abstract omitted for brevity)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin {document}
+\phantomsection
+\makeintropages
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+I am an introduction.
+
+\chapter{Theory}
+The Standard Model is awesome.
+
+\chapter{CMS Detector}
+The CMS Detector is also awesome.
+
+\chapter{Displaced dimuons}
+Displaced dimuons
+
+\input{neutron.tex}
+
+\chapter{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliography{thesis}
+\bibliographystyle {cmstdr_modified}
+
+\end {document}
+
