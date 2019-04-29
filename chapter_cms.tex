@@ -9,6 +9,7 @@ Run 2 of the LHC began in 2015 with its superconducting dipole magnets operating
 
 \section{The CMS Detector}
 \subsection{Introduction}
+\label{cms:intro}
 CMS is located at Point~5 of the LHC in the commune of Cessy in eastern France.
 It is named for two of its distinguishing features: its \textbf{m}uon system and its \textbf{s}olenoid magnet.
 A large magnetic field with high bending power is required to precisely measure the momentum of high-energy charged particles.
@@ -26,7 +27,7 @@ The detector is structured like an onion, in layers, consisting of the following
   \item muon system
 \end{itemize}
 \Fig~\ref{cms:interactive} is a diagram of a slice of the CMS detector illustrating these layers.
-\begin{figure}[htpb]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=\textwidth]{figures/CMSSlice.png}
   \caption{Transverse slice of the CMS detector \cite{Davis:2205172}, illustrating the basic structure of CMS and the shapes of the tracks and energy deposits formed by the five general categories of particles directly detected by CMS by one or more of its subsystems.}
@@ -63,10 +64,10 @@ This form elucidates its relationship to rapidity,
   y = \frac12\ln\left(\frac{E+p_z}{E-p_z}\right),
   \label{eq:rap}
 \end{equation}
-which is a quantity Lorentz invariant under boosts in the $z$-direction.
-The pseudorapidity has the advantage that it converges to rapidity in the high-energy, low-mass limit (as $|\vc{p}|\to E$), but is only dependent on the polar angle $\theta$ and not on the energy of the particle.
+which is a quantity Lorentz invariant under boosts in the $z$-direction \cite{Hama:1981}.
+The pseudorapidity has the advantage that it converges to rapidity in the high-velocity, low-mass limit (as $|\vc{p}|\to E$), but is only dependent on the polar angle $\theta$ and not on the energy of the particle.
 \Fig~\ref{cms:quadrant} is a schematic diagram of one quadrant of CMS, showing the placement of the components of CMS within the coordinate system.
-\begin{figure}[htpb]
+\begin{figure}[tpb]
   \centering
   \includegraphics[width=\textwidth]{figures/CMSGeometry.pdf}
   \caption{Schematic diagram of one quadrant of CMS in $r$-$z$ \cite{Sirunyan:2018fpa}, illustrating the position of all the subsystems with respect to the coordinate system, in both the barrel and the endcap.}
@@ -112,8 +113,81 @@ The HF is located 11\unit{m} from the interaction point, in the pseudorapidity r
 This forward region experiences very high levels of LHC radiation and thus is constructed out of radiation-hard materials: steel for the absorber and quartz fiber for the active material, which detects the Cerenkov radiation produced by energetic jets \cite{Chatrchyan:2008zzk, CERN-LHCC-97-031, Penzo2009}.
 
 \subsection{Muon System}
-\subsubsection{Drift Tubes}
-\subsubsection{Resistive Plate Chambers}
-\subsubsection{Cathode Strip Chambers}
+As mentioned in \Sec~\ref{cms:intro}, muon detection is a powerful tool for studying high-energy processes in the presence of high background.
+Because of the amount of material in the inner subsystems, typically only muons travel past the solenoid.
+A track in the muon system therefore is associated with a muon.
+Hadronic ``punchthrough'' in the muon system is minimal.
 
-\subsection{Trigger and Data Acquisition Systems}
+The muon system has three tasks: muon identification, muon reconstruction, and triggering.
+As with the other subsystems, the shape of the solenoid informs a design of a cylindrical barrel section and an endcap disk section.
+Both sections consist of four stations of muon detectors, concentric for the barrel and sequential for the endcap.
+The muon system consists of three kinds of gaseous ionization detectors: drift tubes (DT), cathode strip chambers (CSC), and resistive plate chambers (RPC) \cite{Chatrchyan:2008zzk, CMS:1997dma}.
+
+\subsubsection{Drift Tubes}
+The barrel region of the muon system consists of four stations.
+Drift tubes were chosen to be the tracking detectors in the barrel region in light of the low expected rate and relatively low intensity of the local magnetic field.
+\Fig~\ref{cms:dt} is a diagram showing the principle of operation of a drift tube cell.
+A cathode tube with cross-sectional dimensions $42 \times 13 \mm^2$ contains an anode wire (operating at 3600\unit{V}) under tension.
+The tube is filled with a gas mixture of 85\% Ar and 15\% CO$_2$.
+An energetic muon passing through this cell ionizes the gas, and the resulting electrons drift towards the wire.
+Measuring the drift time (a maximum of 380\unit{ns}) yields a measurement of position within the cell.
+
+The smallest independent unit of a DT is a superlayer (SL), consisting of four layers of drift cells staggered by a half cell.
+A drift tube chamber consists of three (or two) SLs.
+The wires in the two outer SLs are parallel to the beamline, and provide a track measurement in the $r$-$\phi$ (bending) plane.
+The wires in the inner SL are orthogonal to the beamline, and measure the $z$-position along the beam.
+This inner SL is not present in the fourth muon station, which consequently only measures the $\phi$ coordinate.
+
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/DT.pdf}
+  \caption{Principle of operation of a drift tube cell \cite{Chatrchyan:2013sba}, showing the structure of a cell, as well as the drift lines and isochrones.}
+  \label{cms:dt}
+\end{figure}
+
+\subsubsection{Cathode Strip Chambers}
+The endcap region of the muon system consists of four stations.
+Cathode strip chambers were chosen to be the tracking detectors in the endcap region for their excellent position resolution in the $\phi$ direction achieved by precision cathode charge readout and interpolation.
+The CSCs are arranged in circular disks.
+Each CSC consists of six layers, each layer lying in an $r$-$\phi$ plane of CMS, consisting of a gas mixture of 50\% CO$_2$, 40\% Ar, and 10\% CF$_4$ in between a plane of copper cathode strips and a plane of anode wires, operating at 2900--3600\unit{V}.
+An energetic muon passing through a CSC ionizes the gas, and the resulting electrons drift towards the wires, causing an avalanche of charge that induces an opposite charge on the cathode strips.
+Interpolating these charges yields a precise localization of the avalanche.
+A more detailed overview of CSCs in the context of a study of neutron-induced background is given in \Sec~\ref{sec:csc_electronics}.
+
+\subsubsection{Resistive Plate Chambers}
+Interspersed throughout both the barrel and endcap muon system are resistive plate chambers, whose purpose is a fast time response and resolution comparable to that of scintillators.
+RPCs therefore constitute a dedicated muon trigger for identifying muon tracks and assigning the bunch crossing with high efficiency.
+An RPC consists of two parallel plates of phenolic resin coated with conductive graphite, with a 2\mm gap filled with a gas mixture of 95.2\% freon (C$_2$H$_2$F$_4$, known as R134a), 3.5\% isobutane (i-C$_4$H$_{10}$), and 0.3\% sulfur hexafluoride (SF$_6$).
+An energetic muon crossing the chamber ionizes the gas and induces an image charge, which is sampled and read out.
+The RPCs have a time resolution of about 2\unit{ns}, a much shorter time than the 25\unit{ns} between LHC bunch crossings, but much coarser position resolution than DTs or CSCs.
+
+\subsection{Trigger System}
+The LHC provides \pp collisions every 25\unit{ns}, corresponding to a crossing frequency of 40\unit{MHz}.
+It is impossible to process and store this large amount of data synchronously with such a high rate, and so a rate reduction must be achieved, selecting a subset of the most interesting candidate events for physics analysis.
+This rate reduction is performed by the CMS trigger system, an elaborate system of hardware and software that analyzes every bunch crossing and ``triggers'' on potentially interesting events.
+The CMS trigger system operates in two steps.
+The Level-1 (L1) trigger makes its decisions at the hardware level with custom-built programmable electronics, synchronously with the LHC.
+The High-Level Trigger (HLT) makes its decisions at the software level, performing its computations offline with respect to the full rate of the LHC, more slowly than the L1 trigger, but faster than the full event readout.
+The L1 trigger is designed to reduce the rate from 40\unit{MHz} to 100\unit{kHz}, and the HLT is designed to reduce the rate from 100\unit{kHz} to 100\unit{Hz} \cite{Chatrchyan:2008zzk, Adam:2005zf}.
+
+The L1 trigger consists of a muon trigger and a calorimeter trigger, organized into local, regional, and global components.
+Both the ECAL and all components of the HCAL participate in the calorimeter trigger, and all three muon chambers -- DTs, CSCs, and RPCs -- participate in the muon trigger, of which the RPCs are of particular importance to triggering due to their excellent time resolution.
+The local components are the lowest level, based on energy deposits in the calorimeters and hits and segments in the muon system.
+Regional components combine the information from the local components using pattern recognition and track finding and rank trigger objects in small regions.
+The global components determine the highest-rank objects and transfer them to the global trigger of the L1 system.
+The global trigger then makes the decision to reject or accept the event at Level-1.
+A Level-1 Accept (L1A) decision is communicated to the subsystems and the event is passed to the HLT for further evaluation.
+The L1 trigger must analyze every bunch crossing, doing so with a maximum latency of 3.2\mus.
+\Fig~\ref{cms:L1} depicts the architecture of the L1 trigger.
+
+\begin{figure}[tpb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/L1Architecture.pdf}
+  \caption{Architecture of the L1 trigger system, based on a figure from \cite{Chatrchyan:2008zzk}, depicting the local, regional, and global components of the muon and calorimeter triggers, the information from which is processed by the global L1 trigger for trigger decision at L1.}
+  \label{cms:L1}
+\end{figure}
+
+The L1 and HLT menus consists of paths that define criteria on which to trigger.
+These criteria are the first step to any physics analysis, and so can include requirements on \pT, on numbers of muons or jets, on the geometry and angles between them, and much more.
+The HLT uses information from the entire detector, with high-level algorithms that make a more precise decision than the coarser L1 trigger.
+Each HLT path is seeded by one or more L1 paths and is designed to be inclusive and general while keeping the event rate as low as possible.
