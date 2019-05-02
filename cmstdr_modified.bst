@@ -941,7 +941,8 @@ FUNCTION {book}
     }
   if$
   format.edition output
-  format.date "year" output.check
+  blank.sep
+  format.date.paren "year" output.check
   new.block
   note output
   new.sentence
@@ -1071,7 +1072,8 @@ FUNCTION {inproceedings}
       new.block
       publisher output
       address output
-      format.date "year" output.check
+      blank.sep
+      format.date.paren "year" output.check
     }
     { format.incoll.inproc.crossref output.nonnull
       format.pages output
@@ -1160,7 +1162,7 @@ FUNCTION {misc}
   if$
   link.shut
   howpublished output
-  format.date output
+  format.date.paren output
   new.block
   note output
   new.sentence
@@ -1210,7 +1212,7 @@ FUNCTION {proceedings}
   new.block
   publisher output
   address output
-  format.date.paren "year" output.check
+  format.date "year" output.check
   new.block
   format.eprint output
   note output
@@ -1238,7 +1240,8 @@ FUNCTION {techreport}
   format.tr.number output.nonnull
   institution "institution" output.check
   address output
-  format.date "year" output.check
+  blank.sep
+  format.date.paren "year" output.check
   new.block
   new.sentence
   format.doi output
