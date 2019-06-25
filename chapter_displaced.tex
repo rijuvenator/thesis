@@ -166,6 +166,39 @@ The expression for equivalent luminosity, \Eq~\ref{eq:dd:eqlumi}, is consequentl
   \label{eq:dd:mcweight}
 \end{equation}
 
+\section{Transverse Decay Length and Transverse Collinearity Angle}
+\label{sec:dd:keyvars}
+Particles produced from the hard interaction of \pp collisions are usually associated to a vertex near the beamspot known as the primary vertex (PV).
+A long-lived particle produced from the PV will travel some distance in the detector before decaying into muons; this is observed as a displaced vertex.
+Consequently, a pair of reconstructed muon tracks are fit to a common vertex (CV), and the system of muons is referred to as a dimuon.
+
+The transverse decay length, \Lxy, is the distance between the PV and the CV in the transverse plane.
+Decays occurring at different \Lxy can have very different properties.
+For example, decays with $\Lxy < 100\cm$ occurred within the tracker volume, and the constituent muons are likely to have left tracks in the high-precision tracker.
+Such events are also subject to high rates of backgrounds from \pp collision processes.
+On the other hand, decays with $\Lxy > 300\cm$ occurred within the muon system, far away from the interaction point.
+Tracks reconstructed using the muon system have coarser resolution than tracks reconstructed with the tracker, but are also subject to fewer \pp collision backgrounds.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=.7\textwidth]{figures/displaced/LxyDef.pdf}
+  \caption{Diagram of the key variables used in this analysis. A long-lived particle is produced at the primary vertex (PV) and travels some distance in the detector before decaying into two muons ($\Pgm_1$ and $\Pgm_2$), forming a common vertex (CV). The distance between these two vertices in the transverse plane is referred to as \Lxy, the transverse decay length. The angle between the \Lxy vector and the \pT vector of the dimuon system is referred to as $|\DeltaPhi|$, the collinearity angle in the transverse plane.}
+  \label{fig:dd:keyvars}
+\end{figure}
+
+A common vertex fit of good quality results in a relatively small internal \Lxy uncertainty (\LxyErr), suggesting that the two muon tracks are consistent with originating from a common vertex.
+The quantity $\Lxy/\LxyErr$ is referred as the \Lxy significance.
+For a well-reconstructed dimuon corresponding to a long-lived particle decaying a few tens of centimeters away from the PV, as in signal events, this quantity is large.
+On the other hand, background events from reconstruction mistakes or promptly produced particles are expected to result in dimuons with small \Lxy significance.
+A large \Lxy significance is therefore a strong indicator of consistency with the long-lived particle hypothesis.
+
+The collinearity angle in the transverse plane between the dimuon \pT vector ($\pT^{\Pgm\Pgm}$) and the \Lxy vector is referred to as $|\DeltaPhi|$.
+For a real pair of muons originating from a CV formed from the decay of a long-lived particle originating at the PV, the resulting dimuon momentum vector points towards the PV, and $|\DeltaPhi|$ is small.
+On the other hand, in most types of background events, this quantity is expected to be symmetric around $\pi/2$.
+A small $|\DeltaPhi|$ is therefore a strong indicator of consistency with the long-lived particle hypothesis.
+
+\Fig~\ref{fig:dd:keyvars} illlustrates these important quantities and their relationship to each other.
+
 \section{Muon Reconstruction}
 This analysis is a generic search for pairs of muons consistent with originating from a common vertex that is displaced with respect to the beamspot.
 Such dimuon vertices can arise from decays of exotic long-lived particles, which are produced promptly (as a direct result of the hard interaction process and produced close to the beamspot) and travel for some distance before decaying.
@@ -189,20 +222,37 @@ Another muon reconstruction algorithm is the displaced standalone muon (DSA muon
 Compared to ordinary standalone muons without the beamspot constraint, the DSA muon reconstruction is seeded with groups of segments in the muon chambers with criteria similar to those used for the reconstruction of cosmic muons, as opposed to seeds used for the reconstruction of muons originating from \pp collisions.
 This reconstruction was intended to further improve the \pT resolution of muons produced from highly displaced decays.
 
-FIGURE is a graph of the efficiency to reconstruct a generated muon, with respect to signal events passing the trigger where both generated muons are within acceptance, using the DSA and RSA reconstructions.
-FIGURE is a histogram of the \pT resolution for the DSA and RSA reconstructions for the same set of events. 
-These plots show that DSA muons have both a higher reconstruction efficiency and an improved \pT resolution over RSA muons.
+\Fig~\ref{fig:dd:REFF} shows graphs of the efficiency as a function of generated \Lxy to reconstruct a generated muon as DSA or as RSA, with and without the trigger applied, with respect to \mbox{$\PHiggs\to2\PLLP\to2\Pgm$} signal events in which both generated muons are within a detector acceptance, defined as
+\begin{itemize}
+  \item both generated muon $\pT > 25\GeV$
+  \item both generated muon $|\eta| < 2$
+  \item generated \mbox{$\Lxy < 500\cm$}
+\end{itemize}
+In order to observe sufficient statistics, all 33 of the \twoMu signal samples were combined together for these graphs.
+The reconstruction efficiency decreases steadily as a function of generated \Lxy, dropping off sharply at about 600\cm, corresponding roughly to the start of the third barrel muon station, and the DSA reconstruction is consistently higher than the RSA reconstruction.
+With the trigger applied, the reconstruction efficiency is high for both DSA and RSA muons, up until about 300\cm at which point the trigger efficiency seriously limits the number of passing events.
+
+\Fig~\ref{fig:dd:PTRES_DSA_RSA} shows distributions of the \pT resolution for the DSA and RSA reconstructions, normalized to unit area, for generated events within acceptance, with and without the trigger applied, for the \twoMu signal sample with \FullSP{1000}{350}{350}.
+The RSA reconstruction gives a visibly worse \pT resolution, with a larger ``shoulder'' near $-1$, indicating that RSA muons tend to underestimate the muon \pT compared to DSA muons.
+
+\Figs~\ref{fig:dd:REFF}--\ref{fig:dd:PTRES_DSA_RSA} show that DSA muons have both a higher reconstruction efficiency and an improved \pT resolution over RSA muons.
 The analysis presented in this thesis therefore primarily uses DSA muons.
 
-$$\text{PLOT OF RECONSTRUCTION EFFICIENCY FOR DSA AND RSA}$$
-$$\text{PLOT OF PT RESOLUTION FOR DSA AND RSA}$$
-
-\section{Key Variables}
 \begin{figure}[htpb]
   \centering
-  \includegraphics[width=.7\textwidth]{figures/displaced/LxyDef.pdf}
-  \caption{Definitions}
-  \label{fig:dd:keyvars}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/REFF_Lxy_2Mu2J_Global.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/REFF_Lxy_Trig_2Mu2J_Global.pdf}
+  \caption{DSA and RSA reconstruction efficiency as a function of generated \Lxy for \twoMu signal events combining all 33 signal samples, with respect to events within acceptance, (left) without and (right) with the trigger applied. Error bars are for statistical uncertainty only.}
+  \label{fig:dd:REFF}
+\end{figure}
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/PTRES_2Mu2J_1000_350_350.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/PTRES_Trig_2Mu2J_1000_350_350.pdf}
+  \caption{DSA and RSA \pT resolution for generated events within acceptance, (left) without the trigger applied and (right) with the trigger applied, for the \twoMu signal sample with \FullSP{1000}{350}{350}.}
+  \label{fig:dd:PTRES_DSA_RSA}
 \end{figure}
 
 \section{Event and Object Selection}
@@ -227,16 +277,35 @@ An overview of the general strategy for selecting reconstructed events and objec
 Event and object preselection begins with DSA muons.
 The HLT path described in \Sec~\ref{sec:dd:Trigger} reconstructs muons at \Ltwo using a procedure similar to that used to reconstruct muons as refitted standalone (RSA) muons at the offline reconstructed level.
 However, as discussed in the previous section, DSA muons were chosen as the starting point over RSA muons for their improved \pT resolution and higher reconstruction efficiency.
-
-The following quality criteria ensure that the DSA muons have acceptable \pT resolution and charge assignment.
-DSA muons are required to
+DSA muons are required to satisfy the following quality criteria:
 \begin{itemize}
-  \item be reconstructed with hits in at least two muon stations, \ie $$N(\text{CSC stations}) + N(\text{DT stations}) > 1$$
-  \item be reconstructed with at least 13 hits in the muon stations, \ie $$N(\text{CSC hits}) + N(\text{DT hits}) > 12$$
-  \item have relative \pT uncertainty of less than 100\%, \ie $$\pTErr/\pT < 1$$
+  \item reconstructed with hits in at least two muon stations, \ie $$N(\text{CSC stations}) + N(\text{DT stations}) > 1$$
+  \item reconstructed with at least 13 hits in the muon stations, \ie $$N(\text{CSC hits}) + N(\text{DT hits}) > 12$$
+  \item relative \pT uncertainty of less than 100\%, \ie $$\pTErr/\pT < 1$$
 \end{itemize}
 
-$$\text{PLOT OF PT RES AND CHARGE ASSIGNMENT FOR SIGNAL}$$
+These quality criteria ensure that the DSA muons have acceptable \pT resolution and charge assignment.
+\Fig~\ref{fig:dd:QCUT_PTRES} shows distributions of the DSA muon \pT resolution for the \twoMu signal sample with \FullSP{1000}{350}{350} for events split up by the $N_\text{hits}$ cut and for events split up by the $\pTErr/\pT$ cut, each population normalized to unit area.
+The events satisfying the cut have reasonable \pT resolution, while the events failing the cut have very poor \pT resolution.
+\Fig~\ref{fig:dd:QCUT_QDIFF} shows distributions of the difference between reconstructed and generated charge for the same signal sample, for events split up by the $N_\text{hits}$ cut and for events split up by the $\pTErr/\pT$ cut, each population normalized to unit area.
+The events satisfying the cut are assigned the correct charge in more than 90\% of events, while the events failing the cut are assigned the correct charge in only around 60\% of events.
+
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/QCUTRES_Sig_pTRes_hits_1000_350_350.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/QCUTRES_Sig_pTRes_fpte_1000_350_350.pdf}
+  \caption{DSA muon \pT resolution, normalized to unit area, for the \twoMu signal sample with \FullSP{1000}{350}{350} for (left) events with $N_\text{hits} > 12$ and $N_\text{hits} \leq 12$ separately, and (right) events with $\pTErr/\pT \geq 1$ and $\pTErr/\pT < 1$ separately.}
+  \label{fig:dd:QCUT_PTRES}
+\end{figure}
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/QCUTRES_Sig_qdiff_hits_1000_350_350.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/QCUTRES_Sig_qdiff_fpte_1000_350_350.pdf}
+  \caption{DSA muon charge difference, normalized to unit area, for the \twoMu signal sample with \FullSP{1000}{350}{350} for (left) events with $N_\text{hits} > 12$ and $N_\text{hits} \leq 12$ separately, and (right) events with $\pTErr/\pT \geq 1$ and $\pTErr/\pT < 1$ separately.}
+  \label{fig:dd:QCUT_QDIFF}
+\end{figure}
 
 \subsection{HLT-RECO Matching}
 \label{sec:dd:HLTMatching}
@@ -252,8 +321,7 @@ Let \deltaR refer to the angular proximity in $\eta$-$\phi$ space between two th
 Then HLT-RECO matching requires that each of the pair of distinct DSA muons for trigger matching lie within cones of $\deltaR < 0.4$ around each muon among pairs of muons reconstructed at \Ltwo passing the trigger (HLT muons).
 
 The \pT, $\eta$, and \deltaR requirements were all chosen to empirically optimize the tradeoff between efficiency and purity, matching as many events as possible while keeping the frequency of accidental matches to poor quality muons low.
-
-$$\text{PLOT OF HLT MATCHING EFFICIENCY WRT TRIGGERED EVENTS IN SIGNAL}$$
+The HLT-RECO matching procedure retains more than 98\% of \twoMu signal events that passed the trigger and have at least two DSA muons for trigger matching.
 
 The HLT-RECO matching requirement ensures, at the event level, that the trigger decision is confirmed using objects reconstructed offline.
 The subsequent object selection, however, does not require that selected dimuons be formed from pairs of triggering HLT muons.
@@ -323,7 +391,40 @@ To this end, DSA muons are replaced with any associated PAT muons, and so the as
 The effect of this is that this analysis, using DSA muons, does not benefit from the improved resolution of PAT muons, but it benefits tremendously from the superior background rejection.
 This is the analysis sensitive to the longest lifetimes, with long-lived particles decaying in the outer region of the tracker and outside the tracker through the muon system.
 
-$$\text{PLOT OF EFFECTS OF PAT ASSOCIATION ON SIGNAL AND ON MC BACKGROUND}$$
+The PAT association procedure is very effective in suppressing \pp collision backgrounds, such as those modeled by the MC background samples.
+\Figs~\ref{fig:dd:REPEFF_MC_LxySig}--\ref{fig:dd:REPEFF_MC_Lxy} are histograms of dimuon $\Lxy/\LxyErr$ and $\Lxy$ in MC background samples, with each process scaled to its equivalent luminosity as discussed in \Sec~\ref{sec:dd:EqLumi}, before and after the association procedure.
+The PAT association suppresses events in MC background by a factor of $10^5$, reducing the number of dimuons from 12 million to 236.
+For these histograms, a \pT cut of 10\GeV is applied to DSA muons on top of the preselection criteria.
+This is a requirement that is part of the muon object selection (see \Sec~\ref{sec:dd:DSAObject}), but is applied here more clearly demonstrate the effect of the PAT association procedure by suppressing secondary, low-\pT muons not associated to PAT muons, such as those from other \pp collisions in the bunch crossing.
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/REPEFF_MC_LxySig-before.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/REPEFF_MC_LxySig-after.pdf}
+  \caption{Distribution of dimuon $\Lxy/\LxyErr$ in MC background samples, scaled to 2016 integrated luminosity, (left) before and (right) after the PAT association procedure. The procedure suppresses the number of background events by a factor of $10^5$.}
+  \label{fig:dd:REPEFF_MC_LxySig}
+\end{figure}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/REPEFF_MC_Lxy-before.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/REPEFF_MC_Lxy-after.pdf}
+  \caption{Distribution of dimuon \Lxy in MC background samples, scaled to 2016 integrated luminosity, (left) before and (right) after the PAT association procedure. The procedure suppresses the number of background events by a factor of $10^5$.}
+  \label{fig:dd:REPEFF_MC_Lxy}
+\end{figure}
+
+In contrast, the association procedure essentially leaves true signal events with dimuon decays outside the tracker relatively untouched.
+\Fig~\ref{fig:dd:REPEFF_Signal_Lxy} is a graph of the number of dimuons (matched to generated signal muons by choosing the closest DSA muons to each generated muon in a cone of $\deltaR < 0.2$ between their momentum directions) remaining after PAT association (\ie composed of DSA muons not associated to PAT muons), divided by the number of dimuons before PAT association, as a function of generated \Lxy.
+In order to observe sufficient statistics, all 33 of the \twoMu signal samples were combined together for these graphs.
+The association efficiently rejects signal events with decays inside the tracker volume, $\Lxy < 65\cm$, while rejecting no more than 5\% of signal events with decays outside the tracker volume, $\Lxy > 65\cm$.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\DFigWidth]{figures/displaced/REPEFF_Signal_Global.pdf}
+  \caption{Graph of the number of dimuons after the PAT association divided by the number of dimuons before the PAT association, as a function of generated \Lxy, in all \twoMu signal samples combined. This graph shows that the association performs as expected, primarily rejecting signal events whose decays occurred within the tracker volume, while accidentally replacing no more than 5\% of events outside the tracker volume.}
+  \label{fig:dd:REPEFF_Signal_Lxy}
+\end{figure}
+
 
 \subsection{DSA Muon Object Selection}
 \label{sec:dd:DSAObject}
@@ -370,14 +471,31 @@ For many purposes, the vertex-constrained tracks are preferable because they rep
 However, in a few situations, the vertex fitter fails or produces nonsensical results.
 A few of the features of the fitter are documented here.
 
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/VFE_Lxy_2Mu2J_400_150_4000.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/LESSMORE_LxyErr_2Mu2J_400_150_4000.pdf}
+  \caption{(left) Efficiency for the common vertex fit to converge for the \twoMu signal sample with \FullSP{400}{150}{4000} as a function of generated \Lxy, for generated events within acceptance. Both the preselection and object selection cuts were applied to DSA muons. In this graph, events were not required to pass the trigger, the HLT-RECO matching requirement was dropped, and the \DSAToPAT association procedure was not performed. Error bars are for the statistical uncertainty only. (right) Distributions of \LxyErr normalized to unit area for the events in the numerator of the left plot, separately for $\Lxy < 320\cm$ and $\Lxy > 320\cm$, for the \twoMu signal sample with \FullSP{400}{150}{4000}, for generated events within acceptance. The distribution for $\Lxy > 320\cm$ has a large peak near 100\cm.}
+  \label{fig:dd:VertexFitAnomalies}
+\end{figure}
+
 The vertex fit does not always converge for an arbitrary pair of tracks.
-FIGURE is a graph of the efficiency for the common vertex fit to converge, with respect to signal events passing the trigger in which both generated muons were reconstructed as DSA muons (where the matching between generated and reconstructed muons was performed using a \deltaR proximity between the momentum directions), as a function of the generated \Lxy.
-$$\text{PLOT OF VERTEX FIT EFFICIENCY}$$
+The left plot of \Fig~\ref{fig:dd:VertexFitAnomalies} is a graph of the efficiency for the common vertex fit to converge, with respect to signal events in which both generated muons were reconstructed as DSA muons, as a function of the generated \Lxy, for the \twoMu signal sample with \FullSP{400}{150}{4000}.
+
+The denominator of this efficiency is the number of generated events within acceptance (both generated muon $\pT > 25\GeV$, both generated muon $|\eta| < 2$, and generated \mbox{$\Lxy < 500\cm$}) in which both generated muons had matching DSA muons.
+That is, each generated muon had a DSA muon passing the muon preselection and the muon object selection within a cone of $\deltaR < 0.2$ between their momentum directions.
+The numerator of this efficiency is the number of such events in which the dimuon common vertex fit converged for the two matched muons.
+In order to observe the effect of the common vertex fit independently of the low trigger efficiency at large \Lxy, events were not required to pass the trigger and the HLT-RECO matching requirement was dropped.
+In order to obtain sufficient statistics, the \DSAToPAT association procedure was not performed.
+
 Convergence of the vertex fit is highly efficient when fitting two DSA muon tracks that are matched to generated signal muons produced from long-lived particle decaying in the detector up to transverse displacements of 330\unit{cm}.
 Beyond 330\unit{cm}, the efficiency for the common vertex fit to converge drops dramatically.
-Additionally, for those events beyond 330\unit{cm} that do converge, the \pT resolution of the vertex-constrained tracks are poorer, as seen in FIGURE.
-$$\text{PLOT OF PT RESOLUTION LESS AND GREATER THAN 330 CM}$$
-Finally, many of these events also retain an internal \Lxy uncertainty (\LxyErr) of a default value of 100\cm.
+
+For those events beyond 330\unit{cm} that do converge, the fit quality is often quite poor, \eg the \pT resolutions of the vertex-constrained tracks are worse than before the fit.
+Finally, many of these events retain an internal \Lxy uncertainty (\LxyErr) of a default value of 100\cm.
+The right plot of \Fig~\ref{fig:dd:VertexFitAnomalies} shows distributions, normalized to unit area, of the events in the numerator of the left plot of \Fig~\ref{fig:dd:VertexFitAnomalies}, separately for $\Lxy < 320\cm$ and $\Lxy > 320\cm$.
+A large fraction of the events with $\Lxy > 320\cm$ have \LxyErr near 100\cm.
 Such events would have a small \Lxy significance (3 or less) and would not pass an analysis selection.
 This type of common vertex fit failure would result in the loss of these events, even though the fit converged.
 
@@ -397,17 +515,8 @@ This situation is made more complex when, among other things,
   \item duplicate muons are reconstructed from partial sets of hits
   \item muons are not all reconstructed with the correct charge
   \item pairs of muons are highly collimated and distinguishing them is difficult
-  \item vertex fits of muons originating from different LLP decays yields a good \vchisq
+  \item vertex fits of muons from different long-lived particle decays yield a good \vchisq
 \end{itemize}
-\Fig~\ref{fig:dd:pc} is a diagram illustrating the application of the pairing criteria to the set of all possible dimuons in the case of four selected muons.
-
-\begin{figure}[htpb]
-  \centering
-  \includegraphics[width=\textwidth]{figures/displaced/PairingCriteriaDiagram.pdf}
-  \caption{Diagram illustrating the application of pairing criteria to dimuons in the case of four selected muons. Four muons may be paired into six dimuons whose constituent muons overlap. These six dimuons may be partitioned into three distinct pairings of dimuons, in which no muons are shared between dimuons. Pairing criteria select the correct pair of dimuons consistent with a four muon signal event.}
-  \label{fig:dd:pc}
-\end{figure}
-
 In developing this set of pairing criteria, several combinations of metrics were considered.
 \begin{itemize}
   \item Dimuon(s) formed from the highest \pT muons in the event
@@ -416,6 +525,13 @@ In developing this set of pairing criteria, several combinations of metrics were
   \item Pairs of dimuons with the least sum of \vchisq
   \item Pairs of dimuons with the least difference in reconstructed dimuon mass
 \end{itemize}
+\Fig~\ref{fig:dd:pc} is a diagram illustrating the application of the pairing criteria to the set of all possible dimuons in the case of four selected muons.
+\begin{figure}[htpb]
+  \centering
+  \includegraphics[width=\textwidth]{figures/displaced/PairingCriteriaDiagram.pdf}
+  \caption{Diagram illustrating the application of pairing criteria to dimuons in the case of four selected muons. Four muons may be paired into six dimuons whose constituent muons overlap. These six dimuons may be partitioned into three distinct pairings of dimuons, in which no muons are shared between dimuons. Pairing criteria select the correct pair of dimuons consistent with a four muon signal event.}
+  \label{fig:dd:pc}
+\end{figure}
 
 Potential pairing criteria were studied and optimized on both the \twoMu and \fourMu signal samples.
 Choosing the highest \pT muons in the event is highly correlated with choosing the signal muons, a fact that is robust across all signal sample parameters covering a wide range of long-lived particle lifetimes and muon \pT spectra.
@@ -435,8 +551,29 @@ The full technical details of this procedure are depicted in \Fig~\ref{fig:dd:pc
   \label{fig:dd:pca}
 \end{figure}
 
+\Fig~\ref{fig:dd:PC_Eff} shows graphs of the efficiency for the pairing criteria to correctly select reconstructed dimuons as a function of generated \Lxy, for a selection of \twoMu and \fourMu signal samples.
+\Fig~\ref{fig:dd:PC_Eff_Global} shows the same graphs, but for all 33 signal samples combined together.
+The denominator of this efficiency is the number of generated signal dimuons matching a reconstructed dimuon (using the closest DSA muons to each generated muon in a cone of $\deltaR < 0.2$ between their momentum directions).
+The numerator of this efficiency is the number of reconstructed dimuons chosen by the pairing criteria that were the same as the reconstructed dimuon matched to generated signal.
+This efficiency is 97--100\% for \twoMu and 80--98\% for \fourMu signal samples with medium and long lifetimes, for generated transverse decay lengths of $\Lxy > 100 \cm$.
+The pairing criteria are less efficient for \fourMu samples with larger values of \mH and smaller values of \mX, because events in such samples consist of two pairs of highly collimated muons, which yield a greater uncertainty in the fitted vertex position in the dimuon momentum direction, and therefore less discriminating vertex \chisq values.
 
-$$\text{PLOT OF PAIRING CRITERIA EFFICIENCY}$$
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/PC_Lxy_2Mu2J_Mul.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/PC_Lxy_4Mu_Mul.pdf}
+  \caption{Efficiency for the pairing criteria to correctly choose reconstructed dimuons as a function of generated \Lxy for (left) \twoMu signal samples and (right) \fourMu signal samples, for selected signal parameters. The behavior varies with signal parameters, and is lower for \fourMu signal samples, but overall the efficiency is high outside the tracker volume ($\Lxy > 100\cm$).}
+  \label{fig:dd:PC_Eff}
+\end{figure}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\DSquareWidth]{figures/displaced/PC_Lxy_2Mu2J_Global.pdf}
+  \hspace*{-2em}
+  \includegraphics[width=\DSquareWidth]{figures/displaced/PC_Lxy_4Mu_Global.pdf}
+  \caption{Efficiency for the pairing criteria to correctly choose reconstructed dimuons, as in \Fig~\ref{fig:dd:PC_Eff}, for all samples combined.}
+  \label{fig:dd:PC_Eff_Global}
+\end{figure}
 
 \subsection{Dimuon Object Selection}
 \label{sec:dd:DimuonObject}
@@ -454,6 +591,7 @@ The mass cut suppresses complex backgrounds arising from QCD processes and event
 \subsection{Dimuon Signal Selection}
 \label{sec:dd:DimuonSignal}
 The following criteria select displaced dimuons consistent with the signal hypothesis, \ie that the dimuon was constructed from two muons with opposite-sign ocharge that originated from the decay of a long-lived particle produced promptly, and therefore resulted in a dimuon vertex displaced from the beamspot.
+The relevant quantities were defined in \Sec~\ref{sec:dd:keyvars}.
 Dimuons are required
 \begin{itemize}
   \item to have an \Lxy significance of at least 5, \ie $\Lxy/\LxyErr > 5$
@@ -528,20 +666,20 @@ In summary, the cosmic muon suppression selections are
     \hline
     primary vertex                    & \multicolumn{3}{l}{\Code{PrimaryVertexFilter} passed}       \\
     HLT-RECO matching                 & \multicolumn{3}{l}{HLT-RECO matching algorithm found match} \\
-    number of parallel DSA muon pairs & $N$(parallel pairs)               & $>$ & 18                \\
+    number of parallel DSA muon pairs & $N$(parallel pairs) & $<$ & 6                               \\
     \hline
     & & \\
 
     \hline\hline
     \multicolumn{4}{c}{DSA Muon Selection} \\
     \hline
-    association with PAT muons         & \multicolumn{3}{l}{DSA muons not associated to PAT muons} \\
-    number of CSC and DT stations      & $N$(CSC+DT stations)             & $>$ & 1                \\
-    number of CSC and DT hits          & $N$(CSC+DT hits)                 & $>$ & 12               \\
-    number of DT hits for barrel muons & $N$(DT hits)                     & $>$ & 18               \\
-    relative \pT uncertainty           & $\pTErr/\pT$                     & $<$ & 1                \\
-    transverse muon momentum           & \pT                              & $>$ & 10\GeV           \\
-    normalized track \normchisq        & $\chisq_\text{track}/\text{dof}$ & $<$ & 4                \\
+    association with PAT muons         & \multicolumn{3}{l}{DSA muons \emph{not} associated to PAT muons}  \\
+    number of CSC and DT stations      & $N$(CSC+DT stations)                      & $>$ & 1               \\
+    number of CSC and DT hits          & $N$(CSC+DT hits)                          & $>$ & 12              \\
+    number of DT hits for barrel muons & $N(\text{DT hits}\,\vert\,\text{barrel})$ & $>$ & 18              \\
+    relative \pT uncertainty           & $\pTErr/\pT$                              & $<$ & 1               \\
+    transverse muon momentum           & \pT                                       & $>$ & 10\GeV          \\
+    normalized track \normchisq        & $\chisq_\text{track}/\text{dof}$          & $<$ & 4               \\
     \hline
     & & \\
 
@@ -554,7 +692,7 @@ In summary, the cosmic muon suppression selections are
     dimuon mass                          & $\mMuMu$                       & $>$ & 10\GeV         \\
     vertex \chisq                        & $\chisq_\text{vertex}$         & $<$ & 20             \\
     cosine of dimuon 3D opening angle    & $\cos{\alpha}$                 & $>$ & $-0.8$         \\
-    \Lxy significance                    & $\Lxy/\LxyErr$                 & $>$ & 6              \\
+    \Lxy significance                    & $\Lxy/\LxyErr$                 & $>$ & 5              \\
     transverse collinearity angle        & $|\DeltaPhi|$                  & $<$ & $\pi/2$        \\
     opposite sign muons                  & \multicolumn{3}{l}{constituent muons are oppositely charged} \\
     \hline
