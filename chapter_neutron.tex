@@ -1,5 +1,8 @@
 %%%%%
 \chapter{Neutron-Induced Background Hits in the CMS Endcap Muon System and Implications for the HL-LHC}
+\section{Foreword}
+The work presented here was presented at the 2017 European Physical Society Conference on High-Energy Physics (EPS-HEP) and the 2017 American Physical Society Meeting of the Division of Particles \& Fields (APS-DPF). The EPS-HEP poster can be found at Reference~\cite{Dasgupta:Poster}, the associated proceedings can be found at Reference~\cite{Dasgupta:Proceedings}, the APS-DPF parallel talk can be found at Reference~\cite{Schnaible:Talk}, and the public repository of approved plots can be found at Reference~\cite{NeutronTwiki}. The text and plots were written and produced together with Christian Schnaible and Bob Cousins and forms the internal detector note CMS DN-2017/019.
+
 \section{Introduction}
 \label{sec:intro}
 The high-luminosity upgrade to the CERN LHC (HL-LHC) will bring not only increased access to discovering new physics but also increased background rates in CMS muon chambers \cite{Evans:2008zzb,Apollinari:2116337}. This note focuses on the study of neutron-induced background hits in CMS endcap cathode strip chambers (CSCs) due to their large active volume and forward placement in CMS \cite{CMS:1997dma,Chatrchyan:2009hb}. Neutrons induce hits in CSCs by producing photons, via either nuclear scattering or capture. These photons produce or scatter electrons, via Compton scattering, the photoelectric effect, or pair production; the ionization from these electrons can either corrupt hits from desirable tracks in the event, or add extra background hits. This note describes efforts to quantify and characterize the effects of this neutron-induced ionization through analysis of Monte Carlo (MC) simulation of neutron production and propagation in CMS, as well as of CMS proton-proton (\pp) collision data. The results are tied to analyses of muon test beam data at the CERN Gamma Irradiation Facility (GIF++), which allows us to study the effects of background radiation on CSC performance and project the effects of neutron-induced background to the conditions at the HL-LHC.
@@ -16,7 +19,8 @@ The identification of neutron-induced hits in CMS data is complicated by the fac
 
 \Sec~\ref{sec:csc_electronics} is a brief overview of cathode strip chambers and the on-chamber trigger electronics in the CMS detector. \Sec~\ref{sec:G4_neutron_sim} describes \GEANTfour simulation of the detector response to \pp collisions, including neutron-induced hits. \Sec~\ref{sec:selection} describes the selection criteria that we use to isolate a sample of neutron-induced hits in CMS CSC data. \Sec~\ref{sec:datamc} describes the procedure by which we normalize our neutron-induced hit counts into hit rates. \Secs~\ref{sec:GIF} and \ref{sec:chargeperhit} describe studies of GIF++ data and CMS CSC data from which we predict some effects of increased radiation in HL-LHC-like conditions. 
 
-\section{Cathode Strip Chambers and Trigger Electronics in the CMS Detector}
+\section{Cathode Strip Chambers and Trigger Electronics in CMS}
+%\section{Cathode Strip Chambers and Trigger Electronics in the CMS Detector}
 \label{sec:csc_electronics}
 %\subsection{The CMS Detector}
 %The central feature of the CMS apparatus is a superconducting solenoid of 6\unit{m} internal diameter, providing a magnetic field of 3.8\unit{T}. Within the solenoid volume are a silicon pixel and strip tracker, a lead tungstate crystal electromagnetic calorimeter, and a brass and scintillator hadron calorimeter, each composed of a barrel and two endcap sections. Forward calorimeters extend the pseudorapidity coverage provided by the barrel and endcap detectors. Muons are detected in gas-ionization chambers embedded in the steel flux-return yoke outside the solenoid. Muons are measured in the pseudorapidity range $\abs{\eta} < 2.4$, with detection planes made using three technologies: drift tubes, cathode strip chambers, and resistive plate chambers. Matching muons to tracks measured in the silicon tracker results in a relative transverse momentum resolution for muons with $20 <\pt < 100\GeV$ of 1.3--2.0\% in the barrel and better than 6\% in the endcaps, The \pt resolution in the barrel is better than 10\% for muons with \pt up to 1\TeV.
@@ -87,8 +91,8 @@ In examining these simulated events, we find that each \pp collision can lead to
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/LastEvsTOF.pdf}\\
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/LastEvsTOF_All.pdf}
+	\includegraphics[width=0.8\dummyFigWidth]{figures/neutron/LastEvsTOF.pdf}\\
+	\includegraphics[width=0.8\dummyFigWidth]{figures/neutron/LastEvsTOF_All.pdf}
 	\caption{Final energy of simulated neutron \vs the time since \pp collision giving rise to simulated detector hit, for hits in CSCs. Hits are induced by electrons that are produced from photons that are produced from neutron capture or from neutron inelastic scattering. Red dots indicate simulated hits induced by neutron captures, and blue dots indicate simulated hits induced by neutron inelastic scatters. The top plot shows hits from photons only, coming from inelastic scattering and nuclear capture; the bottom plot shows all neutron-related hits, including those induced by protons and nuclear fragments, shown in magenta and green dots, respectively.}
 	\label{fig:tof_energy}
 \end{figure}
@@ -657,15 +661,15 @@ and
 \subsection{Results}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_11_wire_early_AREA_TIME_LOOK_20180628_fit.pdf}
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_11_wire_total_AREA_TIME_LOOK_20180628_fit.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_11_wire_early_AREA_TIME_LOOK_20180628_fit.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_11_wire_total_AREA_TIME_LOOK_20180628_fit.pdf}
 	\caption{Plot of hits per time per area as a function of luminosity as calculated in \Eq~\ref{eqn:hits_perA_perT_perCSC_Lumi} for ME1/1 chambers, (\posstyle{top}) for hits that occur at the end of LHC gaps (candidate neutron capture induced hits) and (\posstyle{bottom}) for hits that occur during \pp collisions. The red line is a linear fit constrained to go through the origin and fit over the central region of luminosity.}
 	\label{fig:lumi_11}
 \end{figure}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_21_wire_early_AREA_TIME_LOOK_20180628_fit.pdf}
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_21_wire_total_AREA_TIME_LOOK_20180628_fit.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_21_wire_early_AREA_TIME_LOOK_20180628_fit.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_21_wire_total_AREA_TIME_LOOK_20180628_fit.pdf}
 	\caption{Plot of hits per time per area as a function of luminosity as calculated in \Eq~\ref{eqn:hits_perA_perT_perCSC_Lumi} for ME2/1 chambers, (\posstyle{top}) for hits that occur at the end of LHC gaps (candidate neutron capture induced hits) and (\posstyle{bottom}) for hits that occur during \pp collisions. The red line is a linear fit constrained to go through the origin and fit over the central region of luminosity.}
 	\label{fig:lumi_21}
 \end{figure}
@@ -678,15 +682,15 @@ In preliminary results in 2017 for the neutron induced hit rates, we incorrectly
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/occupancy_11_wire_early_AREA_TIME_20180628_XS_ThermalON.pdf}
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/occupancy_11_wire_early_AREA_TIME_20180628_HP_ThermalON.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_11_wire_early_AREA_TIME_20180628_XS_ThermalON.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_11_wire_early_AREA_TIME_20180628_HP_ThermalON.pdf}
 	\caption{Histogram of neutron capture induced anode wire hits per time per area for CMS data (as calculated in \Eq~\ref{eqn:hits_perA_perT_perDigi}) and for MC simulation (as calculated in \Eq~\ref{eqn:MC_hits_perA_perT_perDigi}) for ME1/1 chambers for a reference luminosity of \reflumi. CMS data are compared to results from \GEANTfour (\posstyle{top}) XS and (\posstyle{bottom}) HP neutron interaction cross section libraries in CMS MC simulation of minimum-bias proton-proton collisions at 13 TeV.}
 	\label{fig:wg_occupancy_11}
 \end{figure}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/occupancy_21_wire_early_AREA_TIME_20180628_XS_ThermalON.pdf}
-	\includegraphics[width=\dummyFigWidth]{figures/neutron/occupancy_21_wire_early_AREA_TIME_20180628_HP_ThermalON.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_21_wire_early_AREA_TIME_20180628_XS_ThermalON.pdf}
+	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_21_wire_early_AREA_TIME_20180628_HP_ThermalON.pdf}
 	\caption{Histogram of neutron capture induced anode wire hits per time per area for CMS data (as calculated in \Eq~\ref{eqn:hits_perA_perT_perDigi}) and for MC simulation (as calculated in \Eq~\ref{eqn:MC_hits_perA_perT_perDigi}) for ME2/1 chambers for a reference luminosity of \reflumi. CMS data are compared to results from \GEANTfour (\posstyle{top}) XS and (\posstyle{bottom}) HP neutron interaction cross section libraries in CMS MC simulation of minimum-bias proton-proton collisions at 13 TeV.}
 	\label{fig:wg_occupancy_21}
 \end{figure}
@@ -719,8 +723,8 @@ The CERN Gamma Irradiation Facility (GIF++) is located on the CERN Pr\'{e}vessin
 \subsection{LCT Efficiency and RecHit Displacement at GIF++}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.9\dummyFigWidth]{figures/neutron/Eff_11_LCTScint_L1A.pdf}
-	\includegraphics[width=.9\dummyFigWidth]{figures/neutron/Eff_21_LCTScint_L1A.pdf}
+	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/Eff_11_LCTScint_L1A.pdf}
+	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/Eff_21_LCTScint_L1A.pdf}
 	\caption{Plot of LCT efficiency divided by the efficiency at minimum HV current (irradiation source turned off), for the (\posstyle{top}) ME1/1 and (\posstyle{bottom}) ME2/1 chambers at GIF++. LCT efficiency is defined as the number of LCTs created within a scintillator shadow, divided by the number of scintillator triggers received. As the source intensity is increased (chamber anode HV current is increased), the LCT efficiency drops. The gray line indicates an approximate equivalent HV current corresponding to design HL-LHC luminosity.}
 	\label{fig:lct_eff}
 \end{figure}
@@ -761,8 +765,8 @@ This particular event display illustrates a way that a photon-induced hit may ca
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=.9\dummyFigWidth]{figures/neutron/SegNHitsFrac_ME11_all.pdf}
-	\includegraphics[width=.9\dummyFigWidth]{figures/neutron/SegNHitsFrac_ME21_all.pdf}
+	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/SegNHitsFrac_ME11_all.pdf}
+	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/SegNHitsFrac_ME21_all.pdf}
 	\caption{Stacked plot of fraction of offline reconstructed muon segments, categorized by the number of reconstructed hits used to form them, \vs chamber anode HV current, for the (\posstyle{top}) ME1/1 and (\posstyle{bottom}) ME2/1 at GIF++. As the source intensity is increased (chamber anode HV current is increased), the fraction of good quality 6 hit segments decreases, while the fraction of lower quality 3 hit segments increases. The white line indicates an approximate equivalent HV current corresponding to design HL-LHC luminosity.}
 	\label{fig:seg_frac}
 \end{figure}
@@ -785,9 +789,9 @@ We use anode HV current data collected by the HVPS and stored in an external dat
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME11_N_31_5_f5394_curr_lumi.pdf}
-	\includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME11_P_02_2_f5394_curr_lumi.pdf}
-	\includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME11_P_18_2_f5394_curr_lumi.pdf}
+	\includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME11_N_31_5_f5394_curr_lumi.pdf}
+	\includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME11_P_02_2_f5394_curr_lumi.pdf}
+	\includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME11_P_18_2_f5394_curr_lumi.pdf}
 	\caption{Plot of anode HV current \vs LHC luminosity with a two-parameter linear fit for (\posstyle{top}) a well-behaved ME1/1 channel, (\posstyle{middle}) an ME1/1 channel with a large fitted offset, and (\posstyle{bottom}) a noisy ME1/1 channel.}
 	\label{fig:ME11_IvsL}
 \end{figure}
@@ -843,9 +847,9 @@ The\unit{charge/hit} is then calculated by dividing the anode HV current by the 
 \subsubsection{ME2/1}
 \begin{figure}
     \centering
-    \includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME21_P_04_1_5_f5394_curr_lumi.pdf}
-    \includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME21_P_04_2_5_f5394_curr_lumi.pdf}
-    \includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME21_P_04_3_5_f5394_curr_lumi.pdf}
+    \includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME21_P_04_1_5_f5394_curr_lumi.pdf}
+    \includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME21_P_04_2_5_f5394_curr_lumi.pdf}
+    \includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME21_P_04_3_5_f5394_curr_lumi.pdf}
 \caption{Plot of current \vs luminosity for ME+2/1/04 layer 5 for HV Segment (\posstyle{top}) 1, (\posstyle{middle}) 2, and (\posstyle{bottom}) 3, with a two-parameter linear fit. The least count of approximately 0.1\muA is most evident in HV segment 3.}
     \label{fig:ME21_curr_lumi_p214_5}
 \end{figure}

@@ -1,7 +1,7 @@
 == 25 April 2019
   - [ ] Apollonari book add url to title
   - [ ] add table of contents to bookmarks
-  - [ ] figure captions overflowing
+  - [x] figure captions overflowing
 
 == 26 April 2019
   - [x] all years should be in parentheses
@@ -11,6 +11,12 @@
   - [ ] URLs should also be explicit in references
 
 == 10 Jun 2019
-  - [ ] Exact version for Pythia
-  - [ ] Definitions + reference in signal selection
+  - [x] Exact version for Pythia
+  - [x] Definitions + reference in signal selection
   - [ ] Title of chapter
+
+== 26 Jun 2019
+  - [x] References for DSA, vertex fitting, generators
+  - [ ] Reference for ZBi in the optimization section
+  - [ ] N-1 plots
+  - [ ] SR/CR, optimization, limits

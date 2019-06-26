@@ -21,8 +21,6 @@ The abbreviations in this expression define the various criteria:
   \item \texttt{\textbf{Mass10}}: requirement that the invariant mass of the two muon system \mMuMu be at least 10\GeV. As with the \pT requirement above, this requirement also serves to keep the event rate within acceptable thresholds and reduce consideration of events dominated by complex QCD processes.
 \end{itemize}
 
-$$\text{PLOT OF TRIGGER EFFICIENCY}$$
-
 \subsection{Data Samples}
 The analysis uses data taken from \pp collisions at the LHC center-of-mass energy of 13\TeV during the data taking period of 2016, corresponding to an integrated luminosity of 35.9\fbinv.
 The CMS datasets used are reprocessed under the CMS software version \Code{CMSSW\_8\_0\_31} in August 2017, known as the ``re-reco'' data.
@@ -128,9 +126,9 @@ MC simulation of background is therefore primarily used to study general trends 
   \label{tab:dd:bgsamples}
 \end{table}
 
-Simulation of the hard process including matrix element computation is performed by \POWHEG in all signal and background samples, except for the Drell-Yan ($\PZ/\gamma^* \to \ell\ell$) sample, whose hard process is simulated by \MGvATNLO, and the \PW+jets sample, whose hard process is simulated by \MADGRAPH.
-Simulation of parton showering and hadronization is performed by \PYTHIA8 in all signal and background samples except for the \PW\PW sample, whose parton showering is simulated by \HERWIGpp.
-Simulation of the passage of particles through detector material and the induced response in detector electronics is performed by \GEANTfour.
+Simulation of the hard process including matrix element computation is performed by \POWHEG2 \cite{Nason:2004rx,Frixione:2007vw,Alioli:2010xd} in all signal and background samples, except for the Drell-Yan ($\PZ/\gamma^* \to \ell\ell$) sample, whose hard process is simulated by \MGvATNLO 2.2.2 \cite{Alwall:2014hca}, and the \PW+jets sample, whose hard process is simulated by \MADGRAPH5 \cite{Alwall:2011uj}.
+Simulation of parton showering and hadronization is performed by \PYTHIA8.212 using the CUETP8M1 tune \cite{Sjostrand:2014zea,Khachatryan:2015pea} in all signal and background samples except for the \PW\PW\ sample, whose parton showering is simulated by \HERWIGpp2.7.1 \cite{Bahr:2008pv}.
+Simulation of the passage of particles through detector material and the induced response in detector electronics is performed by \GEANTfour \cite{Agostinelli:2002hh,Allison:2006ve,Allison:2016lfl}.
 
 \subsection{Equivalent Luminosity and Event Weighting in MC Simulation}
 \label{sec:dd:EqLumi}
@@ -213,13 +211,13 @@ Therefore, standalone muons are the reconstructed object of choice for a displac
 Furthermore, standalone muon reconstruction is available with and without the beamspot constraint.
 Standalone muons without this beamspot constraint are the starting point for choosing a muon reconstruction suitable for studying displaced dimuons.
 
-The analyses performed using Run~1 data used refitted standalone muons (RSA muons) as their primary muon reconstruction.
+The analyses performed using Run~1 data used refitted standalone muons (RSA muons) as their primary muon reconstruction \cite{CMS-PAS-EXO-14-012,CMS-AN-14-176}.
 Compared to ordinary standalone muons without the beamspot constraint, the RSA muon algorithm computes a final refit (an additional iteration in the standalone muon trajectory builder) excluding the beamspot.
 This reconstruction was intended to reduce the inherent bias towards the beamspot exhibited by the standard standlone muon reconstruction designed to study muons originating directly from the \pp collision.
 RSA muons thus have improved $d_0$ and \pT resolution compared to standalone muons.
 
 Another muon reconstruction algorithm is the displaced standalone muon (DSA muon) reconstruction.
-Compared to ordinary standalone muons without the beamspot constraint, the DSA muon reconstruction is seeded with groups of segments in the muon chambers with criteria similar to those used for the reconstruction of cosmic muons, as opposed to seeds used for the reconstruction of muons originating from \pp collisions.
+Compared to ordinary standalone muons without the beamspot constraint, the DSA muon reconstruction is seeded with groups of segments in the muon chambers with criteria similar to those used for the reconstruction of cosmic muons, as opposed to seeds used for the reconstruction of muons originating from \pp collisions \cite{CMS-DP-2015-015}.
 This reconstruction was intended to further improve the \pT resolution of muons produced from highly displaced decays.
 
 \Fig~\ref{fig:dd:REFF} shows graphs of the efficiency as a function of generated \Lxy to reconstruct a generated muon as DSA or as RSA, with and without the trigger applied, with respect to \mbox{$\PHiggs\to2\PLLP\to2\Pgm$} signal events in which both generated muons are within a detector acceptance, defined as
@@ -347,7 +345,7 @@ A PAT muon may be both a global muon and an arbitrated tracker muon, and good qu
 
 Candidate PAT muons are associated to DSA muons when they satisfy one of two matching criteria, which are applied in different contexts in a procedure described below. The two matching criteria are
 \begin{itemize}
-  \item \textbf{Segment-matched}: A PAT muon is segment-matched to a DSA muon if the PAT muon shares all of its muon system segments with all of the muon system segments used to reconstruct the DSA muon. PAT muon segments and DSA muon segments are compared coordinate by coordinate for equality and are considered the same if their coordinates match.
+  \item \textbf{Segment-matched}: A PAT muon is segment-matched to a DSA muon if the PAT muon shares all of its muon system segments with at least 2/3 of the muon system segments used to reconstruct the DSA muon. PAT muon segments and DSA muon segments are compared coordinate by coordinate for equality and are considered the same if their coordinates match.
   \item \textbf{Proximity-matched}: A PAT muon is proximity-matched to a DSA muon if the \deltaR between
     \begin{itemize}
       \item the position vector of the innermost hit of the DSA muon and
@@ -453,7 +451,7 @@ This is a loose requirement ensuring that the common vertex fit is not performed
 
 \subsubsection{Vertex Fitting}
 \label{sec:dd:VertexFitting}
-The common vertex fit is performed by an implementation of the Kalman filter algorithm in the CMS software, called the \Code{KalmanVertexFitter}.
+The common vertex fit is performed by an implementation of the Kalman filter algorithm in the CMS software, called the \Code{KalmanVertexFitter} \cite{Fruhwirth:1987fm,Speer:927395}.
 The default implementation in the CMS software version used in this analysis restricts the range of the location of the fitted vertex to approximately within the boundary of the silicon tracker.
 In this analysis, this restricted range is extended to the beginning of the muon system in order to efficiently reconstruct a common vertex for particles decaying outside the tracker.
 

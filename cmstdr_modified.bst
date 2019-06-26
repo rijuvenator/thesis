@@ -1065,7 +1065,7 @@ FUNCTION {inproceedings}
   blank.sep
   crossref missing$
     { format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
+      format.volume output
       format.number.series output
       format.pages output
       organization output
