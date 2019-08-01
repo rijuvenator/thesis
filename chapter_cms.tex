@@ -1,9 +1,11 @@
-\chapter{The CMS Detector}
+\chapter{The CMS Detector at the CERN LHC}
+\label{chap:cms}
+\PretentiousQuote{The expectations of life depend upon diligence; the mechanic that would perfect his work must first sharpen his tools.}{Confucius}{Analects of Confucius}
 
 The Compact Muon Solenoid (CMS) detector is a general-purpose detector for studying the physics of fundamental particles produced by proton-proton (\pp) and heavy ion collisions at the Large Hadron Collider (LHC) at CERN.
 Two beams of protons circle the 27.6\unit{km} circumference of the LHC in opposite directions and collide at various locations along it; one of these locations is the CMS detector.
 
-\section{The LHC}
+\section{The CERN LHC}
 The LHC is a two-ring circular hadron collider designed to collide protons at a center-of-mass energy of $\sqrt{s} = 14\TeV$ and at a design instantaneous luminosity of $\lumi = 10^{34} \cm^{-2} \unit{s}^{-1}$ \cite{Evans:2008zzb}.
 Run 2 of the LHC began in 2015 with its superconducting dipole magnets operating such that the corresponding center-of-mass energy is $\sqrt{s} = 13\TeV$ \cite{Todesco:2017tcj}.
 
@@ -16,17 +18,17 @@ The two high-luminosity, general-purpose experiments, CMS and ATLAS, are located
 The two lower luminosity, more special purpose experiments, ALICE and LHCb, are located at Point~2 and Point~8, respectively.
 Yellow dots indicate these four experiments in \Fig~\ref{cms:lhc}, each with their own large detectors in underground caverns receiving collisions from the LHC.
 
-\begin{figure}[tpb]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/LHCAcceleratorComplex.pdf}
-  \caption{Overview of the CERN accelerator complex, reproduced from Reference~\cite{Mobs:2636343}.}
+  \caption[Overview of the CERN accelerator complex.]{Overview of the CERN accelerator complex, reproduced from Reference~\cite{Mobs:2636343}.}
   \label{cms:lhc}
 \end{figure}
 
-\begin{figure}[tpb]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/InjectionChain.pdf}
-  \caption{Summary of the injection chain of the LHC, including the proton beam energy, which increases at each step, and (for the PS and SPS) the synchrotron cycle time. Multiple cycles of the PS and SPS are required to fill the LHC.}
+  \caption[Summary of the injection chain of the LHC.]{Summary of the injection chain of the LHC, including the proton beam energy, which increases at each step, and (for the PS and SPS) the synchrotron cycle time. Multiple cycles of the PS and SPS are required to fill the LHC.}
   \label{cms:injectionchain}
 \end{figure}
 
@@ -43,7 +45,7 @@ Proton-proton collisions occur when bunches of protons cross, called bunch cross
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/Fill5423BunchPattern.png}
-  \caption{Diagram of the bunch places of an LHC proton beam, showing filled bunches (blue) and empty places (gray). The grid is $99 \times 36 = 3564$ squares, \ie they wrap around. Reproduced from Reference~\cite{CMSWBM:Fill5423} for Fill 5423 of the LHC in October 2016.}
+  \caption[Diagram of the bunch places of an LHC proton beam showing filled and empty places.]{Diagram of the bunch places of an LHC proton beam, showing filled bunches (blue) and empty places (gray). The grid is $99 \times 36 = 3564$ squares, \ie they wrap around. Reproduced from Reference~\cite{CMSWBM:Fill5423} for Fill 5423 of the LHC in October 2016.}
   \label{cms:lhcbunchpattern}
 \end{figure}
 
@@ -63,10 +65,10 @@ A proton bunch occupies a single RF bucket and is depicted by an ellipse within 
 An LHC proton bunch has a 4$\sigma$ bunch length of 1.06\unit{ns} at collision energy.
 \Fig~\ref{cms:rfbucket} depicts an RF bucket, football-shaped in energy-time phase space, as well as the ellipse contained within it that represents the proton bunch. The area of the bunch in this diagram is called the longitudinal emittance, with units of $\text{eV}\cdot\text{s}$.
 
-\begin{figure}[tpb]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/RFBucket.pdf}
-  \caption{Phase space diagram of an RF bucket and the elliptical boundary of a proton bunch within the bucket, reproduced from Reference~\cite{Baird:1017689} with minor typographical corrections.}
+  \caption[Phase space diagram of an RF bucket and the elliptical boundary of a proton bunch within the bucket.]{Phase space diagram of an RF bucket and the elliptical boundary of a proton bunch within the bucket, reproduced from Reference~\cite{Baird:1017689} with minor typographical corrections.}
   \label{cms:rfbucket}
 \end{figure}
 
@@ -74,11 +76,11 @@ Beams of particles in the LHC are steered by a network of 1232 superconducting d
 The superconducting wire windings in these magnets are made of niobium-titanium, cooled by liquid helium to their operating temperature of 1.9\unit{K}, and producing a magnetic field of 8.33\unit{T}.
 \Fig~\ref{cms:dipole} is a diagram of the cross section of an LHC dipole magnet as well as a visualization of the magnetic field lines within the beampipe.
 
-\begin{figure}[tpb]
+\begin{figure}[p]
   \centering
   \includegraphics[width=0.55\textwidth]{figures/cms/DipoleCrossSection.jpeg}
   \includegraphics[width=0.35\textwidth]{figures/cms/FieldLines.jpg}
-  \caption{(left) Diagram of cross section of an LHC steering dipole magnet, reproduced from Reference~\cite{Team:40524}, showing the two beampipes and the windings. (right) Depiction of the magnetic field lines in the magnets, reproduced from Reference~\cite{Jean-Luc:841503}, showing them to point in the vertical direction within the beampipe, as is required to circulate particles along the surface of the earth.}
+  \caption[Diagram of cross section of an LHC steering dipole magnet and depiction of the magnetic field lines in the magnets.]{(left) Diagram of cross section of an LHC steering dipole magnet, reproduced from Reference~\cite{Team:40524}, showing the two beampipes and the windings. (right) Depiction of the magnetic field lines in the magnets, reproduced from Reference~\cite{Jean-Luc:841503}, showing them to point in the vertical direction within the beampipe, as is required to circulate particles along the surface of the earth.}
   \label{cms:dipole}
 \end{figure}
 
@@ -117,7 +119,7 @@ This yields a peak instantaneous luminosity of $\lumi = 10^{34} \,  \mathrm{cm}^
     $\sigma^*$ & transverse RMS beam size                                      & 16.7\mum              \\
     & & \\ \hline
   \end{tabular}
-  \caption{LHC nominal design beam parameters, reproduced from Reference~\cite{Bruning:782076}.}
+  \caption[LHC nominal design beam parameters.]{LHC nominal design beam parameters, reproduced from Reference~\cite{Bruning:782076}.}
   \label{cms:beam}
 \end{table}
 
@@ -136,7 +138,7 @@ This thesis presents two analyses using data taken by the CMS experiment in 2016
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/CMSIntLumi.pdf}
-  \caption{Total \pp integrated luminosity recorded by CMS during Run~1 and Run~2 by year and month, reproduced from Reference~\cite{LumiTwiki}.}
+  \caption[Total \pp integrated luminosity recorded by CMS during Run~1 and Run~2 by year and month.]{Total \pp integrated luminosity recorded by CMS during Run~1 and Run~2 by year and month, reproduced from Reference~\cite{LumiTwiki}.}
   \label{cms:totallumi}
 \end{figure}
 
@@ -168,7 +170,7 @@ The CMS detector is structured like an onion, in layers, consisting of the follo
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=\textwidth]{figures/cms/CMSSlice.png}
-  \caption{Transverse slice of the CMS detector, reproduced from Reference~\cite{Davis:2205172}, illustrating the basic structure of CMS and the shapes of the tracks and energy deposits formed by the five general categories of particles directly detected by CMS by one or more of its subsystems.}
+  \caption[Transverse slice of the CMS detector illustrating the basic structure of CMS and the shapes of the tracks and energy deposits formed by the five general categories of particles directly detected by CMS.]{Transverse slice of the CMS detector, reproduced from Reference~\cite{Davis:2205172}, illustrating the basic structure of CMS and the shapes of the tracks and energy deposits formed by the five general categories of particles directly detected by CMS by one or more of its subsystems.}
   \label{cms:interactive}
 \end{figure}
 It also shows the detector signatures of the general categories of particles directly detected by CMS:
@@ -208,7 +210,7 @@ The pseudorapidity has the advantage that it converges to rapidity (along the $z
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=\textwidth]{figures/cms/CMSGeometry.pdf}
-  \caption{Schematic diagram of one quadrant of CMS in $r$-$z$, reproduced from Reference~\cite{Sirunyan:2018fpa}, illustrating the position of all the subsystems with respect to the coordinate system, in both the barrel and the endcap.}
+  \caption[Schematic diagram of one quadrant of CMS in $r$-$z$.]{Schematic diagram of one quadrant of CMS in $r$-$z$, reproduced from Reference~\cite{Sirunyan:2018fpa}, illustrating the position of all the subsystems with respect to the coordinate system, in both the barrel and the endcap.}
   \label{cms:quadrant}
 \end{figure}
 
@@ -216,7 +218,6 @@ The diagram illustrates that $\eta = 0$ points upwards, while $\eta \to \infty$ 
 For this reason the ``forward'' regions close to the beamline (which are also less instrumented) are referred to as ``high $\eta$.''
 The diagram also illustrates two distinct loci within the CMS detector: the barrel, which covers approximately (depending on subsystem) the region $|\eta| < 1.2$, and the endcap, which covers approximately (depending on subsystem) the region $1.2 < |\eta| < 3$.
 
-\pagebreak
 \subsection{Silicon Tracker}
 The inner tracking system of CMS must provide precise measurements of charged particle trajectories and reconstructions of secondary vertices of (on average) a thousand particles every 25\unit{ns} bunch crossing, exposed to the full flux of the radiation of the LHC.
 These requirements on precision, speed, and radiation hardness inform a choice of silicon detector technology.
@@ -269,7 +270,7 @@ Let $s$ be the sagitta, \ie the distance between the midpoint of the chord and t
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/Sagitta.pdf}
-  \caption{Radius of curvature from sagitta. On the left is a depiction of a charged particle leaving a circular arc (red) in the CMS tracker (gray). The length of the chord is $L$, which is also typically the radius of the tracker. The sagitta $s$ is approximately inversely proportional to the radius of curvature $R$, with important consequences for the uncertainty in the desired \pT measurement.}
+  \caption[Radius of curvature from sagitta.]{Radius of curvature from sagitta. On the left is a depiction of a charged particle leaving a circular arc (red) in the CMS tracker (gray). The length of the chord is $L$, which is also typically the radius of the tracker. The sagitta $s$ is approximately inversely proportional to the radius of curvature $R$, with important consequences for the uncertainty in the desired \pT measurement.}
   \label{cms:sagitta}
 \end{figure}
 Then $R$, the radius of curvature, can be computed from $L$ and $s$ as follows:
@@ -318,7 +319,7 @@ This inner SL is not present in the fourth muon station, which consequently only
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/DT.pdf}
-  \caption{Principle of operation of a drift tube cell, reproduced from Reference~\cite{Chatrchyan:2013sba}, showing the structure of a cell, as well as the drift lines and isochrones.}
+  \caption[Principle of operation of a drift tube cell.]{Principle of operation of a drift tube cell, reproduced from Reference~\cite{Chatrchyan:2013sba}, showing the structure of a cell, as well as the drift lines and isochrones.}
   \label{cms:dt}
 \end{figure}
 
@@ -347,7 +348,7 @@ But at higher \pT values, the tracker track is much straighter, and the addition
 \begin{figure}[tpb]
   \centering
   \includegraphics[width=\textwidth]{figures/cms/MuonMomentumResolution.pdf}
-  \caption{Muon \pT resolution as a function of muon \pT, for (left) the barrel and (right) the endcap, using the inner tracking system only, using the muon system only, and combining both. Reproduced from Reference~\cite{Chatrchyan:2008zzk}.}
+  \caption[Muon \pT resolution as a function of muon \pT for the barrel and endcap using the tracking system only, muon system only, and combining both.]{Muon \pT resolution as a function of muon \pT, for (left) the barrel and (right) the endcap, using the inner tracking system only, using the muon system only, and combining both. Reproduced from Reference~\cite{Chatrchyan:2008zzk}.}
   \label{cms:muonpT}
 \end{figure}
 
@@ -374,7 +375,7 @@ The L1 trigger must analyze every bunch crossing, doing so with a maximum latenc
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/L1Architecture.pdf}
-  \caption{Architecture of the L1 trigger system, based on a figure from \cite{Chatrchyan:2008zzk}, depicting the local, regional, and global components of the muon and calorimeter triggers, the information from which is processed by the global L1 trigger for trigger decision at L1.}
+  \caption[Architecture of the L1 trigger system, depicting the local, regional, and global components of the muon and calorimeter triggers.]{Architecture of the L1 trigger system, based on a figure from \cite{Chatrchyan:2008zzk}, depicting the local, regional, and global components of the muon and calorimeter triggers, the information from which is processed by the global L1 trigger for trigger decision at L1.}
   \label{cms:L1}
 \end{figure}
 

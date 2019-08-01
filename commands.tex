@@ -1,6 +1,7 @@
 % Packages
 \usepackage{xspace}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \hypersetup{
@@ -15,6 +16,8 @@
 \usepackage{bm}
 \usepackage{enumerate}
 \usepackage{dcolumn}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
 
 % Words
 \newcommand {\etal}{\mbox{et al.}\xspace}
@@ -55,7 +58,7 @@
 \newcommand{\percms}{\ensuremath{\,\text{cm}^{-2}\,\text{s}^{-1}}\xspace}
 \newcommand{\muA}{\ensuremath{\,\mu}A\xspace}
 
-% Names
+% Generator/CMS Names
 \newcommand{\GEANTfour}{{\textsc{Geant4}}\xspace}
 \newcommand {\Lone}{Level-1\xspace}
 \newcommand {\Ltwo}{Level-2\xspace}
@@ -66,23 +69,31 @@
 \newcommand{\POWHEG} {{\textsc{powheg}}\xspace}
 \newcommand{\PYTHIA} {{\textsc{pythia}}\xspace}
 
+% Stats related
+\newcommand{\combine}{\texttt{combine}\xspace}
+\newcommand{\CLs}{\ensuremath{\text{CL}_\text{s}}\xspace}
+\newcommand{\sigstr}{\ensuremath{\mu}\xspace}
+
 % Symbols
 \newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
 \newcommand{\pT}{\ensuremath{p_{\mathrm{T}}}\xspace}
 \newcommand{\pTErr}{\ensuremath{\sigma_{\pT}}\xspace}
-\newcommand{\lumi}{\ensuremath{\mathcal{L}}\xspace}
-\newcommand{\intlumi}{\ensuremath{\mathcal{L}_\mathrm{int}}\xspace}
+\newcommand{\lumi}{\ensuremath{\pazocal{L}}\xspace}
+\newcommand{\intlumi}{\ensuremath{\pazocal{L}_\mathrm{int}}\xspace}
 \newcommand{\deltaR}{\ensuremath{\Delta R}\xspace}
 \newcommand{\chisq}{\ensuremath{\chi^{2}}\xspace}
 \newcommand{\normchisq}{\ensuremath{\chi^{2}/\mathrm{dof}}\xspace}
 \newcommand{\vchisq}{vertex~\chisq}
 \newcommand{\Lxy}{\ensuremath{L_{\mathrm{xy}}}\xspace}
 \newcommand{\LxyErr}{\ensuremath{\sigma_{\Lxy}}\xspace}
-\newcommand{\DeltaPhi}{\ensuremath{\Delta\Phi}\xspace}
+\newcommand{\LxySig}{\ensuremath{\Lxy/\LxyErr}\xspace}
+\newcommand{\DeltaPhi}{\ensuremath{|\Delta\Phi|}\xspace}
 \newcommand{\mH}{\ensuremath{m_\PHiggs}\xspace}
 \newcommand{\mX}{\ensuremath{m_\PLLP}\xspace}
 \newcommand{\cTau}{\ensuremath{c\tau}\xspace}
 \newcommand{\mMuMu}{\ensuremath{m_{\Pgm\Pgm}}\xspace}
+\newcommand{\TF}{\ensuremath{\tau}\xspace}
+\newcommand{\ZBi}{\ensuremath{Z_\mathrm{Bi}}\xspace}
 
 % Combo symbols
 \newcommand{\pp}{\Pp\Pp\xspace}
@@ -93,13 +104,17 @@
 \newcommand{\fourMu}{4\Pgm\xspace}
 \newcommand{\twoMu}{2\Pgm\xspace}
 \newcommand{\FullSP}[3]{\mbox{$\mH = #1\GeV$}, \mbox{$\mX = #2\GeV$}, and \mbox{$\cTau = #3\mm$}\xspace}
+\newcommand{\CR}[2]{\ensuremath{\text{CR}_\text{#1}^{#2}}\xspace}
 
 % Constants
 \newcommand{\reflumi}{\ensuremath{10^{34}}\percms}
 
 % Formatting
 \newcommand{\posstyle}[1]{#1}
+\newcommand{\figpos}[1]{(#1)}
 \newcommand{\Code}[1]{\texttt{#1}}
+\newcommand{\PretentiousQuote}[3]{\textsl{#1}\\---{#2}, \textit{#3}\\[-.5\baselineskip]}
+\newcommand{\PretentiousQuoteWithAuthor}[4]{\textsl{#1}\\---{#2}, \textit{#3}, by {#4}\\[-.5\baselineskip]}
 
 % CMS formatting wants Fig. in the middle of a sentence,
 % and Eq. and Eqs. always, but I don't

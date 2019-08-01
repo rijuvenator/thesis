@@ -1,6 +1,6 @@
 == 25 April 2019
   - [ ] Apollonari book add url to title
-  - [ ] add table of contents to bookmarks
+  - [x] add table of contents to bookmarks
   - [x] figure captions overflowing
 
 == 26 April 2019
@@ -13,10 +13,16 @@
 == 10 Jun 2019
   - [x] Exact version for Pythia
   - [x] Definitions + reference in signal selection
-  - [ ] Title of chapter
+  - [x] Title of chapter
 
 == 26 Jun 2019
   - [x] References for DSA, vertex fitting, generators
-  - [ ] Reference for ZBi in the optimization section
-  - [ ] N-1 plots
-  - [ ] SR/CR, optimization, limits
+  - [x] Reference for ZBi in the optimization section
+  - [x] N-1 plots
+  - [x] SR/CR, optimization, limits
+
+== 1 Aug 2019
+  - [ ] QCD background estimation
+  - [ ] Syst. unc. on transfer factor(s)
+  - [ ] Timing cut
+  - [ ] Conclusion

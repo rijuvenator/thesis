@@ -1,18 +1,33 @@
 \newcommand{\mtworow}[1]{\multirow{2}{*}{#1}}
 
-\chapter{The Standard Model and Beyond}
+\chapter{Theoretical Motivations for Long-Lived Particles}
 \label{chap:theory}
-The Standard Model (SM) is the theory describing the electromagnetic, weak, and strong fundamental forces, as well as the kinematics of and interactions between all known elementary particles.
+\PretentiousQuote{What is the pattern, or the meaning, or the why? It does not do harm to the mystery to know a little about it. For far more marvelous is the truth\ldots}{R. Feynman}{The Feynman Lectures on Physics, Volume I}
+
+This chapter begins with a brief overview of the Standard Model (SM), a highly successful theory of the electromagnetic, weak, and strong fundamental forces describing the kinematics of and interactions between all known elementary particles.
+Despite its success, the SM is believed to be incomplete, both because there exist experimentally observed phenomena not explained by the SM, and because there are a few theoretical loose ends and unfulfilled guiding aesthetic principles. 
+This chapter then continues with a brief motivation for the existence of as-of-yet unobserved long-lived particles, illustrating models in which they can arise and showing the existence of experimental sensitivity for detecting such new particles.
+In this chapter and throughout the rest of this thesis, units are used in which $\hbar = c = 1$.
+
+\section{Overview of the Standard Model}
+\subsection{Particles, Interactions, and the Brout-Englert-Higgs Mechanism}
+The SM is (mathematically) formalized as a gauge quantum field theory described by a Lagrangian density composed of quantum fields \cite{Griffiths, Srednicki, SMLag, PDG:Electroweak, PDG:Higgs}.
+The defining characteristic of this Lagrangian is its invariance under local transformations of the fields under the gauge group
+\begin{equation}
+  \mathrm{SU}(3)_C\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y
+  \label{eq:sm:gaugegroup}
+\end{equation}
+By virtue of Noether's theorem, continuous symmetries of the Lagrangian correspond to conserved currents; here, $\mathrm{SU}(3)_C$ corresponds to conservation of color charge; $\mathrm{SU}(2)_L$ corresponds to weak isospin; and $\mathrm{U}(1)_Y$ corresponds to weak hypercharge.
 \Tabs~\ref{tab:sm:fermions}--\ref{tab:sm:bosons} enumerate the fundamental fermions and bosons of the SM, along with their quantum numbers and gauge symmetries.
 
-\begin{table}
+\begin{table}[p]
   \centering
   \begin{tabular}{cccc|ccccc}
     \hline 
     & \multicolumn{3}{c|}{Generation} & \mtworow{$C$} & \mtworow{$T$} & \mtworow{$T_3$} & \mtworow{$Y$} & \mtworow{$Q$}\\
     & I & II & III & & & & &\\
     \hline
-    & & & & & & & &\\
+    & & & & & & & &\\[-1em]
     \multirow{4}{*}{Quarks} &
     \mtworow{$\begin{pmatrix*}[c]\;u\;\\d'\end{pmatrix*}_L$} &
     \mtworow{$\begin{pmatrix*}[c]\;c\;\\s'\end{pmatrix*}_L$} &
@@ -27,9 +42,9 @@ The Standard Model (SM) is the theory describing the electromagnetic, weak, and 
             \mtworow{r, g, b} & \mtworow{0}     & \mtworow{0} &          $+4/3$  & $+2/3$\\
     & & & &                   &                 &             &          $-1/3$  & $-1/3$\\
 
-    & & & & & & & &\\
+    & & & & & & & &\\[-.2em]
 
-    \multirow{4}{*}{Leptons} &
+    \multirow{3}{*}{Leptons} &
     \mtworow{$\begin{pmatrix*}[c]\nu_e   \\e   \end{pmatrix*}_L$} &
     \mtworow{$\begin{pmatrix*}[c]\nu_\mu \\\mu \end{pmatrix*}_L$} &
     \mtworow{$\begin{pmatrix*}[c]\nu_\tau\\\tau\end{pmatrix*}_L$} & 
@@ -37,164 +52,263 @@ The Standard Model (SM) is the theory describing the electromagnetic, weak, and 
     & & & &                   &                 & $-1/2$      &                  & $-1$ \\
 
                       &
-    \mtworow{$\begin{matrix*}[c]\nu_{e R}   \\e_R   \end{matrix*}$} &
-    \mtworow{$\begin{matrix*}[c]\nu_{\mu R} \\\mu_R \end{matrix*}$} &
-    \mtworow{$\begin{matrix*}[c]\nu_{\tau R}\\\tau_R\end{matrix*}$} &
-             \mtworow{0}      & \mtworow{0}     & \mtworow{0} &          $0   $  & $0$  \\
-    & & & &                   &                 &             &          $-2  $  & $-1$ \\
+    $e_R$    &
+    $\mu_R$  &
+    $\tau_R$ &
+    0 & 0 & 0 & $-2$ & $-1$ \\[.2em]
+    \hline
   \end{tabular}
-  \caption{Fermion (spin-1/2) content of the Standard Model.}
+%    \mtworow{$\begin{matrix*}[c]\nu_{e R}   \\e_R   \end{matrix*}$} &
+%    \mtworow{$\begin{matrix*}[c]\nu_{\mu R} \\\mu_R \end{matrix*}$} &
+%    \mtworow{$\begin{matrix*}[c]\nu_{\tau R}\\\tau_R\end{matrix*}$} &
+%             \mtworow{0}      & \mtworow{0}     & \mtworow{0} &          $0   $  & $0$  \\
+%    & & & &                   &                 &             &          $-2  $  & $-1$ \\
+  \caption[Fermion (spin-1/2) content of the Standard Model]{Fermion (spin-1/2) content of the Standard Model. Fermions are presented in their \mbox{Cabbibo-Kobayashi-Maskawa}-rotated flavor eigenstates, linear combinations of their mass eigenstates. Fermions are also presented decomposed into their chiral components; subscripts $L$ and $R$ refer to the handedness of the chiral component. Quantum numbers given are color charge $C$, weak isospin $T$, the third component of weak isospin $T_3$, the weak hypercharge $Y = 2(Q-T_3)$, and the electric charge $Q$ \cite{Srednicki, PDG:Electroweak}.}
   \label{tab:sm:fermions}
 \end{table}
 
-\begin{table}
+\begin{table}[p]
   \centering
+  \begin{tabular}{ccccc}
+    \hline
+    Field & Gauge Group & Number \\
+    \hline
+    $G$    & $\mathrm{SU}(3)_C$ & 8 \\
+    $W$    & $\mathrm{SU}(2)_L$ & 3 \\
+    & & & \\
+    $B$    & $\mathrm{U}(1)_Y$  & 1 \\
+    $\phi$ &                    & 4 \\
+    \hline
+  \end{tabular}
+  \hspace{1em}
   \begin{tabular}{ccccc}
     \hline
     Name & Symbol & Gauge Group & Number \\
     \hline
-    Gluon & $g$ & $\mathrm{SU}(3)$ & 8 \\
-    W & $W^\pm$ & $\mathrm{SU}(2)$ & 2 \\
-    Z & $Z$ & $\mathrm{SU}(2)\times\mathrm{U}(1)$ & 1 \\
-    Photon & $\gamma$ & $\mathrm{U}(1)$ & 1 \\
-    Higgs & $H$ & & 1 \\
+    Gluon  & $g$      & $\mathrm{SU}(3)_C$           & 8 \\
+    W      & $W^\pm$  &                              & 2 \\
+    Z      & $Z$      &                              & 1 \\
+    Photon & $\gamma$ & $\mathrm{U}(1)_\mathrm{em}$  & 1 \\
+    Higgs  & $h$      &                              & 1 \\
     \hline
   \end{tabular}
-  \caption{Boson content of the Standard Model.}
+  \caption[Boson (spin-1 and spin-0) content of the Standard Model.]{Boson (spin-1 and spin-0) content of the Standard Model \figpos{left} before and \figpos{right} after electroweak symmetry breaking, along with their number and their associated gauge group. Interactions with the field $\phi$ break the $\mathrm{SU}(3)_C\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y$ gauge symmetry into $\mathrm{SU}(3)_C\times\mathrm{U}(1)_\mathrm{em}$, with three of the four bosons generated by $\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y$ acquiring a mass by having absorbed three of the four Goldstone bosons associated with $\phi$ \cite{Griffiths, Srednicki, PDG:Higgs}.}
   \label{tab:sm:bosons}
 \end{table}
 
-The SM is (mathematically) formalized as a gauge quantum field theory described by a Lagrangian density composed of quantum fields.
-The defining characteristic of this Lagrangian is its invariance under local transformations of the fields under the gauge group
-\begin{equation}
-  \mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)
-  \label{eq:sm:gaugegroup}
-\end{equation}
-By virtue of Noether's theorem, continuous symmetries of the Lagrangian correspond to conserved currents; here, $\mathrm{SU}(3)$ corresponds to conservation of color charge; $\mathrm{SU}(2)$ corresponds to weak isospin; and $\mathrm{U}(1)$ corresponds to weak hypercharge.
-
-\subsection{Notation of the SM Lagrangian}
-A Lagrangian can be generally described in three pieces: kinetic terms involving derivatives, mass terms that are second-order in the fields, and interaction terms that are third-order and higher in the fields describing interactions between fields.
+Terms of the Lagrangian generally fall into one of three categories: kinetic terms involving derivatives, mass terms that are second-order in the fields, and interaction terms that are third-order and higher in the fields describing interactions between fields.
 The kinetic and mass terms together are called the free Lagrangian, since they describe a free field not interacting with anything else.
 
-The free Lagrangian for a spin-1/2 spinor fermion field $\psi$ of mass $m$ is described by the Dirac Lagrangian:
-\begin{equation}
-  \mathcal{L}_\text{Dirac} = i\overline{\psi}\gamma^\mu\partial_\mu\psi - m\overline{\psi}\psi
-  \label{eq:sm:dirac}
-\end{equation}
+The SM Lagrangian begins with free terms for the fermions described by Dirac Lagrangians and free terms for the bosons associated with gauge groups described by Proca Lagrangians, all initially without any mass terms.
+Interaction terms between fermions and bosons are generated from the free SM Lagrangian by requiring that it be invariant under local gauge transformations, a requirement achieved by replacing all derivatives in the fermion kinetic terms with an appropriate ``covariant derivative'' that varies with choice of gauge.
+The terms of the covariant derivatives are such that the experimentally observed interactions between fermions and bosons and their strengths are reproduced and incorporated into the theory; for this reason the fundamental bosons are also referred to as gauge bosons.
 
-For a spin-1 vector boson field $A_\mu^i$ associated with a gauge group with gauge coupling $g$, define the field strength tensor
-\begin{equation}
-  F_{\mu\nu}^i = \partial_\mu A_\nu^i - \partial_\nu A_\mu^i + g f^{ijk} A_\mu^j A_\nu^k
-  \label{eq:sm:fieldstrength}
-\end{equation}
-where the structure constants $f^{ijk}$ are defined by commutators of the group generators $T_i$:
-\begin{equation}
-  [T_i, T_j] = if^{ijk}T_k
-  \label{eq:sm:structureconstants}
-\end{equation}
-where $i$ labels the group generators.
-For Abelian groups (such as $\mathrm{U}(1)$), the group generators (for $\mathrm{U}(1)$, complex phases of modulus 1) commute, and the structure constants vanish.
-For non-Abelian groups (such as $\mathrm{SU}(3)$ and $\mathrm{SU}(2)$), the group generators (for $\mathrm{SU}(2)$, the Pauli matrices; for $\mathrm{SU}(3)$, the Gell-Mann matrices) do not commute.
-The free Lagrangian for a spin-1 vector boson field $A_\mu$ of mass $m$ is described by the Proca Lagrangian:
-\begin{equation}
-  \mathcal{L}_\text{Proca} = -\frac14 F_{\mu\nu}F^{\mu\nu} + \frac12m^2A_{\nu}A^\nu
-  \label{eq:sm:proca}
-\end{equation}
-
-The free Lagrangian for a spin-0 scalar boson field $\phi$ of mass $m$ is described by the Klein-Gordon Lagrangian:
-\begin{equation}
-  \mathcal{L}_\text{Klein-Gordon} = (\partial_\mu\phi)^2 - m^2 \phi^2
-  \label{eq:sm:kg}
-\end{equation}
-
-Each fermion field $\psi$ can be decomposed into left and right-handed chiral components:
-\begin{equation}
-  \psi_L = \frac12\left(1-\gamma^\mu\right)\psi,\;\psi_R = \frac12\left(1+\gamma^\mu\right)\psi
-  \label{eq:sm:chiral}
-\end{equation}
-
-The SM Lagrangian begins with kinetic Proca terms for
-\begin{itemize}
-  \item 1 $\mathrm{U}(1)$ gauge boson $B_\mu$
-  \item 3 $\mathrm{SU}(2)$ gauge bosons $W_\mu^i$, $i = 1, 2, 3$
-  \item 8 $\mathrm{SU}(3)$ gauge bosons $G_\mu^i$, $i = 1 \ldots 8$
-\end{itemize}
-as well as kinetic Dirac terms for three ``generations'' of fermions, each consisting of
-\begin{itemize}
-  \item 1 charged lepton $\ell$ with electric charge $-1$
-  \item 1 neutrino $\nu_\ell$ with electric charge 0
-  \item 3 up-type quarks $u_i$ with electric charge $+2/3$ and color charges $i = r, g, b$
-  \item 3 down-type quarks $d_i$ with electric charge $-1/3$ and color charges $i = r, g, b$
-\end{itemize}
-and their antiparticles.
-All bosons and fermions begin initially massless.
-For convenience in the forthcoming description of their interactions with gauge bosons, all fermions are decomposed into their left and right-handed chiral components.
-The free SM Lagrangian thus has 12 terms of the form $-\frac14 F_{\mu\nu}F^{\mu\nu}$, and 48 terms of the form $i\overline{\psi}\gamma^\mu\partial_\mu\psi$, plus their Hermitian conjugates for the antiparticles, where each $\psi$ is two-component Weyl spinor.
-
-If the fields corresponding to the three colors of each quark are collected into a three-component vector,
-\begin{equation}
-  \psi_\text{color} = \begin{pmatrix}\psi_r\\\psi_g\\\psi_b\end{pmatrix}
-  \label{eq:sm:color}
-\end{equation}
-then three terms of the Dirac Lagrangian can be written $i\overline{\psi_\text{color}}\gamma^\mu\partial_\mu\psi_\text{color}$.
-Such a term is invariant under a global transformation
-\begin{equation}
-  \psi \to \psi' = U\psi,\; U = e^{i\mathbf{T}\cdot\bm{\theta}} \in G
-  \label{eq:sm:global}
-\end{equation}
-where as before $\mathbf{T} = T_i$ are the group generators of the group $G$, and here $G = \mathrm{SU}(3)$.
-The Lagrangian is thus said to be invariant under global $\mathrm{SU}(3)$ transformations.
-Similarly, if the fields corresponding to left-handed charged leptons and neutrinos, and left-handed up-type and down-type quarks, are collected into two-component vectors,
-\begin{equation}
-  \psi_{\ell\,\text{flavor}} = \begin{pmatrix}\nu_\ell\\\ell\end{pmatrix}_L,\; \psi_{q\,\text{flavor}} = \begin{pmatrix}u\\d\end{pmatrix}_L
-  \label{eq:sm:su2}
-\end{equation}
-then terms of the Dirac Lagrangian can be collected as above, and such terms are invariant under global $\mathrm{SU}(2)$ transformations.
-
-\begin{itemize}
-  \item The gluons interact with fermions with nonzero color charge $C$, i.e. quarks
-  \item The W bosons interact with fermions with nonzero weak isospin $T$, i.e. the left-handed chiral components of all fermions
-  \item The B boson interacts with fermions with nonzero weak hypercharge $Y$, i.e. all fermions except the right-handed chiral components of neutrinos
-\end{itemize}
-
-These interactions can be generated from the free SM Lagrangian by requiring it be invariant under local gauge transformations.
-The Lagrangian must be modified in a way so that the global transformation of \Eq~\ref{eq:sm:global} can hold locally:
-\begin{equation}
-  \psi \to \psi' = U\psi,\; U = e^{i\mathbf{T}\cdot\bm{\theta}(x)} \in G
-  \label{eq:sm:local}
-\end{equation}
-This is achieved by replacing all derivatives $\partial_\mu$ in the fermion kinetic terms with an appropriate ``covariant derivative'' $\mathcal{D}_\mu$, generating the interaction terms between fermions and gauge bosons.
-
-All SM fermions and the W and Z gauge bosons are observed to have a mass, but the previous treatment assumes all particles to be massless.
+All SM fermions and the \PW\ and \PZ\ gauge bosons are observed to have a mass, but the previous treatment assumes all particles to be massless.
 Adding appropriate mass terms would result in the Lagrangian losing its local gauge invariance.
-In the SM, particles acquire mass terms by interacting with a massive scalar field (the spin-0 Higgs boson H), whose potential exhibits a nonzero vacuum expectation value.
-This phenomenon is known as spontaneous symmetry breaking, and the mechanism by which it is accomplished is known as the Higgs mechanism.
-After symmetry breaking, the B and W bosons mix to form the mass eigenstates that are experimentally observed: the W and Z bosons.
-
-\subsection{Fermi's Golden Rule}
-A fundamental result of quantum field theory is the relativistic version of Fermi's Golden Rule.
-Suppose particle X of mass $M$ decays into two muons. Then the decay rate $\Gamma$ of X is given by
+Therefore, in the SM, particles acquire mass terms by interacting with a scalar $\mathrm{SU}(2)_L$ doublet $\phi$ \cite{PDG:Higgs}.
+Below an energy threshold (the electroweak symmetry breaking scale), its potential,
 \begin{equation}
-  \Gamma_X = \frac{|\mathbf{p}|}{16\pi M^2}\left|\mathcal{M}\right|^2 
+  V = -\mu^2 \phi^2 + \lambda \phi^4
+  \label{eq:sm:higgspotential}
+\end{equation}
+exhibits a nonzero vacuum expectation value, resulting in the continuous symmetry associated with gauge transformations of $\phi$ to be spontaneously broken.
+The electroweak symmetry breaking scale sets the scale of the masses of the \PW\ and \PZ\ bosons.
+
+Spontaneous electroweak symmetry breaking results in a reshuffling of fundamental bosons; the mechanism by which it is accomplished is known as the Brout-Englert-Higgs (BEH) mechanism.
+After symmetry breaking and the BEH mechanism, the massless gauge bosons have mixed to form the experimentally observed mass eigenstates (the massive \PW\ and \PZ\ bosons and the massless photon), the massless fermions have acquired masses, and a new scalar particle, the spin-0 Higgs boson, remains.
+
+\subsection{Fermi's Golden Rule for Particle Lifetimes}
+A Lagrangian in a quantum field theory prescribes a set of Feynman rules for performing perturbative calculations of scattering and decay amplitudes and hence of the experimentally measurable physical quantities of cross sections and decay rates.
+A fundamental result of quantum field theory, then, is the relativistic version of Fermi's Golden Rule for particle decays \cite{Griffiths, PDG:Kinematics}.
+The partial decay rate $\dd\Gamma$ of a particle of mass $M$ into some number of particles is
+\begin{equation}
+  \dd\Gamma = \frac{(2\pi)^4}{2M}\left|\mathcal{M}\right|^2\dd \Phi
+  \label{eq:sm:fgr}
+\end{equation}
+which is a product of two factors that are functions of the outgoing momenta: the matrix element (or amplitude) for the process $\mathcal{M}$, which describes the dynamics of the interactions, is computed from the appropriate Feynman calculus, and thus depends on gauge couplings; and the phase space factor (or density of final states) $\dd\Phi$, which describes the kinematics of the interactions, subject to momentum and energy conservation, and thus depends on the masses.
+
+For a two-body decay, the integral over the phase space is kinematically determined, independent of the functional form of the amplitude.
+\begin{equation}
+  \Gamma = \frac{|\mathbf{p}|}{16\pi M^2}\left|\mathcal{M}\right|^2 
   \label{eq:sm:fermi}
 \end{equation}
-where 
+where $|\mathbf{p}|$ is the outgoing three-momentum of one of the decay products; if they have the same mass $m$,
 \begin{equation}
-  |\mathbf{p}| = \frac{1}{2M}\sqrt{M^4 - 4M^2m_\mu^2}
+  |\mathbf{p}| = \frac{1}{2M}\sqrt{M^4 - 4M^2m^2}
   \label{eq:sm:p}
 \end{equation}
-Lagrangian such as the one describing the SM outlined in the previous section prescribes a set of Feynman rules
-Section that mentions that Lagrangians prescribe Feynman rules, the result of which are terms for cross sections and lifetimes which are experimentally determinable.
+Then the lifetime of the particle is the reciprocal of the decay rate:
+\begin{equation}
+  \tau = \frac{1}{\Gamma}
+  \label{eq:sm:lifetime}
+\end{equation}
 
-Discuss Fermi's golden rule, involving matrix element (depending on gauge couplings) and phase space factor (depending on mass splittings).
+\section{Beyond the Standard Model}
+\subsection{Exotic Long-Lived Particles}
+\label{sec:sm:llp}
+Although the SM has been highly successful in providing accurate, precise, and experimentally verified predictions of measurements of all known phenomena related to the strong and electroweak forces, it nonetheless is believed to be incomplete.
+One set of reasons for this belief is unexplained experimentally observed phenomena: renormalizable and locally gauge invariant quantum field theories incorporating gravity (via reconciliation with general relativity), neutrino oscillations (via neutrino masses), and dark matter (via new, massive, weakly interacting particles) all require extensions to the SM.
+As none of the many such extensions to the SM (detailed discussions of which are beyond the scope of this thesis) have as of yet found experimental support, searches for new particles beyond the SM (BSM) continue.
 
-\subsection{Beyond the SM}
-Section mentioning some of the motivations for extending the standard model: neutrino oscillations, hierarchy, gravity.
+Comprehensive searches at the Large Hadron Collider (LHC) considering a wide variety of experimentally observable final states have yielded no observations of new particles with short lifetimes consistent with decays to electrons, muons, or jets of hadrons appearing to originate from the collision point of two proton beams.
+However, new particles with longer lifetimes may still exist.
+Such particles are not predicted by the SM, but from \Eq~\ref{eq:sm:fermi}, they may find a theoretical grounding: with appropriate choices of values for the particle masses and their gauge couplings, the phase space factors or the amplitudes may be small.
+This would result in low decay rate, translating into a long particle lifetime.
+Such exotic long-lived particles could decay to SM particles, such as muons; this would allow their production cross sections to be probed at the LHC via a characteristic signature of a dimuon vertex formed at macroscopic distances from the proton-proton interaction point.
 
-Discuss how short lifetimes were not found at the LHC.
+A possible production mechanism for these particles could be decays of the SM Higgs boson or exotic Higgs-like bosons \cite{STRASSLER2008263}.
+Consider a (second) Higgs doublet \PHiggs\ and a scalar boson \PLLP, with the potential
+\begin{equation}
+  V = -\mu^2 H^2 + \lambda H^4 + M^2 X^2 + \kappa X^4 + \zeta X^2 H^2 + a X + b X^3 + c X H^2
+  \label{eq:sm:extrapotential}
+\end{equation}
 
-Discuss motivations for long lifetimes: small mass splittings and small gauge couplings.
+It is assumed that after electroweak symmetry breaking, $\mH > 2\mX$, so that the decay $\PHiggs \to \PLLP\PLLP$ can occur.
+For small values of $a$, $b$, and $c$, \PLLP\ and \PHiggs\ may mix slightly, so that the mass eigenstate is $\PLLP + \epsilon \PHiggs$ with $\epsilon$ small.
+Then the \PLLP\ may decay via any of the \PHiggs\ decays, with $\Gamma_\PLLP = \epsilon^2 \Gamma_\PHiggs$; the \PLLP\ branching fractions are those of the \PHiggs, but its lifetime may be quite long.
 
-Discuss benchmark models with free parameters that are not part of the SM.
+This model is merely an example of a possible extension to the SM with kinematics that are possible to study at the LHC.
+Other models -- such as a hidden abelian Higgs model (HAHM) with dark photons decaying to muons \cite{Curtin2015} -- yield similar kinematics.
+The intent is simply to illustrate the existence of self-consistent, flexible models with free parameters that extend the SM and justify searches for long-lived particles.
 
-\cite{STRASSLER2008263}
+The results of the experimental search for displaced dimuon vertices presented in Chapter~\ref{chap:displaced} are interpreted in terms of a benchmark model approximating this BSM Higgs model (described in \Sec~\ref{sec:sm:pythia}) and is used for comparison with previous results.
+Results are given as 95\% confidence level upper limits on the cross section for production of the long-lived scalar particles via BSM Higgs decays ($\sigma(\PHiggs\to \PLLP\PLLP)$) times the branching fraction of the long-lived scalar particles decaying to two muons ($B(\PLLP\to\Pgm\Pgm)$), for a variety of values of the BSM Higgs mass \mH and the long-lived particle mass \mX, as a function of the long-lived particle lifetime \cTau.
+If \PHiggs\ is the SM Higgs boson with a mass of 125\GeV, then the 95\% confidence level upper limit on its branching fraction to BSM particles as computed by a combination of data taken at center-of-mass energy $\sqrt{s} = 7$ and 8\TeV in 2011 and 2012 by the CMS and ATLAS collaborations is 34\% \cite{Aad2016}, and the results can be used to exclude a range of long-lived particle lifetimes.
+For non-SM Higgs bosons, the couplings are free and unknown.
+Although the results are interpreted for this specific model, parametrizing them in terms of \mH, \mX, and \cTau presents the results in a manner that is approximately model independent, and the results can be reinterpreted to derive limits on a variety of other models.
+
+
+\subsection{PYTHIA Configuration}
+\label{sec:sm:pythia}
+For the purposes of interpreting the results of the search presented in this thesis and to compare the results to other analyses, \PYTHIA8 \cite{Sjostrand:2014zea,Khachatryan:2015pea} is used to simulate high-energy collision events for a benchmark model with a BSM Higgs boson decaying to two long-lived scalar bosons, at least one of which decays to two muons.
+This benchmark model approximates the BSM Higgs model described in \Sec~\ref{sec:sm:llp} as follows:
+\begin{itemize}
+  \item Two long-lived scalar bosons \PLLP\ and $\PLLP^\prime$ of various masses \mX are defined:
+    \begin{itemize}
+      \item Both particles have the same generated mass \mX, Breit-Wigner distribution width of 0.01\GeV, and nominal proper lifetime \cTau in millimeters.
+      \item Both particles have zero spin, zero electric charge, and zero color charge.
+      \item \PLLP\ decays exclusively via $\PLLP \to \mu^+\mu^-$.
+      \item $\PLLP^\prime$ decays via $\PLLP^\prime \to q\overline{q}$ with 33\% branching fractions to each of the three light flavors: $u$, $d$, and $s$.
+    \end{itemize}
+  \item BSM Higgs bosons \PHiggs\ of various masses \mH are defined:
+    \begin{itemize}
+      \item They are produced (exclusively) via gluon-gluon fusion.
+      \item They are produced with a Breit-Wigner distribution width of 2.7\% of \mH.
+      \item They decay exclusively either via $\PHiggs \to \PLLP\PLLP^\prime$ (yielding a \twoMu final state) or via $\PHiggs \to \PLLP\PLLP$ (yielding a \fourMu final state). This is simply a means to produce two sets of signal events, one in which both long-lived particles decay to muons and another in which just one of them decays to muons.
+    \end{itemize}
+\end{itemize}
+
+%\section{Old Stuff}
+%\subsection{Notation of the SM Lagrangian}
+%A Lagrangian can be generally described in three pieces: kinetic terms involving derivatives, mass terms that are second-order in the fields, and interaction terms that are third-order and higher in the fields describing interactions between fields.
+%The kinetic and mass terms together are called the free Lagrangian, since they describe a free field not interacting with anything else.
+%
+%The free Lagrangian for a spin-1/2 spinor fermion field $\psi$ of mass $m$ is described by the Dirac Lagrangian:
+%\begin{equation}
+%  \mathcal{L}_\text{Dirac} = i\overline{\psi}\gamma^\mu\partial_\mu\psi - m\overline{\psi}\psi
+%  \label{eq:sm:dirac}
+%\end{equation}
+%
+%For a spin-1 vector boson field $A_\mu^i$ associated with a gauge group with gauge coupling $g$, define the field strength tensor
+%\begin{equation}
+%  F_{\mu\nu}^i = \partial_\mu A_\nu^i - \partial_\nu A_\mu^i + g f^{ijk} A_\mu^j A_\nu^k
+%  \label{eq:sm:fieldstrength}
+%\end{equation}
+%where the structure constants $f^{ijk}$ are defined by commutators of the group generators $T_i$:
+%\begin{equation}
+%  [T_i, T_j] = if^{ijk}T_k
+%  \label{eq:sm:structureconstants}
+%\end{equation}
+%where $i$ labels the group generators.
+%For Abelian groups (such as $\mathrm{U}(1)$), the group generators (for $\mathrm{U}(1)$, complex phases of modulus 1) commute, and the structure constants vanish.
+%For non-Abelian groups (such as $\mathrm{SU}(3)$ and $\mathrm{SU}(2)$), the group generators (for $\mathrm{SU}(2)$, the Pauli matrices; for $\mathrm{SU}(3)$, the Gell-Mann matrices) do not commute.
+%The free Lagrangian for a spin-1 vector boson field $A_\mu$ of mass $m$ is described by the Proca Lagrangian:
+%\begin{equation}
+%  \mathcal{L}_\text{Proca} = -\frac14 F_{\mu\nu}F^{\mu\nu} + \frac12m^2A_{\nu}A^\nu
+%  \label{eq:sm:proca}
+%\end{equation}
+%
+%The free Lagrangian for a spin-0 scalar boson field $\phi$ of mass $m$ is described by the Klein-Gordon Lagrangian:
+%\begin{equation}
+%  \mathcal{L}_\text{Klein-Gordon} = (\partial_\mu\phi)^2 - m^2 \phi^2
+%  \label{eq:sm:kg}
+%\end{equation}
+%
+%Each fermion field $\psi$ can be decomposed into left and right-handed chiral components:
+%\begin{equation}
+%  \psi_L = \frac12\left(1-\gamma^\mu\right)\psi,\;\psi_R = \frac12\left(1+\gamma^\mu\right)\psi
+%  \label{eq:sm:chiral}
+%\end{equation}
+%
+%The SM Lagrangian begins with kinetic Proca terms for
+%\begin{itemize}
+%  \item 1 $\mathrm{U}(1)$ gauge boson $B_\mu$
+%  \item 3 $\mathrm{SU}(2)$ gauge bosons $W_\mu^i$, $i = 1, 2, 3$
+%  \item 8 $\mathrm{SU}(3)$ gauge bosons $G_\mu^i$, $i = 1 \ldots 8$
+%\end{itemize}
+%as well as kinetic Dirac terms for three ``generations'' of fermions, each consisting of
+%\begin{itemize}
+%  \item 1 charged lepton $\ell$ with electric charge $-1$
+%  \item 1 neutrino $\nu_\ell$ with electric charge 0
+%  \item 3 up-type quarks $u_i$ with electric charge $+2/3$ and color charges $i = r, g, b$
+%  \item 3 down-type quarks $d_i$ with electric charge $-1/3$ and color charges $i = r, g, b$
+%\end{itemize}
+%and their antiparticles.
+%All bosons and fermions begin initially massless.
+%For convenience in the forthcoming description of their interactions with gauge bosons, all fermions are decomposed into their left and right-handed chiral components.
+%The free SM Lagrangian thus has 12 terms of the form $-\frac14 F_{\mu\nu}F^{\mu\nu}$, and 48 terms of the form $i\overline{\psi}\gamma^\mu\partial_\mu\psi$, plus their Hermitian conjugates for the antiparticles, where each $\psi$ is two-component Weyl spinor.
+%
+%If the fields corresponding to the three colors of each quark are collected into a three-component vector,
+%\begin{equation}
+%  \psi_\text{color} = \begin{pmatrix}\psi_r\\\psi_g\\\psi_b\end{pmatrix}
+%  \label{eq:sm:color}
+%\end{equation}
+%then three terms of the Dirac Lagrangian can be written $i\overline{\psi_\text{color}}\gamma^\mu\partial_\mu\psi_\text{color}$.
+%Such a term is invariant under a global transformation
+%\begin{equation}
+%  \psi \to \psi' = U\psi,\; U = e^{i\mathbf{T}\cdot\bm{\theta}} \in G
+%  \label{eq:sm:global}
+%\end{equation}
+%where as before $\mathbf{T} = T_i$ are the group generators of the group $G$, and here $G = \mathrm{SU}(3)$.
+%The Lagrangian is thus said to be invariant under global $\mathrm{SU}(3)$ transformations.
+%Similarly, if the fields corresponding to left-handed charged leptons and neutrinos, and left-handed up-type and down-type quarks, are collected into two-component vectors,
+%\begin{equation}
+%  \psi_{\ell\,\text{flavor}} = \begin{pmatrix}\nu_\ell\\\ell\end{pmatrix}_L,\; \psi_{q\,\text{flavor}} = \begin{pmatrix}u\\d\end{pmatrix}_L
+%  \label{eq:sm:su2}
+%\end{equation}
+%then terms of the Dirac Lagrangian can be collected as above, and such terms are invariant under global $\mathrm{SU}(2)$ transformations.
+%
+%\begin{itemize}
+%  \item The gluons interact with fermions with nonzero color charge $C$, i.e. quarks
+%  \item The W bosons interact with fermions with nonzero weak isospin $T$, i.e. the left-handed chiral components of all fermions
+%  \item The B boson interacts with fermions with nonzero weak hypercharge $Y$, i.e. all fermions except the right-handed chiral components of neutrinos
+%\end{itemize}
+%
+%These interactions can be generated from the free SM Lagrangian by requiring it be invariant under local gauge transformations.
+%The Lagrangian must be modified in a way so that the global transformation of \Eq~\ref{eq:sm:global} can hold locally:
+%\begin{equation}
+%  \psi \to \psi' = U\psi,\; U = e^{i\mathbf{T}\cdot\bm{\theta}(x)} \in G
+%  \label{eq:sm:local}
+%\end{equation}
+%This is achieved by replacing all derivatives $\partial_\mu$ in the fermion kinetic terms with an appropriate ``covariant derivative'' $\mathcal{D}_\mu$, generating the interaction terms between fermions and gauge bosons.
+%
+%All SM fermions and the W and Z gauge bosons are observed to have a mass, but the previous treatment assumes all particles to be massless.
+%Adding appropriate mass terms would result in the Lagrangian losing its local gauge invariance.
+%In the SM, particles acquire mass terms by interacting with a massive scalar field (the spin-0 Higgs boson H), whose potential exhibits a nonzero vacuum expectation value.
+%This phenomenon is known as spontaneous symmetry breaking, and the mechanism by which it is accomplished is known as the Higgs mechanism.
+%After symmetry breaking, the B and W bosons mix to form the mass eigenstates that are experimentally observed: the W and Z bosons.
+%
+%\subsection{Fermi's Golden Rule}
+%Lagrangian such as the one describing the SM outlined in the previous section prescribes a set of Feynman rules
+%Section that mentions that Lagrangians prescribe Feynman rules, the result of which are terms for cross sections and lifetimes which are experimentally determinable.
+%
+%Discuss Fermi's golden rule, involving matrix element (depending on gauge couplings) and phase space factor (depending on mass splittings).
+%
+%\subsection{Beyond the SM}
+%Section mentioning some of the motivations for extending the standard model: neutrino oscillations, hierarchy, gravity.
+%
+%Discuss how short lifetimes were not found at the LHC.
+%
+%Discuss motivations for long lifetimes: small mass splittings and small gauge couplings.
+%
+%Discuss benchmark models with free parameters that are not part of the SM.

@@ -523,12 +523,27 @@
     \pagebreak   % the back side of the title page
   \fi
   \@makecopyrightpage
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{section}{Abstract}
   \@makeabstractpage{\@doublespacing}
   \@makesignaturepage
   \@makededication
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{section}{Table of Contents}
   \tableofcontents
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{section}{List of Figures}
   \listoffigures
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{section}{List of Tables}
   \listoftables
+  \newpage
+  \phantomsection
+  \addcontentsline{toc}{section}{Acknowledgments}
   \@makeacknowledgments
   \@makevitapage
   \newpage \pagenumbering{arabic}

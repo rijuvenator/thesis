@@ -1,7 +1,8 @@
 %%%%%
 \chapter{Neutron-Induced Background Hits in the CMS Endcap Muon System and Implications for the HL-LHC}
+\label{chap:neutron}
 \section{Foreword}
-The work presented here was presented at the 2017 European Physical Society Conference on High-Energy Physics (EPS-HEP) and the 2017 American Physical Society Meeting of the Division of Particles \& Fields (APS-DPF). The EPS-HEP poster can be found at Reference~\cite{Dasgupta:Poster}, the associated proceedings can be found at Reference~\cite{Dasgupta:Proceedings}, the APS-DPF parallel talk can be found at Reference~\cite{Schnaible:Talk}, and the public repository of approved plots can be found at Reference~\cite{NeutronTwiki}. The text and plots were written and produced together with Christian Schnaible and Bob Cousins and forms the internal detector note CMS DN-2017/019.
+The work presented here was presented at the 2017 European Physical Society Conference on High-Energy Physics (EPS-HEP) and the 2017 American Physical Society Meeting of the Division of Particles \& Fields (APS-DPF). The EPS-HEP poster can be found at Reference~\cite{Dasgupta:Poster}, the associated proceedings can be found at Reference~\cite{Dasgupta:Proceedings}, the APS-DPF parallel talk can be found at Reference~\cite{Schnaible:Talk}, and the public repository of approved plots can be found at Reference~\cite{NeutronTwiki}. The text and plots were written and produced together with Christian Schnaible and Bob Cousins and form the internal detector note CMS DN-2017/019.
 
 \section{Introduction}
 \label{sec:intro}
@@ -30,7 +31,7 @@ The CSC system in the endcap muon detection system of CMS \cite{Acosta:2002km} c
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/fig_CSC.pdf}
-	\caption{Diagram and principle of operation of a CSC endcap muon chamber in CMS}
+	\caption{Diagram and principle of operation of a CSC endcap muon chamber in CMS.}
 	\label{fig:CSC}
 \end{figure}
 
@@ -41,7 +42,7 @@ A muon ionizes the gas, and the resulting electrons drift towards the wires, cau
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/fig_CSC_electronics.pdf}
-	\caption{Diagram of the CSC electronics system in CMS}
+	\caption{Diagram of the CSC electronics system in CMS.}
 	\label{fig:CSC_electronics}
 \end{figure}
 
@@ -60,7 +61,7 @@ To better understand the basic nuclear interactions that may result in backgroun
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/neutronSpectrum_before.pdf}\\
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/neutronSpectrum_after.pdf}
-	\caption{Histogram of neutron kinetic energy just before nuclear capture, (\posstyle{top}) before and (\posstyle{bottom}) after enabling thermal treatment of detector nuclei. The dashed line indicates 0.025\unit{eV}. Before enabling the new feature, the low energy peak of captured neutrons is several orders of magnitude below thermal energies; after enabling the feature, the low energy peak is at thermal energies. Also visible are the resonant capture peaks on, for example, \chem{56}{Fe}, in the \keVns range.}
+  \caption[Histogram of neutron kinetic energy just before nuclear capture, before and after enabling thermal treatment of detector nuclei.]{Histogram of neutron kinetic energy just before nuclear capture, (\posstyle{top}) before and (\posstyle{bottom}) after enabling thermal treatment of detector nuclei. The dashed line indicates 0.025\unit{eV}. Before enabling the new feature, the low energy peak of captured neutrons is several orders of magnitude below thermal energies; after enabling the feature, the low energy peak is at thermal energies. Also visible are the resonant capture peaks on, for example, \chem{56}{Fe}, in the \keVns range.}
 	\label{fig:nKE}
 \end{figure}
 
@@ -93,7 +94,7 @@ In examining these simulated events, we find that each \pp collision can lead to
 	\centering
 	\includegraphics[width=0.8\dummyFigWidth]{figures/neutron/LastEvsTOF.pdf}\\
 	\includegraphics[width=0.8\dummyFigWidth]{figures/neutron/LastEvsTOF_All.pdf}
-	\caption{Final energy of simulated neutron \vs the time since \pp collision giving rise to simulated detector hit, for hits in CSCs. Hits are induced by electrons that are produced from photons that are produced from neutron capture or from neutron inelastic scattering. Red dots indicate simulated hits induced by neutron captures, and blue dots indicate simulated hits induced by neutron inelastic scatters. The top plot shows hits from photons only, coming from inelastic scattering and nuclear capture; the bottom plot shows all neutron-related hits, including those induced by protons and nuclear fragments, shown in magenta and green dots, respectively.}
+  \caption[Final energy of simulated neutron \vs the time since \pp collision giving rise to simulated detector hit, for hits in CSCs.]{Final energy of simulated neutron \vs the time since \pp collision giving rise to simulated detector hit, for hits in CSCs. Hits are induced by electrons that are produced from photons that are produced from neutron capture or from neutron inelastic scattering. Red dots indicate simulated hits induced by neutron captures, and blue dots indicate simulated hits induced by neutron inelastic scatters. The top plot shows hits from photons only, coming from inelastic scattering and nuclear capture; the bottom plot shows all neutron-related hits, including those induced by protons and nuclear fragments, shown in magenta and green dots, respectively.}
 	\label{fig:tof_energy}
 \end{figure}
 
@@ -113,7 +114,7 @@ Since the time scales from when the neutrons are created to when neutron capture
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/neut_gamma_proc_energy.pdf}
-	\caption{Stacked histogram of the final energy of simulated photons at the time they produce simulated electrons that lead to simulated detector hits. The photons are categorized by the process by which the electrons are created or scattered. The most common process by which electrons that eventually lead to simulated hits are formed is Compton scattering.}
+  \caption[Stacked histogram of the final energy of simulated photons at the time they produce simulated electrons that lead to simulated detector hits.]{Stacked histogram of the final energy of simulated photons at the time they produce simulated electrons that lead to simulated detector hits. The photons are categorized by the process by which the electrons are created or scattered. The most common process by which electrons that eventually lead to simulated hits are formed is Compton scattering.}
 	\label{fig:electron_proc}
 \end{figure}
 
@@ -126,7 +127,7 @@ To obtain a sample of events in \pp collision data suitable for studying the neu
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/CornerSelection.pdf}
-	\caption{Opposite half selection for neutron-induced hits in CSCs}
+	\caption{Opposite half selection for neutron-induced hits in CSCs.}
 	\label{fig:corner}
 \end{figure}
 
@@ -171,13 +172,13 @@ The central red outlined rectangle is a region delineating early readout time hi
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/Rainbow_wire_11.pdf}
-	\caption{2D histogram of number of anode wire hits from CSCs in the inner ring of the first station (ME1/1) of the CMS endcap muon system. The histogram is plotted as a function of the readout time bin, and of number of bunch crossings (BX) after an LHC bunch gap of at least 35~BX in bunch trains that are exactly 48~BX in length. Hits in readout time bin 0 are contaminated with an artifact of anode wire readout electronics and are therefore not considered.}
+  \caption[2D histogram of number of anode wire hits from CSCs in the inner ring of the first station (ME1/1) of the CMS endcap muon system.]{2D histogram of number of anode wire hits from CSCs in the inner ring of the first station (ME1/1) of the CMS endcap muon system. The histogram is plotted as a function of the readout time bin, and of number of bunch crossings (BX) after an LHC bunch gap of at least 35~BX in bunch trains that are exactly 48~BX in length. Hits in readout time bin 0 are contaminated with an artifact of anode wire readout electronics and are therefore not considered.}
 	\label{fig:rainbow}
 \end{figure}
 
 \begin{table}
 	\centering
-	\topcaption{Enumeration of time windows used for each region in \FigDot~\ref{fig:rainbow}, listed by digi readout time bins and bunch places after the gap.}
+  \topcaption[Enumeration of time windows used for each region listed by digi readout time bins and bunch places after the gap.]{Enumeration of time windows used for each region in \FigDot~\ref{fig:rainbow}, listed by digi readout time bins and bunch places after the gap.}
 	\label{tab:time_windows}
 	\begin{tabular}{p{200pt}lll}
 		Region & BX After Gap ($b$) & Readout Time Bins ($T(b)$) & $N_{T(b)}$ \\ \hline \hline
@@ -431,12 +432,12 @@ The average neutron background hit rate per area for the entire chamber type $c$
    \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{N_\text{hits}^\text{CMS}(c,d)}{N_\text{\pp}^\text{CMS}(c,d)}}
 \end{equation}
 
-To convert \Eqs~\ref{eqn:hits_perA_perPP_perDigi} and \ref{eqn:hits_perA_perPP_perCSC} to per time quantities, we choose a reference luminosity $\mathcal{L}_0$ and multiply by the mean \pp collision rate per time at that luminosity, $N_\text{\pp}^\text{CMS}/t$. That is,
+To convert \Eqs~\ref{eqn:hits_perA_perPP_perDigi} and \ref{eqn:hits_perA_perPP_perCSC} to per time quantities, we choose a reference luminosity $\pazocal{L}_0$ and multiply by the mean \pp collision rate per time at that luminosity, $N_\text{\pp}^\text{CMS}/t$. That is,
 
 \begin{equation}
     \label{eqn:hits_perA_perT_perDigi}
 \text{hits per \pp per area per time at $d$} =  
-  \frac{1}{A_\text{digi}(c, d)}  \  \frac{N_\text{hits}^\text{CMS}(c,d)}{N_\text{\pp}^\text{CMS}(c,d)}  \  \left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\mathcal{L}_0}
+  \frac{1}{A_\text{digi}(c, d)}  \  \frac{N_\text{hits}^\text{CMS}(c,d)}{N_\text{\pp}^\text{CMS}(c,d)}  \  \left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\pazocal{L}_0}
 \end{equation}
 
 and similarly for the number of hits in the entire chamber,
@@ -444,7 +445,7 @@ and similarly for the number of hits in the entire chamber,
 \begin{equation}
     \label{eqn:hits_perA_perT_perCSC}
 \text{hits per \pp per area per time, avg.\ over $c$} =   
-  \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{N_\text{hits}^\text{CMS}(c,d)}{N_\text{\pp}^\text{CMS}(c,d)}} \  \left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\mathcal{L}_0}
+  \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{N_\text{hits}^\text{CMS}(c,d)}{N_\text{\pp}^\text{CMS}(c,d)}} \  \left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\pazocal{L}_0}
 \end{equation}
 
 We obtain the mean \pp collision rate, $N_\text{\pp}^\text{CMS}/t$,
@@ -454,14 +455,14 @@ instantaneous luminosity:
 
 \begin{equation}
     \label{eqn:sigmaPP_x_lumi}
-    \left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\mathcal{L}_0} = \sigma_\text{\pp}  \  \mathcal{L}_0
+    \left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\pazocal{L}_0} = \sigma_\text{\pp}  \  \pazocal{L}_0
 \end{equation}
 
-In  the second method, we multiply the mean pileup $P_0$ at a reference luminosity $\mathcal{L}_0$ by the fill fraction $f_\text{fill}$, and divide by 25\unit{ns}, the bunch spacing interval. 
+In  the second method, we multiply the mean pileup $P_0$ at a reference luminosity $\pazocal{L}_0$ by the fill fraction $f_\text{fill}$, and divide by 25\unit{ns}, the bunch spacing interval. 
 
 \begin{equation}
     \label{eqn:PU_x_ff_over_BS}
-	\left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\mathcal{L}_0} = \frac{f_\text{fill}  \  P_0}{25\unit{ns}}  \  \frac{10^9\unit{ns}}{\text{s}}.
+	\left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\pazocal{L}_0} = \frac{f_\text{fill}  \  P_0}{25\unit{ns}}  \  \frac{10^9\unit{ns}}{\text{s}}.
 \end{equation}
 
 Both methods for measuring $N_\text{\pp}^\text{CMS}/t$ should give the same answer if we use the same cross section
@@ -472,8 +473,8 @@ In either case, the \pp collision rate can in principle be scaled to other lumin
 
 \begin{equation}
     \label{eqn:PU_x_ff_over_BS_scale}
-	\left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\mathcal{L}} = 
-	\left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\mathcal{L}_0}  \  \frac{\mathcal{L}}{\mathcal{L}_0}.
+	\left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\pazocal{L}} = 
+	\left.\frac{N_\text{\pp}^\text{CMS}}{t}\right|_{\pazocal{L}_0}  \  \frac{\pazocal{L}}{\pazocal{L}_0}.
 \end{equation}
 Consistency checks are shown in \FigsDot~\ref{fig:dppdt_vs_L} and \ref{fig:lumi_vs_pu}.
 
@@ -484,14 +485,14 @@ Consistency checks are shown in \FigsDot~\ref{fig:dppdt_vs_L} and \ref{fig:lumi_
 \begin{figure}
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/dppdt_vs_L.png}
-    \caption{Plot of $N_\text{\pp}^\text{CMS}/t$ \vs instantaneous luminosity. Each dot denotes single luminosity section.}
+  \caption[Plot of $N_\text{\pp}^\text{CMS}/t$ \vs instantaneous luminosity.]{Plot of $N_\text{\pp}^\text{CMS}/t$ \vs instantaneous luminosity. Each dot denotes single luminosity section.}
 	\label{fig:dppdt_vs_L}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/lumi_vs_pu_allfills.png}
-	\caption{Plot of instantaneous luminosity \vs mean pileup. Each dot denotes single luminosity section and the color denotes the fraction of filled bunches, $f_\text{fill}$, during which that data were collected.}
+  \caption[Plot of instantaneous luminosity \vs mean pileup.]{Plot of instantaneous luminosity \vs mean pileup. Each dot denotes single luminosity section and the color denotes the fraction of filled bunches, $f_\text{fill}$, during which that data were collected.}
 	\label{fig:lumi_vs_pu}
 \end{figure}
 
@@ -500,38 +501,38 @@ Consistency checks are shown in \FigsDot~\ref{fig:dppdt_vs_L} and \ref{fig:lumi_
 
 The above hit rates per \pp collision are independent of luminosity, and the per time rates are with respect to a reference luminosity. In this section we check the implicit assumption of linearity of rates with luminosity. We count the number of neutron hits, binned by the luminosity of the event in which the muon that generated the trigger occurred, and normalize to the number of times we look, binned by luminosity. 
 
-At the risk of confusion, we let $\mathcal{L}$ refer to a luminosity {\em bin} centered on $\mathcal{L}$ , and let $I_\text{lumi}(i, \mathcal{L})$ denote an indicator function representing whether or not event $i$ occurred with a luminosity within luminosity bin $\mathcal{L}$. Then the computation of hit rates within
+At the risk of confusion, we let $\pazocal{L}$ refer to a luminosity {\em bin} centered on $\pazocal{L}$ , and let $I_\text{lumi}(i, \pazocal{L})$ denote an indicator function representing whether or not event $i$ occurred with a luminosity within luminosity bin $\pazocal{L}$. Then the computation of hit rates within
 luminosity bins is the same as in \Eq~\ref{eqn:indicator_nHits}, 
 with the addition of an indicator function to specify the luminosity bin.
 
-We thus obtain $N_\text{hits}^\text{CMS}(c, d, \mathcal{L})$
+We thus obtain $N_\text{hits}^\text{CMS}(c, d, \pazocal{L})$
 the number of digis found in the data set in the examined time bins of
-chamber type $c$ and wire group or half-strip $d$, in luminosity bin $\mathcal{L}$:
+chamber type $c$ and wire group or half-strip $d$, in luminosity bin $\pazocal{L}$:
 
 \begin{equation}
  	\label{eqn:nHits_Lumi}
-        N_\text{hits}^\text{CMS}(c, d, \mathcal{L}) = 
+        N_\text{hits}^\text{CMS}(c, d, \pazocal{L}) = 
         \sum_{i=1}^{N^\text{CMS}_\text{events}}
         \sum_{j=1}^{N_c} \ 
         \sum_{\tau\in T(b(i))}
         I_\text{look}(i, c_j, d) \times
         I_\text{hits}(i, c_j, d, \tau) \times
-        I_\text{lumi}(i, \mathcal{L}). 
+        I_\text{lumi}(i, \pazocal{L}). 
 \end{equation}
 
 The normalization for each luminosity bin, $N^\text{CMS}_\text{looks}(c,
-d, \mathcal{L})$, is the sum of the number of times we looked in the
+d, \pazocal{L})$, is the sum of the number of times we looked in the
 luminosity bin as in \Eq~\ref{eqn:nPP}, without the factors counting \pp
 collisions:
 
 \begin{equation}
  	\label{eqn:nLooks_Lumi}        
-        N^\text{CMS}_\text{looks}(c, d, \mathcal{L}) = 
+        N^\text{CMS}_\text{looks}(c, d, \pazocal{L}) = 
         \sum_{i=1}^{N^\text{CMS}_\text{events}}
         \sum_{j=1}^{N_c} \ 
         \sum_{\tau\in T(b(i))}
         I_\text{look}(i, c_j, d) \times
-        I_\text{lumi}(i, \mathcal{L}).
+        I_\text{lumi}(i, \pazocal{L}).
 \end{equation}
 
 Then we can define rates similar to those defined in \Eqs~\ref{eqn:hits_perPP_perDigi}--\ref{eqn:hits_perA_perPP_perCSC} that are functions of luminosity:
@@ -539,17 +540,17 @@ Then we can define rates similar to those defined in \Eqs~\ref{eqn:hits_perPP_pe
 \begin{equation}
 	\label{eqn:hits_perLook_perDigi_Lumi}
 \text{normalized hits per $d$} = 
-   \frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \mathcal{L})
+   \frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \pazocal{L})
 \end{equation}
 \begin{equation}
     \label{eqn:hits_perA_perLook_perDigi_Lumi}
 \text{normalized hits per area at $d$} = 
-  \frac{1}{A_\text{digi}(c, d)}  \  \frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \mathcal{L})
+  \frac{1}{A_\text{digi}(c, d)}  \  \frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \pazocal{L})
 \end{equation}
 \begin{equation}
     \label{eqn:hits_perA_perLook_perCSC_Lumi}
 \text{normalized hits per area, avg.\ over $c$} = 
-  \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \mathcal{L})}
+  \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \pazocal{L})}
 \end{equation}
 
 To convert \Eqs~\ref{eqn:hits_perA_perLook_perDigi_Lumi} and \ref{eqn:hits_perA_perLook_perCSC_Lumi} to per time quantities, we observe that each time we look corresponds to a 25~ns time interval readout time bin, and also one bunch space. Therefore, the neutron hit rate in chamber type $c$ as a function of luminosity is simply \Eq~\ref{eqn:hits_perA_perLook_perCSC_Lumi} multiplied by the conversion from time bin to ns:
@@ -557,7 +558,7 @@ To convert \Eqs~\ref{eqn:hits_perA_perLook_perDigi_Lumi} and \ref{eqn:hits_perA_
 \begin{equation}
     \label{eqn:hits_perA_perT_perCSC_Lumi}
 \text{normalized hits per area per time, avg.\ over $c$} = 
-    \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \mathcal{L})}  \  \frac{\text{time bin}}{25\unit{ns}}  \  \frac{10^9\unit{ns}}{\unit{s}}
+    \frac{1}{A_\text{CSC}(c)}  \  \sum_{d\in D(c)}{\frac{{N}^\text{CMS}_\text{hits}}{N^\text{CMS}_{\text{looks}}}(c, d, \pazocal{L})}  \  \frac{\text{time bin}}{25\unit{ns}}  \  \frac{10^9\unit{ns}}{\unit{s}}
 \end{equation}
 
 \subsubsection{Computation of Neutron Hit Rate in MC Simulation}
@@ -643,7 +644,7 @@ and similarly for the number of simulated hits in the entire chamber,
 	\frac{1}{A_\text{CSC}(c)}  \  \frac{1}{N_\text{\pp}^\text{MC}(c)}  \  \sum_{d\in D(c)}{N_\text{hits}^\text{MC}(c, d)}
 \end{equation}
 
-Finally, we convert \Eq~\ref{eqn:MC_hits_perA_perPP_perDigi} and \ref{eqn:MC_hits_perA_perPP_perCSC} to per time quantities by choosing a reference luminosity $\mathcal{L}_0$ and multiplying by the \pp collision rate per time at that luminosity, $N_\text{\pp}^\text{MC}/t$:
+Finally, we convert \Eq~\ref{eqn:MC_hits_perA_perPP_perDigi} and \ref{eqn:MC_hits_perA_perPP_perCSC} to per time quantities by choosing a reference luminosity $\pazocal{L}_0$ and multiplying by the \pp collision rate per time at that luminosity, $N_\text{\pp}^\text{MC}/t$:
 
 \begin{equation}
 	\label{eqn:MC_hits_perA_perT_perDigi}
@@ -663,14 +664,14 @@ and
 	\centering
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_11_wire_early_AREA_TIME_LOOK_20180628_fit.pdf}
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_11_wire_total_AREA_TIME_LOOK_20180628_fit.pdf}
-	\caption{Plot of hits per time per area as a function of luminosity as calculated in \Eq~\ref{eqn:hits_perA_perT_perCSC_Lumi} for ME1/1 chambers, (\posstyle{top}) for hits that occur at the end of LHC gaps (candidate neutron capture induced hits) and (\posstyle{bottom}) for hits that occur during \pp collisions. The red line is a linear fit constrained to go through the origin and fit over the central region of luminosity.}
+  \caption[Plot of hits per time per area as a function of luminosity for ME1/1 chambers.]{Plot of hits per time per area as a function of luminosity as calculated in \Eq~\ref{eqn:hits_perA_perT_perCSC_Lumi} for ME1/1 chambers, (\posstyle{top}) for hits that occur at the end of LHC gaps (candidate neutron capture induced hits) and (\posstyle{bottom}) for hits that occur during \pp collisions. The red line is a linear fit constrained to go through the origin and fit over the central region of luminosity.}
 	\label{fig:lumi_11}
 \end{figure}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_21_wire_early_AREA_TIME_LOOK_20180628_fit.pdf}
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/luminosity_21_wire_total_AREA_TIME_LOOK_20180628_fit.pdf}
-	\caption{Plot of hits per time per area as a function of luminosity as calculated in \Eq~\ref{eqn:hits_perA_perT_perCSC_Lumi} for ME2/1 chambers, (\posstyle{top}) for hits that occur at the end of LHC gaps (candidate neutron capture induced hits) and (\posstyle{bottom}) for hits that occur during \pp collisions. The red line is a linear fit constrained to go through the origin and fit over the central region of luminosity.}
+  \caption[Plot of hits per time per area as a function of luminosity for ME2/1 chambers.]{Plot of hits per time per area as a function of luminosity as calculated in \Eq~\ref{eqn:hits_perA_perT_perCSC_Lumi} for ME2/1 chambers, (\posstyle{top}) for hits that occur at the end of LHC gaps (candidate neutron capture induced hits) and (\posstyle{bottom}) for hits that occur during \pp collisions. The red line is a linear fit constrained to go through the origin and fit over the central region of luminosity.}
 	\label{fig:lumi_21}
 \end{figure}
 
@@ -684,14 +685,14 @@ In preliminary results in 2017 for the neutron induced hit rates, we incorrectly
 	\centering
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_11_wire_early_AREA_TIME_20180628_XS_ThermalON.pdf}
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_11_wire_early_AREA_TIME_20180628_HP_ThermalON.pdf}
-	\caption{Histogram of neutron capture induced anode wire hits per time per area for CMS data (as calculated in \Eq~\ref{eqn:hits_perA_perT_perDigi}) and for MC simulation (as calculated in \Eq~\ref{eqn:MC_hits_perA_perT_perDigi}) for ME1/1 chambers for a reference luminosity of \reflumi. CMS data are compared to results from \GEANTfour (\posstyle{top}) XS and (\posstyle{bottom}) HP neutron interaction cross section libraries in CMS MC simulation of minimum-bias proton-proton collisions at 13 TeV.}
+  \caption[Histogram of neutron capture induced anode wire hits per time per area for CMS data and for MC simulation for ME1/1 chambers for a reference luminosity of \reflumi.]{Histogram of neutron capture induced anode wire hits per time per area for CMS data (as calculated in \Eq~\ref{eqn:hits_perA_perT_perDigi}) and for MC simulation (as calculated in \Eq~\ref{eqn:MC_hits_perA_perT_perDigi}) for ME1/1 chambers for a reference luminosity of \reflumi. CMS data are compared to results from \GEANTfour (\posstyle{top}) XS and (\posstyle{bottom}) HP neutron interaction cross section libraries in CMS MC simulation of minimum-bias proton-proton collisions at 13 TeV.}
 	\label{fig:wg_occupancy_11}
 \end{figure}
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_21_wire_early_AREA_TIME_20180628_XS_ThermalON.pdf}
 	\includegraphics[width=0.85\dummyFigWidth]{figures/neutron/occupancy_21_wire_early_AREA_TIME_20180628_HP_ThermalON.pdf}
-	\caption{Histogram of neutron capture induced anode wire hits per time per area for CMS data (as calculated in \Eq~\ref{eqn:hits_perA_perT_perDigi}) and for MC simulation (as calculated in \Eq~\ref{eqn:MC_hits_perA_perT_perDigi}) for ME2/1 chambers for a reference luminosity of \reflumi. CMS data are compared to results from \GEANTfour (\posstyle{top}) XS and (\posstyle{bottom}) HP neutron interaction cross section libraries in CMS MC simulation of minimum-bias proton-proton collisions at 13 TeV.}
+  \caption[Histogram of neutron capture induced anode wire hits per time per area for CMS data and for MC simulation for ME2/1 chambers for a reference luminosity of \reflumi.]{Histogram of neutron capture induced anode wire hits per time per area for CMS data (as calculated in \Eq~\ref{eqn:hits_perA_perT_perDigi}) and for MC simulation (as calculated in \Eq~\ref{eqn:MC_hits_perA_perT_perDigi}) for ME2/1 chambers for a reference luminosity of \reflumi. CMS data are compared to results from \GEANTfour (\posstyle{top}) XS and (\posstyle{bottom}) HP neutron interaction cross section libraries in CMS MC simulation of minimum-bias proton-proton collisions at 13 TeV.}
 	\label{fig:wg_occupancy_21}
 \end{figure}
 
@@ -709,7 +710,7 @@ The distribution of neutron-induced hit patterns is overwhelmingly single, isola
 	\centering
 	\includegraphics[width=\fullFigWidth]{figures/neutron/BGPatterns_P5.pdf}
 	\includegraphics[width=\fullFigWidth]{figures/neutron/BGPatterns_MC.pdf}
-	\caption{Distribution of candidate neutron capture induced patterns in (\posstyle{top}) 2016 CMS data and (\posstyle{bottom}) CMS simulation. The patterns shown here are 1, 2, and 3-hit clusters only. For each red 3$\times$3 pattern, the horizontal direction represents cathode half-strips and the vertical direction represents a layer in the CSC. The red boxes in a pattern indicate the presence of a candidate neutron capture induced hit in a cathode half-strip and layer. The shaded histogram bins correspond to patterns that are suppressed by CSC firmware electronics.}
+  \caption[Distribution of candidate neutron capture induced patterns in 2016 CMS data and CMS simulation.]{Distribution of candidate neutron capture induced patterns in (\posstyle{top}) 2016 CMS data and (\posstyle{bottom}) CMS simulation. The patterns shown here are 1, 2, and 3-hit clusters only. For each red 3$\times$3 pattern, the horizontal direction represents cathode half-strips and the vertical direction represents a layer in the CSC. The red boxes in a pattern indicate the presence of a candidate neutron capture induced hit in a cathode half-strip and layer. The shaded histogram bins correspond to patterns that are suppressed by CSC firmware electronics.}
 	\label{fig:pattern}
 \end{figure}
 
@@ -725,7 +726,7 @@ The CERN Gamma Irradiation Facility (GIF++) is located on the CERN Pr\'{e}vessin
 	\centering
 	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/Eff_11_LCTScint_L1A.pdf}
 	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/Eff_21_LCTScint_L1A.pdf}
-	\caption{Plot of LCT efficiency divided by the efficiency at minimum HV current (irradiation source turned off), for the (\posstyle{top}) ME1/1 and (\posstyle{bottom}) ME2/1 chambers at GIF++. LCT efficiency is defined as the number of LCTs created within a scintillator shadow, divided by the number of scintillator triggers received. As the source intensity is increased (chamber anode HV current is increased), the LCT efficiency drops. The gray line indicates an approximate equivalent HV current corresponding to design HL-LHC luminosity.}
+  \caption[Plot of LCT efficiency divided by the efficiency at minimum HV current for ME1/1 and ME2/1 chambers at GIF++.]{Plot of LCT efficiency divided by the efficiency at minimum HV current (irradiation source turned off), for the (\posstyle{top}) ME1/1 and (\posstyle{bottom}) ME2/1 chambers at GIF++. LCT efficiency is defined as the number of LCTs created within a scintillator shadow, divided by the number of scintillator triggers received. As the source intensity is increased (chamber anode HV current is increased), the LCT efficiency drops. The gray line indicates an approximate equivalent HV current corresponding to design HL-LHC luminosity.}
 	\label{fig:lct_eff}
 \end{figure}
 
@@ -746,14 +747,14 @@ To measure the LCT efficiency, we begin by counting the fraction $f$ of L1As tha
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/ED_GIF_3384_ME21_9.pdf}
-	\caption{Display of an event collected during a muon test beam at the CERN Gamma Irradiation Facility (GIF++) with a CSC from ME2/1, showing digitized detector responses: anode wire ($r$ coordinate) responses (wire group hits), cathode half-strip ($\phi$ coordinate) responses (comparator half-strip hits), and cathode strip analog-to-digital-converter (ADC) counts proportional to deposited charge. Each display is organized by the gas gap layer and the strip or wire number in which the response occurred. The quantity A represents the attenuating factor applied to the 13.9\unit{TBq} \chem{137}{Cs} gamma irradiation source and I is the chamber anode wire HV current. This display illustrates a mechanism by which a photon hit can displace a muon hit; the large amount of deposited charge seen at the left edge of the ADC counts resulted in a corresponding shifted comparator hit.}
+  \caption[Display of an event collected during a muon test beam at the CERN Gamma Irradiation Facility (GIF++) with a CSC from ME2/1.]{Display of an event collected during a muon test beam at the CERN Gamma Irradiation Facility (GIF++) with a CSC from ME2/1, showing digitized detector responses: anode wire ($r$ coordinate) responses (wire group hits), cathode half-strip ($\phi$ coordinate) responses (comparator half-strip hits), and cathode strip analog-to-digital-converter (ADC) counts proportional to deposited charge. Each display is organized by the gas gap layer and the strip or wire number in which the response occurred. The quantity A represents the attenuating factor applied to the 13.9\unit{TBq} \chem{137}{Cs} gamma irradiation source and I is the chamber anode wire HV current. This display illustrates a mechanism by which a photon hit can displace a muon hit; the large amount of deposited charge seen at the left edge of the ADC counts resulted in a corresponding shifted comparator hit.}
 	\label{fig:ed}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/RH_GIF_3384_ME21_9.pdf}
-	\caption{Display of the same event as \FigDot~\ref{fig:ed}, showing offline reconstructed detector responses (RecHits), projected along the anode wire axis and the cathode strip axis (black dots). Blue lines indicate the offline reconstructed muon segment created by a straight-line fit to the red highlighted RecHits. This display illustrates a mechanism by which a photon hit can displace a muon hit; the reconstructed hit in layer 3 was displaced and subsequently excluded from the segment fit.}
+  \caption[Display of the same event, showing offline reconstructed detector responses (RecHits).]{Display of the same event as \FigDot~\ref{fig:ed}, showing offline reconstructed detector responses (RecHits), projected along the anode wire axis and the cathode strip axis (black dots). Blue lines indicate the offline reconstructed muon segment created by a straight-line fit to the red highlighted RecHits. This display illustrates a mechanism by which a photon hit can displace a muon hit; the reconstructed hit in layer 3 was displaced and subsequently excluded from the segment fit.}
 	\label{fig:rh}
 \end{figure}
 
@@ -767,7 +768,7 @@ This particular event display illustrates a way that a photon-induced hit may ca
 	\centering
 	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/SegNHitsFrac_ME11_all.pdf}
 	\includegraphics[width=.7\dummyFigWidth]{figures/neutron/SegNHitsFrac_ME21_all.pdf}
-	\caption{Stacked plot of fraction of offline reconstructed muon segments, categorized by the number of reconstructed hits used to form them, \vs chamber anode HV current, for the (\posstyle{top}) ME1/1 and (\posstyle{bottom}) ME2/1 at GIF++. As the source intensity is increased (chamber anode HV current is increased), the fraction of good quality 6 hit segments decreases, while the fraction of lower quality 3 hit segments increases. The white line indicates an approximate equivalent HV current corresponding to design HL-LHC luminosity.}
+  \caption[Stacked plot of fraction of offline reconstructed muon segments, categorized by the number of reconstructed hits used to form them, for the ME1/1 and ME2/1 at GIF++.]{Stacked plot of fraction of offline reconstructed muon segments, categorized by the number of reconstructed hits used to form them, \vs chamber anode HV current, for the (\posstyle{top}) ME1/1 and (\posstyle{bottom}) ME2/1 at GIF++. As the source intensity is increased (chamber anode HV current is increased), the fraction of good quality 6 hit segments decreases, while the fraction of lower quality 3 hit segments increases. The white line indicates an approximate equivalent HV current corresponding to design HL-LHC luminosity.}
 	\label{fig:seg_frac}
 \end{figure}
 
@@ -792,7 +793,7 @@ We use anode HV current data collected by the HVPS and stored in an external dat
 	\includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME11_N_31_5_f5394_curr_lumi.pdf}
 	\includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME11_P_02_2_f5394_curr_lumi.pdf}
 	\includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME11_P_18_2_f5394_curr_lumi.pdf}
-	\caption{Plot of anode HV current \vs LHC luminosity with a two-parameter linear fit for (\posstyle{top}) a well-behaved ME1/1 channel, (\posstyle{middle}) an ME1/1 channel with a large fitted offset, and (\posstyle{bottom}) a noisy ME1/1 channel.}
+  \caption[Plot of anode HV current \vs LHC luminosity with a two-parameter linear fit for three ME1/1 channels.]{Plot of anode HV current \vs LHC luminosity with a two-parameter linear fit for (\posstyle{top}) a well-behaved ME1/1 channel, (\posstyle{middle}) an ME1/1 channel with a large fitted offset, and (\posstyle{bottom}) a noisy ME1/1 channel.}
 	\label{fig:ME11_IvsL}
 \end{figure}
 
@@ -803,7 +804,7 @@ To avoid problems such as large offsets and many oscillating values, we scanned 
 \begin{figure}
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/me11_fill_5394_a_sel_slope_hist.pdf}
-	\caption{Histogram of offset-corrected reference HV currents from ME1/1 HV channels that pass the hand selection color-coded by endcap.}
+  \caption[Histogram of offset-corrected reference HV currents from ME1/1 HV channels.]{Histogram of offset-corrected reference HV currents from ME1/1 HV channels that pass the hand selection color-coded by endcap.}
 	\label{fig:fill_5394_curr_histo}
 \end{figure}
 
@@ -819,7 +820,7 @@ at the reference luminosity.
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_11_wire_early_CHAM_TIME_20180416_fit.pdf}
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_11_wire_total_CHAM_TIME_20180416_fit.pdf}
-	\caption{Plot of ME1/1 wire group ${N}^\text{CMS}_\text{hits} / {t}$ \vs LHC luminosity with a one-parameter linear fit for hits that occur (\posstyle{top}) during LHC bunch gaps and (\posstyle{bottom}) during \pp collisions.}
+  \caption[Plot of ME1/1 wire group ${N}^\text{CMS}_\text{hits} / {t}$ \vs LHC luminosity with a one-parameter linear fit for hits that occur during LHC bunch gaps and during \pp collisions.]{Plot of ME1/1 wire group ${N}^\text{CMS}_\text{hits} / {t}$ \vs LHC luminosity with a one-parameter linear fit for hits that occur (\posstyle{top}) during LHC bunch gaps and (\posstyle{bottom}) during \pp collisions.}
 	\label{fig:ME11_HvsL}
 \end{figure}
 
@@ -850,7 +851,7 @@ The\unit{charge/hit} is then calculated by dividing the anode HV current by the 
     \includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME21_P_04_1_5_f5394_curr_lumi.pdf}
     \includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME21_P_04_2_5_f5394_curr_lumi.pdf}
     \includegraphics[width=0.7\twoThirdsFigWidth]{figures/neutron/ME21_P_04_3_5_f5394_curr_lumi.pdf}
-\caption{Plot of current \vs luminosity for ME+2/1/04 layer 5 for HV Segment (\posstyle{top}) 1, (\posstyle{middle}) 2, and (\posstyle{bottom}) 3, with a two-parameter linear fit. The least count of approximately 0.1\muA is most evident in HV segment 3.}
+    \caption[Plot of current \vs luminosity for ME+2/1/04 layer 5 for three HV Segments with a two-parameter linear fit.]{Plot of current \vs luminosity for ME+2/1/04 layer 5 for HV Segment (\posstyle{top}) 1, (\posstyle{middle}) 2, and (\posstyle{bottom}) 3, with a two-parameter linear fit. The least count of approximately 0.1\muA is most evident in HV segment 3.}
     \label{fig:ME21_curr_lumi_p214_5}
 \end{figure}
 
@@ -860,14 +861,14 @@ ME2/1 chambers each have 18 independent HV channels. Each of a chamber's six lay
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_21_wire_early_CHAM_TIME_20180416_fit.pdf}
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/luminosity_21_wire_total_CHAM_TIME_20180416_fit.pdf}
-	\caption{Plot of ME2/1 wire group ${N}^\text{CMS}_\text{hits}/{t}$ \vs LHC luminosity for hits that occur (\posstyle{top}) during LHC bunch gaps and (\posstyle{bottom}) during \pp collisions, with a one-parameter linear fit.}
+  \caption[Plot of ME2/1 wire group ${N}^\text{CMS}_\text{hits}/{t}$ \vs LHC luminosity for hits that occur during LHC bunch gaps and during \pp collisions.]{Plot of ME2/1 wire group ${N}^\text{CMS}_\text{hits}/{t}$ \vs LHC luminosity for hits that occur (\posstyle{top}) during LHC bunch gaps and (\posstyle{bottom}) during \pp collisions, with a one-parameter linear fit.}
 	\label{fig:ME21_HvsL}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/occupancy_21_wire_total_CHAM_TIME_20180416.pdf}
-	\caption{Plot of anode wire group ${N}^\text{CMS}_\text{hits}(d)/{t}$ that occur during \pp collisions in ME2/1. HV segment 1 is wire group numbers 1--45, HV segment 2 is wire group numbers 46--81, and HV segment 3 is wire group numbers 82--112.}
+  \caption[Plot of anode wire group ${N}^\text{CMS}_\text{hits}(d)/{t}$ that occur during \pp collisions in ME2/1.]{Plot of anode wire group ${N}^\text{CMS}_\text{hits}(d)/{t}$ that occur during \pp collisions in ME2/1. HV segment 1 is wire group numbers 1--45, HV segment 2 is wire group numbers 46--81, and HV segment 3 is wire group numbers 82--112.}
 	\label{fig:ME21_inTrain_occ}
 \end{figure}
 
@@ -884,7 +885,7 @@ These hit rates are also reported in \Tab~\ref{tab:21_hit_frac}.
 
 \begin{table}
 	\centering
-	\topcaption{Values of wire group hit fraction and hit rate in each ME2/1 HV segment}
+	\topcaption{Values of wire group hit fraction and hit rate in each ME2/1 HV segment.}
 	\label{tab:21_hit_frac}
 	\begin{tabular}{c|cc}
 				& $f_{\text{ME2/1-}s}$    & $H_{\text{WG-ME2/1-}s}$ [hits/s]\\ \hline
@@ -895,18 +896,18 @@ These hit rates are also reported in \Tab~\ref{tab:21_hit_frac}.
 	\end{tabular}
 \end{table}
 
-The next step we take is to convert the luminosity values of all points in \FigDot~\ref{fig:ME21_curr_lumi_p214_5} to equivalent \unit{hits/s}. To do this, we multiply the luminosity value of each point, denoted $\mathcal{L}$, by the \unit{hits/s} at \reflumi, $H_{\text{WG-ME2/1-}s}$, in each HV segment.
+The next step we take is to convert the luminosity values of all points in \FigDot~\ref{fig:ME21_curr_lumi_p214_5} to equivalent \unit{hits/s}. To do this, we multiply the luminosity value of each point, denoted $\pazocal{L}$, by the \unit{hits/s} at \reflumi, $H_{\text{WG-ME2/1-}s}$, in each HV segment.
 
 \begin{equation}
 	\label{eqn:lumi_to_hitrate}
-	\text{hits/s} = \mathcal{L} \times H_{\text{WG-ME2/1-}s}
+	\text{hits/s} = \pazocal{L} \times H_{\text{WG-ME2/1-}s}
 \end{equation}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME21_P_04_5_f5394_curr_hitrate.pdf}
 	\includegraphics[width=\twoThirdsFigWidth]{figures/neutron/ME21_P_04_6_f5394_curr_hitrate.pdf}
-	\caption{Plot of HV current \vs\unit{hits/s} for a ME2/1 layer (\posstyle{top}) with smooth transitions in current and\unit{hits/s} between HV segments and (\posstyle{bottom}) Plot of HV current \vs\unit{hits/s} for a ME2/1 layer with a jump in HV current and\unit{hits/s} between HV segments 1 and 2. Segment 1 is in blue, segment 2 is in green, and segment 3 is in red.}
+  \caption[Plot of HV current \vs\unit{hits/s} for an ME2/1 layer with smooth transitions in current and a jump in HV current.]{Plot of HV current \vs\unit{hits/s} for an ME2/1 layer (\posstyle{top}) with smooth transitions in current and\unit{hits/s} between HV segments and (\posstyle{bottom}) Plot of HV current \vs\unit{hits/s} for an ME2/1 layer with a jump in HV current and\unit{hits/s} between HV segments 1 and 2. Segment 1 is in blue, segment 2 is in green, and segment 3 is in red.}
 	\label{fig:ME21_IvsH}
 \end{figure}
 
@@ -932,7 +933,7 @@ To obtain a\unit{charge/hit} value in each fill and HV segment, we use the mean 
 	\includegraphics[width=\halfFigWidth]{figures/neutron/g_S1_C110.pdf}
 	\includegraphics[width=\halfFigWidth]{figures/neutron/g_S2_C110.pdf}\hspace*{-1em}
 	\includegraphics[width=\halfFigWidth]{figures/neutron/g_S3_C110.pdf}
-	\caption{Plot of anode HV current \vs\unit{hits/s} at GIF++ for (\posstyle{top left}) ME1/1 and ME2/1 HV segment (\posstyle{top right}) 1, (\posstyle{bottom left}) 2, and (\posstyle{bottom right}) 3.}
+  \caption[Plot of anode HV current \vs\unit{hits/s} at GIF++ for ME1/1 and ME2/1 HV segments.]{Plot of anode HV current \vs\unit{hits/s} at GIF++ for (\posstyle{top left}) ME1/1 and ME2/1 HV segment (\posstyle{top right}) 1, (\posstyle{bottom left}) 2, and (\posstyle{bottom right}) 3.}
 	\label{fig:GIF_IvsH}
 \end{figure}
 
@@ -943,7 +944,7 @@ At GIF++, the\unit{charge/hit} for background hits is obtained by measuring the 
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/CPH_ME11.pdf}
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/CPH_ME21.pdf}
-	\caption{In simulation of CMS data, histogram of the avalanche charge per simulated wire hit for (\posstyle{top}) ME1/1 and (\posstyle{bottom}) non-ME1/1 chambers}
+  \caption[Histogram of the avalanche charge per simulated wire hit for for ME1/1 and non-ME1/1 champers in CMS simulation.]{In simulation of CMS data, histogram of the avalanche charge per simulated wire hit for (\posstyle{top}) ME1/1 and (\posstyle{bottom}) non-ME1/1 chambers}
 	\label{fig:cph_MC}
 \end{figure}
 
@@ -953,7 +954,7 @@ In the HP neutron simulation as described above, each simulated wire hit can be 
 
 \begin{table}
 	\centering
-	\topcaption{Values of\unit{charge/hit} in ME1/1 and each HV segment of ME2/1 in units of\unit{fC/hit}. All non-ME1/1 chamber\unit{charge/hit} were observed to be similar. Therefore, the\unit{charge/hit} was measured by averaging all non-ME1/1 chambers; the * in the ME2/1 MC\unit{charge/hit} measurements indicates this.}
+  \topcaption[Values of\unit{charge/hit} in ME1/1 and each HV segment of ME2/1 in units of\unit{fC/hit}.]{Values of\unit{charge/hit} in ME1/1 and each HV segment of ME2/1 in units of\unit{fC/hit}. All non-ME1/1 chamber\unit{charge/hit} were observed to be similar. Therefore, the\unit{charge/hit} was measured by averaging all non-ME1/1 chambers; the * in the ME2/1 MC\unit{charge/hit} measurements indicates this.}
 	\label{tab:charge_per_hit}
 	\begin{tabular}{c|ccc}
 	{[}fC/hit{]}                 & CMS                      & GIF++                    & MC                   \\ \hline
