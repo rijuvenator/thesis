@@ -1,9 +1,16 @@
 %%%%%
 \chapter{Neutron-Induced Background Hits in the CMS Endcap Muon System and Implications for the HL-LHC}
 \label{chap:neutron}
+\setcounter{secnumdepth}{-2}
 \section{Foreword}
+\vspace*{-0.5\baselineskip}
 The work presented here was presented at the 2017 European Physical Society Conference on High-Energy Physics (EPS-HEP) and the 2017 American Physical Society Meeting of the Division of Particles \& Fields (APS-DPF). The EPS-HEP poster can be found at Reference~\cite{Dasgupta:Poster}, the associated proceedings can be found at Reference~\cite{Dasgupta:Proceedings}, the APS-DPF parallel talk can be found at Reference~\cite{Schnaible:Talk}, and the public repository of approved plots can be found at Reference~\cite{NeutronTwiki}. The text and plots were written and produced together with Christian Schnaible and Bob Cousins and form the internal detector note CMS DN-2017/019.
 
+\section{Abstract}
+\vspace*{-0.5\baselineskip}
+Among the many challenges to be brought by the high luminosities of the HL-LHC is the impact of increased hit rates in the cathode strip chambers of the CMS endcap muon system. These chambers are used for all levels of trigger as well as offline reconstruction. Neutrons induce background hits via nuclear interactions and capture, followed by gamma emission and (mainly) Compton scatter off electrons that subsequently ionize the chamber gas. This note describes recent efforts to improve the understanding of such neutron-induced background through detailed comparison of CMS pp collision data, \GEANTfour simulation, and the response of CMS cathode strip chambers placed in the CERN high-intensity gamma irradiation facility, GIF++. Projections for the effect of such neutron-induced background hits on muon triggering and reconstruction at the HL-LHC are described.
+
+\setcounter{secnumdepth}{1}
 \section{Introduction}
 \label{sec:intro}
 The high-luminosity upgrade to the CERN LHC (HL-LHC) will bring not only increased access to discovering new physics but also increased background rates in CMS muon chambers \cite{Evans:2008zzb,Apollinari:2116337}. This note focuses on the study of neutron-induced background hits in CMS endcap cathode strip chambers (CSCs) due to their large active volume and forward placement in CMS \cite{CMS:1997dma,Chatrchyan:2009hb}. Neutrons induce hits in CSCs by producing photons, via either nuclear scattering or capture. These photons produce or scatter electrons, via Compton scattering, the photoelectric effect, or pair production; the ionization from these electrons can either corrupt hits from desirable tracks in the event, or add extra background hits. This note describes efforts to quantify and characterize the effects of this neutron-induced ionization through analysis of Monte Carlo (MC) simulation of neutron production and propagation in CMS, as well as of CMS proton-proton (\pp) collision data. The results are tied to analyses of muon test beam data at the CERN Gamma Irradiation Facility (GIF++), which allows us to study the effects of background radiation on CSC performance and project the effects of neutron-induced background to the conditions at the HL-LHC.
@@ -944,7 +951,7 @@ At GIF++, the\unit{charge/hit} for background hits is obtained by measuring the 
 	\centering
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/CPH_ME11.pdf}
 	\includegraphics[width=\dummyFigWidth]{figures/neutron/CPH_ME21.pdf}
-  \caption[Histogram of the avalanche charge per simulated wire hit for for ME1/1 and non-ME1/1 champers in CMS simulation.]{In simulation of CMS data, histogram of the avalanche charge per simulated wire hit for (\posstyle{top}) ME1/1 and (\posstyle{bottom}) non-ME1/1 chambers}
+  \caption[Histogram of the avalanche charge per simulated wire hit for for ME1/1 and non-ME1/1 chambers in CMS simulation.]{In simulation of CMS data, histogram of the avalanche charge per simulated wire hit for (\posstyle{top}) ME1/1 and (\posstyle{bottom}) non-ME1/1 chambers}
 	\label{fig:cph_MC}
 \end{figure}
 
