@@ -450,20 +450,29 @@ The track \normchisq cut ensures that the muons are reasonably well reconstructe
 The $N(\text{DT hits})$ cut discriminates signal events from background events.
 The timing cut is explained in \Sec~\ref{sec:dd:timing}.
 
+\pagebreak
 \subsubsection{In-Time with Triggering Bunch Crossing Requirement}
 \label{sec:dd:timing}
-Muons originating from out-of-time events occurring early or late with respect to events from the bunch crossing that fired the trigger may, in some rare cases, be reconstructed as originating in-time with the triggering bunch crossing.
-Such events leave no tracks in the tracker and thus are background events that have a high potential for passing the full selection.
-In order to suppress such events, DSA muons are required to be reconstructed as in-time with respect to the triggering bunch crossing.
+A potentially pernicious class of events that can mimic displaced dimuon decays arises from a combination of technical features in the trigger and readout electronics of the muon chambers and the silicon tracker.
+In a normal event with two muons, the timing of the trigger pulse from the two muons in the muon chambers is correctly aligned in time with the hit readout of the muon chambers and the tracker.
+It can happen, however, that jitter in the muon trigger electronics creates a \Lone trigger signal that is 25\unit{ns} earlier than normal.
+In the muon system readout, the muon hits are still recorded, but they have hit times that are 25\unit{ns} later than normal (since they are measured with respect to the \Lone trigger signal that is 25\unit{ns} too early).
+When there is an early \Lone trigger signal, in contrast, the tracker hits associated with the triggering muons are \emph{not} recorded; tracker hits from unrelated \pp collisions 25\unit{ns} earlier are recorded instead.
+The offline reconstruction code then finds the two triggering muons, but not the associated tracker tracks.
+This mimics the main feature of displaced muons: tracks in the muon system with no associated tracker tracks.
 
-The standard standalone (SA) muons in CMS have associated timing information, computed by extrapolating to the interaction point the times each constituent hit was formed with respect to the bunch crossing, under the hypothesis that the muon was produced in the detector and traveled outwards.
-This time is referred to as $t_\text{in-out}$, and is 0 for an event reconstructed perfectly in time with the triggering bunch crossing.
-Events from early or late bunch crossings often have $t_\text{in-out}$ close to multiples of 25\unit{ns}, the bunch crossing length.
+Fortunately, the recorded times of the hits in the muon system provide a means to recognize such (very rare) events.
+In practice, the time of the DSA muons is obtained from a precision timing algorithm that is implemented for standard standalone (SA) muons.
+This algorithm provides a time that is centered on zero for normal muons, with jitter of a few nanoseconds, computed by extrapolating to the interaction point the times each constituent hit was formed with respect to the bunch crossing, under the hypothesis that the muon was produced in the detector and traveled outwards.
+This time is referred to as $t_\text{in-out}$.
 
-The selection on DSA muons is defined as follows.
-DSA muons with a SA muon within a \deltaR cone of 0.2 are considered matched to the SA muon.
-Given such a SA muon, the absolute value of the associated time $|t_\text{in-out}|$ is required to be no more than 12\unit{ns}.
-This cut was found to be more than 99\% efficient in \twoMu signal.
+Matching DSA muons to SA muons is straightforward: DSA muons with an SA muon within a \deltaR cone of 0.2 are considered matched to the SA muon.
+The time associated with the SA muon can be used to distinguish between normal muons and the pathological cases where the times are centered on multiples of 25\unit{ns} (the time between bunch crossings).
+This requirement is implemented as the requirement $|t_\text{in-out}| < 12\unit{ns}$, and is more than 99\% efficient in \twoMu signal.
+
+\pagebreak
+This class of background was understood only after unblinding the signal region, and so this selection criterion was added with the knowledge that it would eliminate some events.
+However, we believe that this is a clear case that any bias due to adding this criterion is negligible, and that it would be foolish not to add this criterion, given our current understanding of this background.
 
 \subsection{Dimuon Formation from Common Vertex Fit}
 \label{sec:dd:DimVertex}
@@ -534,6 +543,7 @@ Choosing such a set of pairing criteria is particularly subtle in, for example, 
 The 4 muons can be nominally paired into 6 overlapping dimuons, which can be partitioned into three distinct sets of 2 dimuons with no shared muons; the criteria must choose between them.
 This situation is made more complex when, among other things,
 \begin{itemize}
+  \setlength\itemsep{.2\baselineskip}
   \item one or more muons are not reconstructed
   \item duplicate muons are reconstructed from partial sets of hits
   \item muons are not all reconstructed with the correct charge
@@ -542,6 +552,7 @@ This situation is made more complex when, among other things,
 \end{itemize}
 In developing this set of pairing criteria, several combinations of metrics were considered.
 \begin{itemize}
+  \setlength\itemsep{.2\baselineskip}
   \item Dimuon(s) formed from the highest \pT muons in the event
   \item Dimuon(s) with the least \vchisq in the event
   \item Dimuon(s) formed from muons with charges of opposite sign
@@ -658,6 +669,7 @@ Such events are background events and so the analysis imposes a set of selection
 
 Some of these events have no \pp collision vertices and contain only cosmic muons.
 Events are therefore required to contain at least one well-identified vertex with position $(x, y, z)$ satisfying the following requirements:
+\pagebreak
 \begin{itemize}
   \item At least 4 degrees of freedom when constructing the vertex
   \item $|z| < 24\mm$
@@ -730,7 +742,10 @@ When setting upper limits, the mass cut is further varied as a function of signa
 \section{Background Estimation}
 \label{sec:dd:bgest}
 As mentioned previously, due to MC simulation limitations, evaluating the expected background in the selection is performed using events in data.
-To avoid potential bias while optimizing the analysis, the events passing the full selection in data (the signal region) are blinded, and the background is estimated using the numbers of events in data in several control regions, which are selections (in the parameter space of the analysis quantities) of subsets of events that are expected to be free of signal events.
+To avoid potential bias while optimizing the analysis, the events passing the full selection in data (the signal region) were blinded until the last steps of the analysis, and the background was estimated using the numbers of events in data in several control regions, which are selections (in the parameter space of the analysis quantities) of subsets of events that are expected to be free of signal events.
+
+(As discussed in \Sec~\ref{sec:dd:timing}, after unblinding there was a change made to the selection, notably rejection of a clear class of background events with bad timing.
+We also realized that same-sign events could be put to better use in quantitative estimates of the opposite-sign background from QCD events, beyond the rough qualitative use that we had foreseen.)
 
 One type of control region is defined as an interval of the transverse collinearity angle, \DeltaPhi.
 As discussed in \Sec~\ref{sec:dd:keyvars}, the signal and background have different distributions in \DeltaPhi.
@@ -748,6 +763,7 @@ On the other hand, dimuons in some background events, such as misreconstructed D
 This expected symmetry of \DeltaPhi motivates the definition of the signal region as events with \DeltaPhi near 0, \ie $\DeltaPhi < \pi/4$ and a symmetric control region as events with \DeltaPhi near $\pi$, \ie $\DeltaPhi > 3\pi/4$.
 With a transfer factor (\TF) between the control region and the signal region of 1, the number of events in the control region is a nominal estimate of the expected (Drell-Yan) background in the signal region.
 
+\pagebreak
 To validate the background symmetry around $\pi/2$ (and better quantify the transfer factor), the analysis considers pairs of control regions that include the regions $\DeltaPhi < \pi/4$ or $\DeltaPhi > 3\pi/4$ but are formed by reversing other selections (discussed below).
 
 \subsection{Notation for Control Regions}
@@ -761,7 +777,7 @@ Two such ranges are used in this section.
 The first is one in which the PAT \LxySig is small, such as $\LxySig < 1$.
 This region is designed to study Drell-Yan background, and corresponds to DSA dimuons whose PAT muon counterparts are consistent with being produced promptly (and thus are not signal), but which may be reconstructed as highly displaced due to reconstruction mistakes or vertex fit anomalies.
 In order to minimize contamination from QCD events, each constituent muon is required to be isolated.
-The relative isolation of a muon track is defined as the sum of the \pT of tracks in a \DeltaR cone around the muon divided by the muon \pT.
+The relative isolation of a muon track is defined as the scalar sum of the \pT of tracks in a \DeltaR cone around the muon divided by the muon \pT.
 For this first range, the relative isolation of each constituent PAT muon is required to be at most 0.05.
 
 The second is one in which the PAT \LxySig is large, such as \mbox{$60 < \LxySig < 115$}.
@@ -797,7 +813,7 @@ The right plot is only for $\LxySig > 6$; that is, it only contains \CR{D}{>6}{}
 Without any \LxySig cut, the distribution is somewhat symmetric, with some excess of events at $\pi$ compared to 0.
 With the \LxySig cut, events at 0, $\pi/2$, and $\pi$ are suppressed less than other events, although the distributions are still fairly symmetric.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_NOPAT_deltaPhi_Lin.pdf}
   \hspace*{-2em}
@@ -818,7 +834,7 @@ In other words, large values of \Lxy only pass the trigger when the muons suffic
 
 (As a thought experiment, consider muons moving in the detector with no magnetic field. Then $d_0 = \Lxy \sin{\DeltaPhi}$.
 If the trigger efficiency sharply vanished at some fixed value $d_0 \geq D$, then only events with $\Lxy \leq D \csc{\DeltaPhi}$ would pass the trigger.
-Cosecant is a function that takes large values around $\DeltaPhi = 0$ and $\DeltaPhi = \pi$, and small values at $\DeltaPhi = \pi/2$.
+Cosecant takes large values around $\DeltaPhi = 0$ and $\DeltaPhi = \pi$, and small values at $\DeltaPhi = \pi/2$.
 The diagram in the top row of \Fig~\ref{fig:dd:BGEST_WavyExplanationDiagram} illustrates this first effect in the context of this thought experiment.)
 
 The second effect is a result of geometric effects on the uncertainty of the position of the fitted vertex.
@@ -839,7 +855,7 @@ The resulting shape of the \DeltaPhi distribution appears to be geometric in ori
 \Fig~\ref{fig:dd:SeqLxySig} shows the $\DeltaPhi$ distributions as in the right plot of \Fig~\ref{fig:dd:BGDeltaPhi_NoPAT}, each scaled to unit area, for data and for Drell-Yan simulation, for sequentially increasing cuts on \LxySig (\ie \CR{D}{>x}{} for all \DeltaPhi and $x$ variable).
 The Drell-Yan plot indicates that the shape is well-reproduced by simulation.
 
-\begin{figure}[htbp]
+\begin{figure}[t]
   \centering
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_EffectOfLxySigCut_DeltaPhi_Data_DY-Like.pdf}
   \hspace*{-2em}
@@ -897,6 +913,7 @@ Unlike the \mbox{Drell-Yan}-like events in the data plot of \Fig~\ref{fig:dd:Seq
   \label{fig:dd:SeqLxySig_QCD_DeltaPhi}
 \end{figure}
 
+\pagebreak
 To show that calling these two sets of events \mbox{Drell-Yan}-like and QCD-like is justified, \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR} shows histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data, as in \Fig~\ref{fig:dd:SeqLxySig}, for the events in the control region (\ie \CR{D}{>x}{0} for variable $x$) used to estimate the Drell-Yan background in \Sec~\ref{sec:dd:bgest-DY}.
 As the cut increases, the contribution of the \PZ\ mass peak decreases, and the contribution of QCD events at lower mass increases slightly.
 Moreoever, the \deltaR distribution is highly \mbox{Drell-Yan}-like, with a strong peak at $\pi$ whose contribution also decreases with increasing \LxySig cut values, with some enhancement of low \deltaR QCD background.
@@ -959,8 +976,6 @@ As with the Drell-Yan transfer factor, there is a large systematic uncertainty o
 Other ratios in \Tab~\ref{tab:dd:controlregions} do not give an appropriate transfer factor but rather serve to illuminate features of the QCD background.
 The ratio of \CR[OS]{Q}{<6}{0} to \CR[SS]{Q}{<6}{0} is 1.6, much closer to 1; this clarifies that there is proportionally more opposite-sign QCD background for large values of \LxySig, and so a large \LxySig region needed to be used to quantify it.
 The ratio of \CR[SS]{\Full}{<6}{0} to \CR[OS]{\Full}{<6}{0} is quite small, showing that the same-sign background is not an important contributor to the regions with small \LxySig, and so the same-sign events in this region could not have been used to extrapolate an estimate in the signal region.
-
-In total, the estimated background in the signal region consists of 0 Drell-Yan events and 11.2 QCD events.
 
 \section{Cut Optimization}
 This section describes a few procedures applied to fine-tune the event and object selection to optimize the analysis for the statistical signficance of a potential signal discovery.
@@ -1127,6 +1142,7 @@ This analysis produces an estimated number of signal events, given a signal mode
 However, there are uncertainties associated with these estimates arising from a variety of sources; these uncertainties are known as systematic uncertainties, though most are ultimately statistical in origin.
 There are three main classes of systematic uncertainties in this analysis: the uncertainty on the measurement of the integrated luminosity, uncertainties associated with the signal estimate, and uncertainties associated with the background estimate.
 
+\pagebreak
 \subsection{Luminosity Uncertainty}
 The uncertainty on the integrated luminosity for the 2016 data taking period is 2.5\% \cite{CMS-PAS-LUM-17-001}.
 This uncertainty directly applies to the signal estimate, as the number of signal events is estimated from Monte Carlo simulation and normalized to compare to the integrated luminosity in data.
@@ -1135,12 +1151,12 @@ However, as the expected background is estimated from data, and not from Monte C
 \subsection{Background Uncertainties}
 \label{sec:dd:bgunc}
 The values of the transfer factors obtained in \Sec~\ref{sec:dd:bgest} were computed with somewhat arbitrary choices for cut reversals and with assumptions that the values obtained from various control regions were relevant for estimating the background in the signal region.
-The associated uncertainties are expected to be the largest systematic uncertainties in the background estimation (after uncertainties that are statistical in origin).
+The associated uncertainties are expected to be the largest systematic uncertainties in the background estimation (though still smaller than uncertainties that are statistical in origin).
 
-The value of the Drell-Yan background transfer factor was found to vary only within 2--7\% with changes to the value of relative isolation satisfied by the PAT muons, to the \LxySig values satisfied by the matched PAT dimuons, or across the mass windows containing the \PZ\ mass peak enumerated in \Tab~\ref{tab:dd:masswindow}.
-It is therefore reasonable to assign a systematic uncertainty of 10\% to the Drell-Yan transfer factor $\tau_\text{DY}$.
+The value of the Drell-Yan background transfer factor varies within 2-7\% as reasonable variations are made in the value of relative isolation satisfied by the PAT muons, in the \LxySig values satisfied by the matched PAT dimuons, or across the mass windows containing the \PZ\ mass peak enumerated in \Tab~\ref{tab:dd:masswindow}.
+As the final results of the analysis are robust with respect to the assigned uncertainty, it is reasonable to assign a slightly larger number, a systematic uncertainty of 10\%, to the Drell-Yan transfer factor $\TF_\text{DY}$.
 
-The value of the QCD background transfer factor is dominated by statistical uncertainties arising from the small numbers of events used to estimate them.
+The value of the QCD background transfer factor is dominated by statistical uncertainties arising from the small numbers of events used to estimate it.
 Changes to the value of the relative isolation satisfied by the PAT muons and to the the \LxySig values satisfied by the matched PAT dimuons have a small effect in comparison.
 Moreover, the value is found to depend on the mass windows, with larger values close to 10\GeV.
 The values of the QCD transfer factors are therefore given for each mass window, with the systematic uncertainty defined to be the statistical uncertainty obtained by error propagation of the ratio of two Poisson counts used to estimate each factor.
@@ -1172,7 +1188,6 @@ These plots are given in \Fig~\ref{fig:dd:TFLess}.
   \item The binwise ratio of the \CR[SS]{Q}{<6}{0} and \CR[OS]{Q}{<6}{0} histograms gives a weight factor for each \LxySig bin; binwise scaling the 4 events in \CR[SS]{\Full}{<6}{0} by these weights and adding them to the modified \CR{\Full}{<6}{\pi} histogram in the top right plot gives the bottom left plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labelled CR w/ DY+QCD and colored violet, to represent a correction by both the Drell-Yan transfer factor and the QCD transfer factor.
   \item All four histograms are plotted together in the bottom right plot of \Fig~\ref{fig:dd:TFLess} for comparison.
 \end{itemize}
-With the exception of a fluctuation in the last bin with a large uncertainty, the corrected CR w/ DY+QCD histogram (violet) is within error bars of the SR histogram, verifying that the use of the transfer factors to obtain estimates of background events in the signal region is internally consistent.
 
 \begin{figure}[htbp]
   \centering
@@ -1185,6 +1200,9 @@ With the exception of a fluctuation in the last bin with a large uncertainty, th
   \caption{Histograms of \CR{\Full}{<6}{0} and \CR{\Full}{<6}{\pi} in data, with the latter binwise scaled by Drell-Yan and QCD transfer factors, demonstrating agreement and internal consistency of obtaining background estimates in the signal region with transfer factors from control regions.}
   \label{fig:dd:TFLess}
 \end{figure}
+\clearpage
+
+With the exception of a presumed fluctuation in the last bin with a large uncertainty, the corrected CR w/ DY+QCD histogram (violet) is within error bars of the SR histogram, verifying that the use of the transfer factors to obtain estimates of background events in the signal region is internally consistent.
 
 \subsection{Signal Uncertainties}
 \subsubsection{Signal Lifetime Reweighting}
@@ -1238,7 +1256,7 @@ The relative uncertainty on $\varepsilon$ can then be defined as the ratio
 For the signal samples (nominally, without lifetime reweighting) for which the analysis selection gives non-negligible efficiency (which are the medium and long lifetime samples), the relative uncertainty (which is due to statistical uncertainty only) is 2--5\%.
 The uncertainty due to lifetime reweighting increases when reweighting the short and medium lifetime samples to much smaller lifetimes (for which the analysis selection gives negligible efficiency) and when reweighting the short and medium lifetime samples to longer lifetimes (because there are not enough events at intermediate lifetimes to sufficiently estimate the efficiency, and what events there are have large weights).
 For the purposes of calculating upper limits, the relative uncertainty (\Eq~\ref{eq:dd:signaleffunc}) is computed for each (reweighted and nominal) signal sample and taken as a systematic uncertainty on the estimated number of signal events.
-Any reweighted signal estimates with relative uncertainty greater than 50\% are omitted from the calculations.
+Any signal estimates with relative uncertainty greater than 50\% are omitted from the calculations.
 
 \subsubsection{Pileup Reweighting}
 \label{sec:dd:pileup}
@@ -1395,14 +1413,15 @@ Therefore
   \label{eq:dd:sigmaB}
 \end{equation}
 
-\subsection{Events in Unblinded Signal Region}
+\subsection{Events Passing the Full Selection Criteria}
 \label{sec:dd:eventdisplays}
 8 opposite-sign events and 4 same-sign events pass the full selection in 2016 data.
 \Tab~\ref{tab:dd:signalregionevents} enumerates these events, with their identifying run, lumi section, and event numbers, and their values of \mMuMu, \DeltaPhi, and \LxySig.
 The table also contains references to the event displays for the opposite-sign events in \Figs~\ref{fig:dd:event-944}--\ref{fig:dd:event-501}.
 As in \Fig~\ref{fig:dd:shower}, views are presented in both the transverse plane ($\rho$-$\phi$) and the orthogonal $\rho$-$z$ plane.
 DSA muon tracks are drawn in yellow (associated segments drawn as yellow dots); PAT muons are drawn in red; jets are drawn in cyan; tracks in the tracker are drawn in gray; missing transverse energy is drawn in purple.
-All events resemble background events, and therefore no excess is observed.
+Detailed inspection of the individual events passing all cuts gives no indication that the events are not individually compatible with known backgrounds.
+As the numbers of events passing all cuts are compatible with expectations based on the background estimates and the transfer factors, we conclude that no excess is observed.
 
 \begin{table}
   \centering
@@ -1503,7 +1522,9 @@ All events resemble background events, and therefore no excess is observed.
 \label{sec:dd:limits}
 \Tab~\ref{tab:dd:exp_obs} enumerates the number of opposite-sign events in the control region \CR[OS]{\Full}{>6}{\pi}, the number of same-sign events in the control region \CR[SS]{\Full}{>6}{0}, the corresponding number of expected background events in the signal region, and the number observed events in the signal region, for each mass window in \Tab~\ref{tab:dd:masswindow}, given the events enumerated in \Tab~\ref{tab:dd:signalregionevents}.
 Given these observations, the systematic uncertainties described in \Sec~\ref{sec:dd:systunc}, and the procedure described in \Secs~\ref{sec:dd:cls}--\ref{sec:dd:combine}, upper limits on the signal strength for each mass hypothesis are computed and converted to limits on the cross section times the branching ratio.
-\Figs~\ref{fig:dd:UpperLimits_mH_1000}--\ref{fig:dd:UpperLimits_mH_125} are plots of the upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for various values of BSM Higgs mass \mH and long-lived particle mass \mX as a function of long-lived particle lifetime \cTau, along with median expected limits and 68\% quantiles around the median.
+\Figs~\ref{fig:dd:UpperLimits_mH_1000}--\ref{fig:dd:UpperLimits_mH_125} are plots of the upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for various values of BSM Higgs mass \mH and long-lived particle mass \mX as a function of long-lived particle lifetime \cTau.
+In the figure for each limit curve, there is also shown the median upper limit that would be obtained in an imagined ensemble of similar experiments having only background events.
+The spread of upper limits about the median in such an ensemble of background-only experiments is indicated by yellow bands containing the central 68\% quantile.
 
 \begin{table}
   \centering
@@ -1530,7 +1551,7 @@ Given these observations, the systematic uncertainties described in \Sec~\ref{se
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_1000_50_HybridNew.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_1000_20_HybridNew.pdf} \\
-  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 1000\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 1000\GeV$ for various values of \mX. Black dots are observed limits; the dashed blue line represents the median expected limits; the yellow shaded bands show the 68\% quantile around the median.}
+  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 1000\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 1000\GeV$ for various values of \mX. Black dots are observed limits; the blue line represents the median expected limits; the yellow shaded bands show the central 68\% quantile.}
   \label{fig:dd:UpperLimits_mH_1000}
 \end{figure}
 
@@ -1540,7 +1561,7 @@ Given these observations, the systematic uncertainties described in \Sec~\ref{se
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_400_50_HybridNew.pdf} \\
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_400_20_HybridNew.pdf}
-  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 400\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 400\GeV$ for various values of \mX. Black dots are observed limits; the dashed blue line represents the median expected limits; the yellow shaded bands show the 68\% quantile around the median.}
+  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 400\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 400\GeV$ for various values of \mX. Black dots are observed limits; the blue line represents the median expected limits; the yellow shaded bands show the central 68\% quantile.}
   \label{fig:dd:UpperLimits_mH_400}
 \end{figure}
 
@@ -1549,7 +1570,7 @@ Given these observations, the systematic uncertainties described in \Sec~\ref{se
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_200_50_HybridNew.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_200_20_HybridNew.pdf}
-  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 200\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 200\GeV$ for various values of \mX. Black dots are observed limits; the dashed blue line represents the median expected limits; the yellow shaded bands show the 68\% quantile around the median.}
+  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 200\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 200\GeV$ for various values of \mX. Black dots are observed limits; the blue line represents the median expected limits; the yellow shaded bands show the central 68\% quantile.}
   \label{fig:dd:UpperLimits_mH_200}
 \end{figure}
 
@@ -1558,14 +1579,14 @@ Given these observations, the systematic uncertainties described in \Sec~\ref{se
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_125_50_HybridNew.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_125_20_HybridNew.pdf}
-  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 125\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 125\GeV$ for various values of \mX. Black dots are observed limits; the dashed blue line represents the median expected limits; the yellow shaded bands show the 68\% quantile around the median.}
+  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 125\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 125\GeV$ for various values of \mX. Black dots are observed limits; the blue line represents the median expected limits; the yellow shaded bands show the central 68\% quantile.}
   \label{fig:dd:UpperLimits_mH_125}
 \end{figure}
 
 \subsection{Robustness of Upper Limits to Systematic Uncertainties}
 \label{sec:dd:robustness}
 The computation and values of the upper limits on the signal strength are expected to be robust with respect to the values of the systematic uncertainties, dominated instead by uncertainties that are statistical in origin.
-This is verified with a brief study using a single point and testing the effect of varying the inputs in three different ways.
+This is verified with a study using a single point and testing the effect of varying the inputs in three different ways.
 \begin{itemize}
   \item \textbf{Test \#1}. Fixing the signal systematic uncertainty at 20\% and varying the uncertainty on the background transfer factor uncertainties from 5\% to 40\% in steps of 5\% worsens the upper limit (increases its value) by 5\%.
   \item \textbf{Test \#2}. Fixing the background transfer factor uncertainty at 20\% and changing the signal systematic uncertainty from 20\% to 5\% improves the upper limit (decreases its value) by 5\%.
