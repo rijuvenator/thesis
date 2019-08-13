@@ -84,7 +84,7 @@ Two versions of \GEANTfour neutron interaction packages are compared:
 
 \begin{itemize}
 	\item HP: ``High Precision'' package that parametrizes existing experimental nuclear data for neutron interaction cross sections, and
-	\item XS: intended for CPU time optimization, derived from HP by approximating detailed parameterizations in HP with averages.
+	\item XS: intended for CPU time optimization, derived from HP by approximating detailed parametrizations in HP with averages.
 \end{itemize}
 
 \subsection{Results from MC Simulation}
@@ -787,7 +787,7 @@ This particular event display illustrates a way that a photon-induced hit may ca
 
 As discussed in \Sec~\ref{sec:GIF}, the GIF++ facility allows us to study the performance of CSC online and offline reconstruction under conditions that potentially correspond to the radiation environment expected at the HL-LHC. To investigate the correspondence between GIF++ source intensity and LHC instantaneous luminosity, we examine the CSC anode HV current as measured by an ammeter in the CSC HV power supply (HVPS) of both CSCs at GIF++ and for similar chamber types at CMS.
 
-eifferences in radiation environments produced from the GIF++ source and from LHC \pp collisions necessitate understanding the validity of using anode HV current for the correspondence between GIF++ and CMS. As noted in \Sec~\ref{sec:GIF} above, GIF++ photons are emitted with a maximum energy of 662\keV by the \chem{137}{Cs} source, and the resulting ionizing electrons are primarily from Compton scattering and the photoelectric effect. In contrast, photons originating from the neutron background in CMS can carry up to several \MeVns in energy and thus, in addition to more energetic electrons from Compton scattering and the photoelectric effect, ionizing electrons and positrons can arise from pair production. Because of these differences and to explore any others, we measure the\unit{charge/hit} of background hits that are expected to be the dominant source of charge in the anode HV current by measuring the ratio of the anode HV current to the anode wire group\unit{hits/s} in both CMS data and GIF++ data. 
+Differences in radiation environments produced from the GIF++ source and from LHC \pp collisions necessitate understanding the validity of using anode HV current for the correspondence between GIF++ and CMS. As noted in \Sec~\ref{sec:GIF} above, GIF++ photons are emitted with a maximum energy of 662\keV by the \chem{137}{Cs} source, and the resulting ionizing electrons are primarily from Compton scattering and the photoelectric effect. In contrast, photons originating from the neutron background in CMS can carry up to several \MeVns in energy and thus, in addition to more energetic electrons from Compton scattering and the photoelectric effect, ionizing electrons and positrons can arise from pair production. Because of these differences and to explore any others, we measure the\unit{charge/hit} of background hits that are expected to be the dominant source of charge in the anode HV current by measuring the ratio of the anode HV current to the anode wire group\unit{hits/s} in both CMS data and GIF++ data.
 
 \subsection{Computation of charge/hit from CMS data}
 
@@ -984,7 +984,7 @@ To summarize the results:
 	\item ME2/1 MC\unit{charge/hit} is roughly 2--2.5 lower than ME2/1\unit{charge/hit} at CMS
 \end{itemize}
 
-These results are important for reconstruction studies, where the total\unit{hits/s} is the strongest indicator of trigger and software performance. This means that at equal\unit{hits/s} for CSCs at GIF++ and CMS (effects on muon reconstruction are roughly the same), the HV current will differ by the same amount as\unit{charge/hit}. So, when using HV current for correspondence between GIF++ source intensities and ME1/1, these results at face value imply that at an equal\unit{hits/s} the chamber at GIF++ will have a factor of 2.5 larger HV current than chambers in CMS. Similarly, for the ME2/1 chamber correspondence, the ME2/1 at GIF++ will have a 20--30\% larger HV current than the chambers in CMS assuming an equal\unit{hits/s} (depending on HV segment). However, further understanding of possible mis-calibration of HV current ADC to \muA conversion is necessary in the calculation of ME2/1\unit{charge/hit}. 
+These results are important for reconstruction studies, where the total\unit{hits/s} is the strongest indicator of trigger and software performance. This means that at equal\unit{hits/s} for CSCs at GIF++ and CMS (effects on muon reconstruction are roughly the same), the HV current will differ by the same amount as\unit{charge/hit}. So, when using HV current for correspondence between GIF++ source intensities and ME1/1, these results at face value imply that at an equal\unit{hits/s} the chamber at GIF++ will have a factor of 2.5 larger HV current than chambers in CMS. Similarly, for the ME2/1 chamber correspondence, the ME2/1 at GIF++ will have a 20--30\% larger HV current than the chambers in CMS assuming an equal\unit{hits/s} (depending on HV segment). However, further understanding of possible miscalibration of HV current ADC to \muA conversion is necessary in the calculation of ME2/1\unit{charge/hit}.
 
 \section{Acknowledgments}
 \label{sec:acknowledgments}

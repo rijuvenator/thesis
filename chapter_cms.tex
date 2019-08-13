@@ -60,7 +60,7 @@ This divides a bunch place into ten RF buckets, which are individual regions of 
 When coasting (at collision energy), a (hypothetical) particle with energy such that the RF frequency is exactly an integer multiple of the orbit frequency, synchronized such that the particle passes through the RF cavity at exactly a time of zero voltage within the RF waveform is called a synchronous particle.
 Particles with higher or lower energy or arriving early or late with respect to the synchronous particle will experience a non-zero voltage and therefore experience a restoring force.
 These particles oscillate longitudinally around the synchronous particle.
-The size of an RF bucket is given as an area in energy-time phase space, defined with respect to a synchronous particle: it is parameterized by the maximum energy deviation of a particle within the bunch from that of the synchronous particle (in \unit{eV}) and the maximum deviation in arrival time of a particle within the bunch from that of the synchronous particle (in seconds).
+The size of an RF bucket is given as an area in energy-time phase space, defined with respect to a synchronous particle: it is parametrized by the maximum energy deviation of a particle within the bunch from that of the synchronous particle (in \unit{eV}) and the maximum deviation in arrival time of a particle within the bunch from that of the synchronous particle (in seconds).
 A proton bunch occupies a single RF bucket and is depicted by an ellipse within the bucket in energy-time phase space, representing the trajectory of particles within the bunch.
 An LHC proton bunch has a 4$\sigma$ bunch length of 1.06\unit{ns} at collision energy.
 \Fig~\ref{cms:rfbucket} depicts an RF bucket, football-shaped in energy-time phase space, as well as the ellipse contained within it that represents the proton bunch. The area of the bunch in this diagram is called the longitudinal emittance, with units of $\text{eV}\cdot\text{s}$.
@@ -74,13 +74,13 @@ An LHC proton bunch has a 4$\sigma$ bunch length of 1.06\unit{ns} at collision e
 
 Beams of particles in the LHC are steered by a network of 1232 superconducting dipole magnets, interspersed with quadrupole magnets for focusing.
 The superconducting wire windings in these magnets are made of niobium-titanium, cooled by liquid helium to their operating temperature of 1.9\unit{K}, and producing a magnetic field of 8.33\unit{T}.
-\Fig~\ref{cms:dipole} is a diagram of the cross section of an LHC dipole magnet as well as a visualization of the magnetic field lines within the beampipe.
+\Fig~\ref{cms:dipole} is a diagram of the cross section of an LHC dipole magnet as well as a visualization of the magnetic field lines within the beam pipe.
 
 \begin{figure}[p]
   \centering
   \includegraphics[width=0.55\textwidth]{figures/cms/DipoleCrossSection.jpeg}
   \includegraphics[width=0.35\textwidth]{figures/cms/FieldLines.jpg}
-  \caption[Diagram of cross section of an LHC steering dipole magnet and depiction of the magnetic field lines in the magnets.]{(left) Diagram of cross section of an LHC steering dipole magnet, reproduced from Reference~\cite{Team:40524}, showing the two beampipes and the windings. (right) Depiction of the magnetic field lines in the magnets, reproduced from Reference~\cite{Jean-Luc:841503}, showing them to point in the vertical direction within the beampipe, as is required to circulate particles along the surface of the earth.}
+  \caption[Diagram of cross section of an LHC steering dipole magnet and depiction of the magnetic field lines in the magnets.]{(left) Diagram of cross section of an LHC steering dipole magnet, reproduced from Reference~\cite{Team:40524}, showing the two beam pipes and the windings. (right) Depiction of the magnetic field lines in the magnets, reproduced from Reference~\cite{Jean-Luc:841503}, showing them to point in the vertical direction within the beam pipe, as is required to circulate particles along the surface of the earth.}
   \label{cms:dipole}
 \end{figure}
 
@@ -145,7 +145,7 @@ This thesis presents two analyses using data taken by the CMS experiment in 2016
 \section{The CMS Detector}
 \subsection{Introduction}
 \label{cms:intro}
-CMS is located at Point~5 of the LHC in the commune of Cessy in eastern France, at the level of the LHC beamline, 100\unit{m} underground.
+CMS is located at Point~5 of the LHC in the commune of Cessy in eastern France, at the level of the LHC beam line, 100\unit{m} underground.
 Its overall shape is a cylinder 15\unit{m} in diameter and 21.6\unit{m} in length, weighing 14,000 tons.
 It is named for three of its distinguishing features: its \textbf{c}ompactness, its \textbf{m}uon system, and its \textbf{s}olenoid magnet.
 A large magnetic field with high bending power is required to precisely measure the momentum of high-energy charged particles.
@@ -215,7 +215,7 @@ The pseudorapidity has the advantage that it converges to rapidity (along the $z
 \end{figure}
 
 The diagram illustrates that $\eta = 0$ points upwards, while $\eta \to \infty$ points along the $z$-axis.
-For this reason the ``forward'' regions close to the beamline (which are also less instrumented) are referred to as ``high $\eta$.''
+For this reason the ``forward'' regions close to the beam line (which are also less instrumented) are referred to as ``high $\eta$.''
 The diagram also illustrates two distinct loci within the CMS detector: the barrel, which covers approximately (depending on subsystem) the region $|\eta| < 1.2$, and the endcap, which covers approximately (depending on subsystem) the region $1.2 < |\eta| < 3$.
 
 \subsection{Silicon Tracker}
@@ -240,7 +240,7 @@ The corresponding photons are then measured by photodetectors installed on each 
 
 \subsection{Hadronic Calorimeter}
 The hadronic calorimeter (HCAL) is a sampling calorimeter: it consists of repeating, alternating layers of an absorber, which degrades the energy of an incident particle, and an active medium, which provides a detectable signal.
-This is in contrast to a homogenous calorimeter, like the ECAL, in which a single type of material performs both functions.
+This is in contrast to a homogeneous calorimeter, like the ECAL, in which a single type of material performs both functions.
 
 The HCAL consists of four parts: the barrel and endcap HCAL (HB and HE), the outer HCAL (HO), and the forward HCAL (HF).
 In the HB and HE, the absorber material consists of thick tiles of brass, and the active medium consists of thinner tiles of scintillating plastic with wavelength-shifting readout fibers.
@@ -262,7 +262,7 @@ As an introduction to issues related to muon \pT measurement, consider a charged
   R = \frac{\pT}{|q|B}
   \label{cms:radius}
 \end{equation}
-The radius of curvature of a charged particle in a magnetic field is thus proportional to its tranverse momentum.
+The radius of curvature of a charged particle in a magnetic field is thus proportional to its transverse momentum.
 However, what is measured directly is not the radius of curvature, but rather the positions of the hits, whose resolution functions are Gaussian.
 To illustrate an important consequence of this, consider \Fig~\ref{cms:sagitta}, which depicts the circular arc left by a charged particle in the tracker.
 Let $L$ be the length of the chord joining the outermost points, which is also the radius of the tracker.
@@ -312,8 +312,8 @@ Measuring the drift time (a maximum of 380\unit{ns}) yields a measurement of pos
 
 The smallest independent unit of a DT is a superlayer (SL), consisting of four layers of drift cells staggered by a half cell.
 A drift tube chamber consists of three (or two) SLs.
-The wires in the two outer SLs are parallel to the beamline, and provide a track measurement in the $r$-$\phi$ (bending) plane.
-The wires in the inner SL are orthogonal to the beamline, and measure the $z$-position along the beam.
+The wires in the two outer SLs are parallel to the beam line, and provide a track measurement in the $r$-$\phi$ (bending) plane.
+The wires in the inner SL are orthogonal to the beam line, and measure the $z$-position along the beam.
 This inner SL is not present in the fourth muon station, which consequently only measures the $\phi$ coordinate.
 
 \begin{figure}[tpb]

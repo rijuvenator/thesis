@@ -108,7 +108,7 @@ These MC background samples are useful for many studies, but have some important
 \begin{itemize}
   \item The Drell-Yan and QCD processes are the dominant sources of background events in \pp collisions and are simulated. However, the reconstruction mistakes producing this background may not be well modeled, and the simulation of QCD events is known to not accurately reproduce data.
   \item The Drell-Yan and QCD samples also have limited statistical power, as the number of generated events is fewer than the number of expected events in 2016 data.
-  \item The available MC simulation of cosmic muons does not include simulation of multiple cosmic muons from a simple atmospheric shower (showers of cosmic muons) or of cosmic muons mixed with \pp collisions.
+  \item The available MC simulation of cosmic muons does not include simulation of multiple cosmic muons from a single atmospheric shower (showers of cosmic muons) or of cosmic muons mixed with \pp collisions.
 \end{itemize}
 For these reasons, MC simulation of background does not provide a good description of the expected background, so optimization of the analysis as well as evaluation of the expected background is consequently performed using data.
 MC simulation of background is therefore primarily used to study general trends and to gain insights.
@@ -202,7 +202,7 @@ For a real pair of muons originating from a CV formed from the decay of a long-l
 On the other hand, in most types of background events, this quantity is expected to be symmetric around $\pi/2$.
 A small \DeltaPhi is therefore a strong indicator of consistency with the long-lived particle hypothesis.
 
-\Fig~\ref{fig:dd:keyvars} illlustrates these important quantities and their relationship to each other.
+\Fig~\ref{fig:dd:keyvars} illustrates these important quantities and their relationship to each other.
 
 \section{Muon Reconstruction}
 This analysis is a search for pairs of muons consistent with originating from a common vertex that is displaced with respect to the beam spot.
@@ -220,7 +220,7 @@ Standalone muons without this beam spot constraint are the starting point for ch
 
 The analyses performed using Run~1 data used refitted standalone muons (RSA muons) as their primary muon reconstruction \cite{CMS-PAS-EXO-14-012,CMS-AN-14-176}.
 Compared to ordinary standalone muons without the beam spot constraint, the RSA muon algorithm computes a final refit (an additional iteration in the standalone muon trajectory builder) excluding the beam spot.
-This reconstruction was intended to reduce the inherent bias towards the beam spot exhibited by the standard standlone muon reconstruction designed to study muons originating directly from the \pp collision.
+This reconstruction was intended to reduce the inherent bias towards the beam spot exhibited by the standard standalone muon reconstruction designed to study muons originating directly from the \pp collision.
 RSA muons thus have improved $d_0$ and \pT resolution compared to standalone muons.
 
 Another muon reconstruction algorithm is the displaced standalone muon (DSA muon) reconstruction.
@@ -326,7 +326,7 @@ Let \deltaR refer to the angular proximity in $\eta$-$\phi$ space between two th
 \end{equation}
 Then HLT-RECO matching requires that each of the pair of distinct DSA muons for trigger matching lie within cones of $\deltaR < 0.4$ around each muon among pairs of muons reconstructed at Level~2 passing the trigger (HLT muons).
 
-The \pT, $\eta$, and \deltaR requirements are all chosen to empirically optimize the tradeoff between efficiency and purity, matching as many events as possible while keeping the frequency of accidental matches to poor quality muons low.
+The \pT, $\eta$, and \deltaR requirements are all chosen to empirically optimize the trade-off between efficiency and purity, matching as many events as possible while keeping the frequency of accidental matches to poor quality muons low.
 The HLT-RECO matching procedure retains more than 98\% of \twoMu signal events that passed the trigger and have at least two DSA muons for trigger matching.
 
 The HLT-RECO matching requirement ensures, at the event level, that the trigger decision is confirmed using objects reconstructed offline.
@@ -576,7 +576,7 @@ The combinatorial space is far richer in events with four or more muons.
 For long-lived particles decaying outside the tracker leading to events with at least 4 muons, the criterion yielding the highest efficiency to select signal dimuons is to choose the pair of dimuons whose \vchisq sum is the smallest, among all distinct pairs of dimuons that can be formed from the 4 highest \pT muons in the event. 
 An alternative criterion to the least sum of \vchisq is the least difference in reconstructed dimuon mass.
 Due to the limited mass resolution of DSA muons, this criterion was found to be less efficient overall than the least sum of \vchisq, except in events with a generated transverse decay length of less than 30\unit{cm}, a region where this DSA muon-based analysis has low sensitivity.
-Applying the pairing critera to an event with any number of dimuons formed from any number of muons results in 2 or fewer selected dimuons for the event.
+Applying the pairing criteria to an event with any number of dimuons formed from any number of muons results in 2 or fewer selected dimuons for the event.
 The full technical details of this procedure are depicted in \Fig~\ref{fig:dd:pca}.
 
 \begin{figure}[htpb]
@@ -787,8 +787,8 @@ Less than 3\% of \twoMu signal events satisfy this non-isolation requirement, wh
 
 With any combination of these three reversals, a pair of subsets of these DSA dimuons may be formed satisfying $\DeltaPhi < \pi/4$ or $\DeltaPhi > 3\pi/4$, respectively.
 
-Some tedious notation is introduced to faciliate discussion of the various control regions.
-These regions are labelled CR with the following sublabels:
+Some tedious notation is introduced to facilitate discussion of the various control regions.
+These regions are labeled CR with the following sublabels:
 \begin{itemize}
   \item The superscript on the left side of CR is either 0, 1, 2, or $\pi$, corresponding respectively to the \DeltaPhi ranges $0 < \DeltaPhi < \pi/4$, $\pi/4 < \DeltaPhi < \pi/2$, $\pi/2 < \DeltaPhi < 3\pi/4$, and $3\pi/4 < \DeltaPhi < \pi$.
   \item The subscript on the left side of CR is either OS or SS, corresponding respectively to DSA dimuons consisting of muons with charges of \textbf{o}pposite \textbf{s}ign and muons with charges of the \textbf{s}ame \textbf{s}ign.
@@ -916,7 +916,7 @@ Unlike the \mbox{Drell-Yan}-like events in the data plot of \Fig~\ref{fig:dd:Seq
 \pagebreak
 To show that calling these two sets of events \mbox{Drell-Yan}-like and QCD-like is justified, \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR} shows histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data, as in \Fig~\ref{fig:dd:SeqLxySig}, for the events in the control region (\ie \CR{D}{>x}{0} for variable $x$) used to estimate the Drell-Yan background in \Sec~\ref{sec:dd:bgest-DY}.
 As the cut increases, the contribution of the \PZ\ mass peak decreases, and the contribution of QCD events at lower mass increases slightly.
-Moreoever, the \deltaR distribution is highly \mbox{Drell-Yan}-like, with a strong peak at $\pi$ whose contribution also decreases with increasing \LxySig cut values, with some enhancement of low \deltaR QCD background.
+Moreover, the \deltaR distribution is highly \mbox{Drell-Yan}-like, with a strong peak at $\pi$ whose contribution also decreases with increasing \LxySig cut values, with some enhancement of low \deltaR QCD background.
 
 On the other hand, \Fig~\ref{fig:dd:SeqLxySig_QCD_MassDeltaR} shows similar histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for the QCD-like events in data (\ie \CR[OS]{Q}{>x}{0} for variable $x$).
 As the cut increases, the contribution of lower mass QCD events increases, and the \deltaR distribution has a strong peak at 0, suggestive of QCD background, with successively decreasing contributions from Drell-Yan backgrounds at $\pi$.
@@ -978,7 +978,7 @@ The ratio of \CR[OS]{Q}{<6}{0} to \CR[SS]{Q}{<6}{0} is 1.6, much closer to 1; th
 The ratio of \CR[SS]{\Full}{<6}{0} to \CR[OS]{\Full}{<6}{0} is quite small, showing that the same-sign background is not an important contributor to the regions with small \LxySig, and so the same-sign events in this region could not have been used to extrapolate an estimate in the signal region.
 
 \section{Cut Optimization}
-This section describes a few procedures applied to fine-tune the event and object selection to optimize the analysis for the statistical signficance of a potential signal discovery.
+This section describes a few procedures applied to fine-tune the event and object selection to optimize the analysis for the statistical significance of a potential signal discovery.
 
 \subsection[Optimizing with \ZBi as a Figure of Merit]{Optimizing with \texorpdfstring{$\bm{Z_{\mathbf{Bi}}}$}{ZBi} as a Figure of Merit}
 \label{sec:dd:cutopt_ZBi}
@@ -1061,7 +1061,7 @@ These plots also provide a structured way of comparing the distributions and the
 The analysis selections should be highly efficient in signal and highly inefficient in background.
 
 \Figs~\ref{fig:dd:NM1_pT}--\ref{fig:dd:NM1_LxySig} are the N$-$1 plots for selected variables, for events in all \twoMu signal samples combined and for events in the control region \CR{\Full}{>6}{\pi} of data.
-The cut values are labelled on the plots, as is the efficiency of the selection.
+The cut values are labeled on the plots, as is the efficiency of the selection.
 The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are highly correlated, and so the corresponding plots, \Fig~\ref{fig:dd:NM1_cosAlpha} and \Fig~\ref{fig:dd:NM1_Npp}, omit both cuts from both sets of plots; for this reason they are actually ``N$-$2'' plots.
 
 \begin{figure}[p]
@@ -1069,7 +1069,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_pT.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_pT.pdf}
-  \caption[Histograms of events passing the full selection except for the muon \pT cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the muon \pT cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the muon \pT cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the muon \pT cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_pT}
 \end{figure}
 
@@ -1078,7 +1078,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_DCA.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_DCA.pdf}
-  \caption[Histograms of events passing the full selection except for the distance of closest approach cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the distance of closest approach cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the distance of closest approach cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the distance of closest approach cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_DCA}
 \end{figure}
 
@@ -1087,7 +1087,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_nDTHits.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_nDTHits.pdf}
-  \caption[Histograms of events passing the full selection except for the barrel $N(\text{DT hits})$ cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the barrel $N(\text{DT hits})$ cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the barrel $N(\text{DT hits})$ cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the barrel $N(\text{DT hits})$ cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_nDTHits}
 \end{figure}
 
@@ -1096,7 +1096,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_trkChi2.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_trkChi2.pdf}
-  \caption[Histograms of events passing the full selection except for the track \normchisq cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the track \normchisq cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the track \normchisq cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the track \normchisq cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_trkChi2}
 \end{figure}
 
@@ -1105,7 +1105,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_cosAlpha.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_cosAlpha.pdf}
-  \caption[Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts in \twoMu signal and data.]{Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts in \twoMu signal and data.]{Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_cosAlpha}
 \end{figure}
 
@@ -1114,7 +1114,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_Npp.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_Npp.pdf}
-  \caption[Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts in \twoMu signal and data.]{Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts in \twoMu signal and data.]{Histograms of events passing the full selection except for the $\cos{\alpha}$ and $N$(parallel pairs) cuts, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_Npp}
 \end{figure}
 
@@ -1123,7 +1123,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_vtxChi2.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_vtxChi2.pdf}
-  \caption[Histograms of events passing the full selection except for the vertex \chisq cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the vertex \chisq cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the vertex \chisq cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the vertex \chisq cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_vtxChi2}
 \end{figure}
 
@@ -1132,7 +1132,7 @@ The cosmic rejection cuts on $\cos{\alpha}$ and number of parallel pairs are hig
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_2Mu2J_LxySig.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/NM1_Data_LxySig.pdf}
-  \caption[Histograms of events passing the full selection except for the \LxySig cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the \LxySig cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labelled cut value (and corresponding dashed line) and the selection efficiency.}
+  \caption[Histograms of events passing the full selection except for the \LxySig cut in \twoMu signal and data.]{Histograms of events passing the full selection except for the \LxySig cut, in \figpos{left} \twoMu signal and \figpos{right} data in the control region, along with the labeled cut value (and corresponding dashed line) and the selection efficiency.}
   \label{fig:dd:NM1_LxySig}
 \end{figure}
 
@@ -1183,9 +1183,9 @@ Events in data with $\LxySig < 6$ are used to check the internal consistency of 
 The histograms of events with $\LxySig < 6$ in the $\DeltaPhi > 3\pi/4$ region are scaled according to transfer factors obtained from the histograms for estimating Drell-Yan background and QCD background.
 These plots are given in \Fig~\ref{fig:dd:TFLess}.
 \begin{itemize}
-  \item The top left plot of \Fig~\ref{fig:dd:TFLess} shows the events passing the full selection in data for $\CR{\Full}{<6}{0}$ (labelled SR, colored red) and for $\CR{\Full}{<6}{\pi}$ (labelled CR, colored blue), showing general agreement between the $\DeltaPhi < \pi/4$ and $\DeltaPhi > 3\pi/4$ regions.
-  \item The binwise ratio of the \CR{D}{<6}{0} and \CR{D}{<6}{\pi} histograms gives a weight factor for each \LxySig bin; binwise scaling \CR{\Full}{<6}{\pi} by these weights gives the top right plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labelled CR w/ DY and colored green, to represent a correction by the Drell-Yan transfer factor.
-  \item The binwise ratio of the \CR[SS]{Q}{<6}{0} and \CR[OS]{Q}{<6}{0} histograms gives a weight factor for each \LxySig bin; binwise scaling the 4 events in \CR[SS]{\Full}{<6}{0} by these weights and adding them to the modified \CR{\Full}{<6}{\pi} histogram in the top right plot gives the bottom left plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labelled CR w/ DY+QCD and colored violet, to represent a correction by both the Drell-Yan transfer factor and the QCD transfer factor.
+  \item The top left plot of \Fig~\ref{fig:dd:TFLess} shows the events passing the full selection in data for $\CR{\Full}{<6}{0}$ (labeled SR, colored red) and for $\CR{\Full}{<6}{\pi}$ (labeled CR, colored blue), showing general agreement between the $\DeltaPhi < \pi/4$ and $\DeltaPhi > 3\pi/4$ regions.
+  \item The binwise ratio of the \CR{D}{<6}{0} and \CR{D}{<6}{\pi} histograms gives a weight factor for each \LxySig bin; binwise scaling \CR{\Full}{<6}{\pi} by these weights gives the top right plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled CR w/ DY and colored green, to represent a correction by the Drell-Yan transfer factor.
+  \item The binwise ratio of the \CR[SS]{Q}{<6}{0} and \CR[OS]{Q}{<6}{0} histograms gives a weight factor for each \LxySig bin; binwise scaling the 4 events in \CR[SS]{\Full}{<6}{0} by these weights and adding them to the modified \CR{\Full}{<6}{\pi} histogram in the top right plot gives the bottom left plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled CR w/ DY+QCD and colored violet, to represent a correction by both the Drell-Yan transfer factor and the QCD transfer factor.
   \item All four histograms are plotted together in the bottom right plot of \Fig~\ref{fig:dd:TFLess} for comparison.
 \end{itemize}
 
@@ -1293,7 +1293,7 @@ and the contribution of each event is scaled by the weight factor.
 There is a systematic uncertainty associated with this pileup reweighting procedure arising from an uncertainty in the minimum-bias \pp cross section used to calculate the data pileup distribution; the nominal value of this cross section is 69.2\unit{mb}.
 To estimate the effect of this uncertainty, the \pp cross section used to calculate the pileup distribution in data is varied by $\pm 5\%$, and the analysis signal yield is recomputed using the pileup event weights obtained from the upwards variation and downwards variation.
 For signal samples for which the analysis selection gives non-negligible efficiency, the variation due to variations in pileup reweighting was found to be 2\% or less for all signal samples.
-Therefore, the systematic uncertainty on the signal estimate due to pileup modelling is taken to be 2\%.
+Therefore, the systematic uncertainty on the signal estimate due to pileup modeling is taken to be 2\%.
 
 As an aside, the definitions of $N_\text{pass}$, $N_\text{gen}$, and $\sigma_{N_\text{pass}}$ in \Eqs~\ref{eq:dd:npass}--\ref{eq:dd:signaleffunc} are consequently modified to be
 \begin{align}
@@ -1331,7 +1331,7 @@ The efficiencies of the trigger and of the DSA reconstruction are different in d
 Estimating them in data is challenging because a real source of displaced muons is required; a dedicated study for estimating these efficiencies from data using cosmic ray muons with large impact parameters is in progress.
 Other than potentially large uncertainties from lifetime reweighting, these systematic uncertainties are expected to be the dominant systematic uncertainties on the estimated signal.
 Each of the trigger and reconstruction efficiencies are assigned a systematic uncertainty of 15\%.
-Other systematic uncertainties, such as theoretical uncertainties from next-to-leading-order modelling and choices of parton distribution functions, are taken to be negligible for this analysis.
+Other systematic uncertainties, such as theoretical uncertainties from next-to-leading-order modeling and choices of parton distribution functions, are taken to be negligible for this analysis.
 
 \section{Results}
 \subsection{Computing Upper Limits with the \CLs Criterion}
