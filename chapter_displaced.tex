@@ -106,7 +106,7 @@ The CMS collaboration centrally produces MC simulation of background processes f
 \Tab~\ref{tab:dd:bgsamples} lists the MC simulation samples of background processes used in this analysis, with the total production cross section and the number of generated events, and an ``equivalent luminosity'' (defined in \Sec~\ref{sec:dd:EqLumi}) that is important for understanding the statistical power of the simulation.
 These MC background samples are useful for many studies, but have some important limitations:
 \begin{itemize}
-  \item The Drell-Yan and QCD processes are the dominant sources of background events in \pp collisions and are simulated. However, the reconstruction mistakes producing this background may not be well modeled, and the simulation of QCD events is known to not accurately reproduce data.
+  \item The Drell-Yan and QCD processes are the dominant sources of background events in \pp collisions and are simulated. However, the reconstruction mistakes producing this background may not be well modeled, and the simulation of QCD events is known to not accurately reproduce data in the tails of some distributions.
   \item The Drell-Yan and QCD samples also have limited statistical power, as the number of generated events is fewer than the number of expected events in 2016 data.
   \item The available MC simulation of cosmic muons does not include simulation of multiple cosmic muons from a single atmospheric shower (showers of cosmic muons) or of cosmic muons mixed with \pp collisions.
 \end{itemize}
@@ -156,7 +156,7 @@ In practice, two additional subtleties modify \Eqs~\ref{eq:dd:eqlumi}--\ref{eq:d
 First, corrections the cross section $\sigma$ when passing from leading-order to next-to-leading-order are given as a scaling factor $k$.
 This is accounted for by the substitution $\sigma \to \sigma \, k$.
 Second, matrix element computations performed by \MGvATNLO assign a negative contribution to some events, according to the sign of the contributing diagrams.
-In such samples (in the case of this analysis, the Drell-Yan samples), the ``real'' number of events $N_\text{events}$ is not the same as the number of generated events $N_\text{gen}$.
+In such samples (in the case of this analysis, the Drell-Yan samples), the real number of events $N_\text{events}$ is not the same as the number of generated events $N_\text{gen}$.
 If the number of events with positive weights and negative weights are $N_+$ and $N_-$, respectively,
 $$N_{\text{gen}} = N_+ + N_-,\quad\quad N_\text{events} = N_+ - N_-$$
 Then let $f_\text{neg}$ be the fraction of generated events with a negative event weight, \ie $$N_- = f_\text{neg} \times N_\text{gen}$$
@@ -467,8 +467,8 @@ This algorithm provides a time that is centered on zero for normal muons, with j
 This time is referred to as $t_\text{in-out}$.
 
 Matching DSA muons to SA muons is straightforward: DSA muons with an SA muon within a \deltaR cone of 0.2 are considered matched to the SA muon.
-The time associated with the SA muon can be used to distinguish between normal muons and the pathological cases where the times are centered on multiples of 25\unit{ns} (the time between bunch crossings).
-This requirement is implemented as the requirement $|t_\text{in-out}| < 12\unit{ns}$, and is more than 99\% efficient in \twoMu signal.
+The time associated with the SA muon can be used to distinguish between normal muons and the pathological cases where the times are centered on non-zero multiples of 25\unit{ns} (the time between bunch crossings).
+This requirement is implemented as the requirement $|t_\text{in-out}| < 12\unit{ns}$, and is more than 99\% efficient for simulated samples of the \twoMu signal.
 
 \pagebreak
 This class of background was understood only after unblinding the signal region, and so this selection criterion was added with the knowledge that it would eliminate some events.
@@ -567,7 +567,7 @@ In developing this set of pairing criteria, several combinations of metrics were
   \label{fig:dd:pc}
 \end{figure}
 
-Potential pairing criteria were studied and optimized on both the \twoMu and \fourMu signal samples.
+Potential pairing criteria were studied and optimized on both the \twoMu and \fourMu simulated signal samples.
 Choosing the highest \pT muons in the event is highly correlated with choosing the signal muons, a fact that is robust across all signal sample parameters covering a wide range of long-lived particle lifetimes and muon \pT spectra.
 Requiring that dimuons be formed from muons of opposite charge provides only modest efficiency gains with respect to choosing the signal dimuons, and is undesirable at this stage as it introduces dependence on a specific type of signal model.
 In events with fewer than four muons, a simple ranking of all possible dimuons by \vchisq yielded the highest efficiency.
@@ -661,10 +661,10 @@ Further investigation suggested that these events are consistent with showers of
   \label{fig:dd:shower}
 \end{figure}
 
-A cosmic muon is often reconstructed as two back-to-back muons, one in the upper half of the detector and one in the lower half of the detector.
+A cosmic muon can be reconstructed as two back-to-back muons, one in the upper half of the detector and one in the lower half of the detector.
 A reconstructed dimuon could also be formed from half a cosmic muon and a track from the \pp collision.
 These dimuons are reconstructed as highly displaced, which is why the muons have such large $d_0$ values.
-The common vertex fit was previously discussed to have anomalous behavior at large displacements, so the presence of the flip-by-$\pi$ and small \pT uncertainty anomalies when fitting to muons with large $d_0$ is perhaps not unexpected.
+The common vertex fit discussed above has anomalous behavior at large displacements, so the presence of the flip-by-$\pi$ and small \pT uncertainty anomalies when fitting to muons with large $d_0$ is perhaps not unexpected.
 Such events are background events and so the analysis imposes a set of selections designed to suppress showers of cosmic muons.
 
 Some of these events have no \pp collision vertices and contain only cosmic muons.
@@ -741,11 +741,11 @@ When setting upper limits, the mass cut is further varied as a function of signa
 
 \section{Background Estimation}
 \label{sec:dd:bgest}
-As mentioned previously, due to MC simulation limitations, evaluating the expected background in the selection is performed using events in data.
+As mentioned above, due to MC simulation limitations, evaluating the expected background in the selection is performed using events in data.
 To avoid potential bias while optimizing the analysis, the events passing the full selection in data (the signal region) were blinded until the last steps of the analysis, and the background was estimated using the numbers of events in data in several control regions, which are selections (in the parameter space of the analysis quantities) of subsets of events that are expected to be free of signal events.
 
-(As discussed in \Sec~\ref{sec:dd:timing}, after unblinding there was a change made to the selection, notably rejection of a clear class of background events with bad timing.
-We also realized that same-sign events could be put to better use in quantitative estimates of the opposite-sign background from QCD events, beyond the rough qualitative use that we had foreseen.)
+As discussed in \Sec~\ref{sec:dd:timing}, after unblinding there was a change made to the selection, notably rejection of a clear class of background events with bad timing.
+We also realized that same-sign events could be put to better use in quantitative estimates of the opposite-sign background from QCD events, beyond the rough qualitative use that we had foreseen.
 
 One type of control region is defined as an interval of the transverse collinearity angle, \DeltaPhi.
 As discussed in \Sec~\ref{sec:dd:keyvars}, the signal and background have different distributions in \DeltaPhi.
@@ -755,37 +755,38 @@ For dimuons consistent with the signal hypothesis, the dimuon momentum vector sh
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=\DFigWidth]{figures/displaced/NM1_2Mu2J_deltaPhi.pdf}
-  \caption[Histogram of \DeltaPhi for all \twoMu signal samples combined, showing a strong peak at zero.]{Histogram of \DeltaPhi for all \twoMu signal samples combined, showing a strong peak at zero. The dashed line is at $\DeltaPhi = \pi/4$, and the cut is 99.4\% efficient in signal.}
+  \caption[Histogram of \DeltaPhi for all \twoMu simulated signal samples combined, showing a strong peak at zero.]{Histogram of \DeltaPhi for all \twoMu signal samples combined, showing a strong peak at zero. The dashed line is at $\DeltaPhi = \pi/4$; the cut $\DeltaPhi < \pi/4$ is 99.4\% efficient in signal.}
   \label{fig:dd:deltaPhi_Sig}
 \end{figure}
 
 On the other hand, dimuons in some background events, such as misreconstructed Drell-Yan events, are expected to have a \DeltaPhi distribution symmetric around $\pi/2$, because the dimuon momentum vector is uncorrelated with the direction of flight from the primary vertex.
 This expected symmetry of \DeltaPhi motivates the definition of the signal region as events with \DeltaPhi near 0, \ie $\DeltaPhi < \pi/4$ and a symmetric control region as events with \DeltaPhi near $\pi$, \ie $\DeltaPhi > 3\pi/4$.
-With a transfer factor (\TF) between the control region and the signal region of 1, the number of events in the control region is a nominal estimate of the expected (Drell-Yan) background in the signal region.
+A transfer factor (\TF) is defined as the ratio between the number of events in the signal region to the control region.
+With $\TF = 1$, the number of events in the control region is a nominal estimate of the expected (Drell-Yan) background in the signal region.
 
 \pagebreak
-To validate the background symmetry around $\pi/2$ (and better quantify the transfer factor), the analysis considers pairs of control regions that include the regions $\DeltaPhi < \pi/4$ or $\DeltaPhi > 3\pi/4$ but are formed by reversing other selections (discussed below).
+To validate the approximate background symmetry around $\pi/2$ (and better quantify the transfer factor), the analysis considers pairs of control regions that include the regions $\DeltaPhi < \pi/4$ or $\DeltaPhi > 3\pi/4$ but are formed by reversing other selections (discussed below).
 
 \subsection{Notation for Control Regions}
-One set of DSA dimuon background events is obtained by reversal of the \LxySig selection, meaning events have small \LxySig instead, \eg $\LxySig < 6$.
-Another set of DSA dimuon background events are obtained by reversal of the opposite-sign charge selection, meaning dimuons consist of muons reconstructed with the same sign instead.
+One set of DSA dimuon control events is obtained by reversal of the \LxySig selection, so that events have small \LxySig instead, \eg $\LxySig < 6$.
+Another set of DSA dimuon events are obtained by reversal of the opposite-sign charge selection, so that dimuons consist of muons reconstructed with the same sign.
 
-A final set of DSA dimuon background events are obtained by reversal of \DSAToPAT association.
-It consists of DSA dimuons (formed from two DSA muons), passing all selections except for the \DSAToPAT association procedure, in which the two constituent DSA muons can be associated with two PAT muons, and the resulting dimuon formed from two PAT muons has its own PAT \LxySig satisfying a certain range.
+A final set of DSA dimuon events are obtained by reversal of \DSAToPAT association.
+This set consists of DSA dimuons (formed from two DSA muons), passing all selections except for the \DSAToPAT association procedure, in which the two constituent DSA muons can be associated with two PAT muons, and the resulting dimuon formed from two PAT muons has its own PAT \LxySig satisfying a certain range.
 
 Two such ranges are used in this section.
-The first is one in which the PAT \LxySig is small, such as $\LxySig < 1$.
+In the first, the PAT \LxySig is small, \eg $\LxySig < 1$.
 This region is designed to study Drell-Yan background, and corresponds to DSA dimuons whose PAT muon counterparts are consistent with being produced promptly (and thus are not signal), but which may be reconstructed as highly displaced due to reconstruction mistakes or vertex fit anomalies.
 In order to minimize contamination from QCD events, each constituent muon is required to be isolated.
 The relative isolation of a muon track is defined as the scalar sum of the \pT of tracks in a \DeltaR cone around the muon divided by the muon \pT.
 For this first range, the relative isolation of each constituent PAT muon is required to be at most 0.05.
 
-The second is one in which the PAT \LxySig is large, such as \mbox{$60 < \LxySig < 115$}.
-This region is designed to study QCD background, such as from cascade decays or hadrons in flight.
-In order to minimize signal contamination, each constituent PAT muon is required to \emph{not} be isolated, meaning the relative isolation of each constituent PAT muon is required to be at least 0.5.
-Less than 3\% of \twoMu signal events satisfy this non-isolation requirement, which meanwhile selects a subset of background composed of approximately 95\% events from QCD processes (according to MC simulation).
+In the second range, the PAT \LxySig is large, such as \mbox{$60 < \LxySig < 115$}.
+This region is designed to study QCD background, such as from cascade decays of $b$ to $c$ quarks or hadrons in flight.
+In order to minimize signal contamination, each constituent PAT muon is required to \emph{not} to be isolated, meaning the relative isolation of each constituent PAT muon is required to be at least 0.5.
+Less than 3\% of \twoMu signal events satisfy this non-isolation requirement, which meanwhile selects a subset of events composed of approximately 95\% events from QCD processes (according to MC simulation).
 
-With any combination of these three reversals, a pair of subsets of these DSA dimuons may be formed satisfying $\DeltaPhi < \pi/4$ or $\DeltaPhi > 3\pi/4$, respectively.
+With any combination of these three reversals, a pair of control regions may be formed satisfying $\DeltaPhi < \pi/4$ or $\DeltaPhi > 3\pi/4$, respectively.
 
 Some tedious notation is introduced to facilitate discussion of the various control regions.
 These regions are labeled CR with the following sublabels:
@@ -826,7 +827,7 @@ Understanding this shape begins by considering Drell-Yan events, which compose a
 These muons' directions are often well reconstructed, whereas their \pT may not be, resulting in the dimuon \pT pointing along the direction of one of the muons.
 With this event topology in mind, the shape can be explained by the combination of two effects.
 
-The first effect is a result of the decrease in trigger efficiency for large transverse impact parameters ($d_{0}$).
+The first effect is a result of the decrease in trigger efficiency for large transverse impact parameters $d_{0}$.
 Events in which the muon tracks are parallel to the \Lxy vector are events in which the muons point towards the primary vertex, so that their $d_0$ is small.
 Events in which the muon tracks are perpendicular to the \Lxy vector are events with large transverse impact parameters, and would be suppressed by the trigger.
 But the dimuon \pT is along the direction of one of the muons, so parallel muon tracks correspond to $\DeltaPhi \approx 0$ (or $\pi$), while perpendicular muon tracks correspond to $\DeltaPhi \approx \pi/2$.
@@ -914,11 +915,11 @@ Unlike the \mbox{Drell-Yan}-like events in the data plot of \Fig~\ref{fig:dd:Seq
 \end{figure}
 
 \pagebreak
-To show that calling these two sets of events \mbox{Drell-Yan}-like and QCD-like is justified, \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR} shows histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data, as in \Fig~\ref{fig:dd:SeqLxySig}, for the events in the control region (\ie \CR{D}{>x}{0} for variable $x$) used to estimate the Drell-Yan background in \Sec~\ref{sec:dd:bgest-DY}.
+To demonstrate that calling these two sets of events \mbox{Drell-Yan}-like and QCD-like is justified, \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR} shows histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data, as in \Fig~\ref{fig:dd:SeqLxySig}, for the events in the control region (\ie \CR{D}{>x}{0} for variable $x$) used to estimate the Drell-Yan background in \Sec~\ref{sec:dd:bgest-DY}.
 As the cut increases, the contribution of the \PZ\ mass peak decreases, and the contribution of QCD events at lower mass increases slightly.
 Moreover, the \deltaR distribution is highly \mbox{Drell-Yan}-like, with a strong peak at $\pi$ whose contribution also decreases with increasing \LxySig cut values, with some enhancement of low \deltaR QCD background.
 
-On the other hand, \Fig~\ref{fig:dd:SeqLxySig_QCD_MassDeltaR} shows similar histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for the QCD-like events in data (\ie \CR[OS]{Q}{>x}{0} for variable $x$).
+In contrast, \Fig~\ref{fig:dd:SeqLxySig_QCD_MassDeltaR} shows similar histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for the QCD-like events in data (\ie \CR[OS]{Q}{>x}{0} for variable $x$).
 As the cut increases, the contribution of lower mass QCD events increases, and the \deltaR distribution has a strong peak at 0, suggestive of QCD background, with successively decreasing contributions from Drell-Yan backgrounds at $\pi$.
 
 \begin{figure}[p]
@@ -995,7 +996,7 @@ The signal histogram is scaled to 2016 integrated luminosity assuming an arbitra
 For \LxySig, the number of events in either histogram passing a given cut is an integral from the cut value to infinity; for some other variables (such as track \normchisq), the number of events passing a given cut is an integral from zero to the cut value.
 In the following discussion, the ``integral'' of a histogram is assumed to be performed over the appropriate interval.
 
-In the notation found in Reference~\cite{Cousins:ZBi2008}, the integral of the signal histogram corresponds to an estimate $\hat{\mu}_s$ of the true Poisson mean number of signal events in the signal region;
+In the notation found in Reference~\cite{Cousins:ZBi2008}, the integral of the simulated signal histogram corresponds to an estimate $\hat{\mu}_s$ of the true Poisson mean number of signal events in the signal region;
 and the integral of the background histogram corresponds to a number of observed events in the signal-free region $n_\text{off}$, from which one derives the estimate $\hat{\mu}_b = n_\text{off}/\TF$ of the true Poisson mean number of background events in the signal region.
 \ZBi is then calculated for each cut value, a function of three quantities: the number of background events in the control region $n_\text{off}$, the total number of observed events in the signal region $n_\text{on} = \hat{\mu}_s + \hat{\mu}_b$, and the transfer factor is taken to be $\TF = 1$.
 
@@ -1150,7 +1151,7 @@ However, as the expected background is estimated from data, and not from Monte C
 
 \subsection{Background Uncertainties}
 \label{sec:dd:bgunc}
-The values of the transfer factors obtained in \Sec~\ref{sec:dd:bgest} were computed with somewhat arbitrary choices for cut reversals and with assumptions that the values obtained from various control regions were relevant for estimating the background in the signal region.
+The values of the transfer factors obtained in \Sec~\ref{sec:dd:bgest} were computed with somewhat arbitrary choices (\eg for \LxySig windows) and with assumptions that the values obtained from various control regions were relevant for estimating the background in the signal region.
 The associated uncertainties are expected to be the largest systematic uncertainties in the background estimation (though still smaller than uncertainties that are statistical in origin).
 
 The value of the Drell-Yan background transfer factor varies within 2-7\% as reasonable variations are made in the value of relative isolation satisfied by the PAT muons, in the \LxySig values satisfied by the matched PAT dimuons, or across the mass windows containing the \PZ\ mass peak enumerated in \Tab~\ref{tab:dd:masswindow}.
@@ -1207,7 +1208,7 @@ With the exception of a presumed fluctuation in the last bin with a large uncert
 \subsection{Signal Uncertainties}
 \subsubsection{Signal Lifetime Reweighting}
 \label{sec:dd:lifetimereweighting}
-As enumerated in \Tab~\ref{tab:dd:signalsamples}, for a given BSM Higgs mass and long-lived particle mass \mH and \mX, this analysis simulated and produced signal samples for just three distinct values of the long-lived particle lifetime \cTau.
+As enumerated in \Tab~\ref{tab:dd:signalsamples}, for a given BSM Higgs mass and long-lived particle mass \mH and \mX, this analysis simulated and produced signal samples for only three distinct values of the long-lived particle lifetime \cTau.
 To calculate an estimated number of signal events for lifetimes other than these three nominal lifetimes, this analysis employs a procedure to reweight one signal lifetime into another.
 A particle with lifetime $\tau$ will decay after a time $t$ given by a decaying exponential probability distribution $\pazocal{P}(t; \tau) = e^{-t/\tau}/\tau$.
 A sample with a decay time distribution of reference lifetime $\tau_\text{ref}$ can be reweighted so that it is distributed with a new lifetime $\tau_\text{new}$ by multiplying the contribution of each event by a weight factor given by the ratio of the two distributions:
@@ -1270,7 +1271,7 @@ The black dots are the (normalized) distribution of pileup in CMS data taken in 
 The red dots are the (normalized) distribution of pileup in all \twoMu signal samples combined.
 To confirm that this combined distribution is robust with respect to signal parameters, the orange bands represent the binwise maximum and binwise minimum of all 33 sets of signal parameters.
 The right plot of \Fig~\ref{fig:dd:pileup} shows the ratio of the data distribution to the signal distribution(s) in the left plot.
-Each bin -- corresponding to a number of true primary vertices -- now contains the signal event weight.
+Each bin---corresponding to a number of true primary vertices---now contains the signal event weight.
 
 \begin{figure}[htpb]
   \centering
@@ -1295,7 +1296,7 @@ To estimate the effect of this uncertainty, the \pp cross section used to calcul
 For signal samples for which the analysis selection gives non-negligible efficiency, the variation due to variations in pileup reweighting was found to be 2\% or less for all signal samples.
 Therefore, the systematic uncertainty on the signal estimate due to pileup modeling is taken to be 2\%.
 
-As an aside, the definitions of $N_\text{pass}$, $N_\text{gen}$, and $\sigma_{N_\text{pass}}$ in \Eqs~\ref{eq:dd:npass}--\ref{eq:dd:signaleffunc} are consequently modified to be
+The definitions of $N_\text{pass}$, $N_\text{gen}$, and $\sigma_{N_\text{pass}}$ in \Eqs~\ref{eq:dd:npass}--\ref{eq:dd:signaleffunc} are consequently modified to be
 \begin{align}
   \label{eq:dd:LRWithPileupA}
   N_\text{pass}          &\to \sum_{i\in S}{\left[w_{\tau_\text{ref}\to\tau_\text{new}}(t_i) \cdot w_\text{pileup}(P(i))\right]} \\
@@ -1330,14 +1331,14 @@ As the pileup weights are small compared to the weights due to signal lifetime r
 The efficiencies of the trigger and of the DSA reconstruction are different in data than in simulation.
 Estimating them in data is challenging because a real source of displaced muons is required; a dedicated study for estimating these efficiencies from data using cosmic ray muons with large impact parameters is in progress.
 Other than potentially large uncertainties from lifetime reweighting, these systematic uncertainties are expected to be the dominant systematic uncertainties on the estimated signal.
-Each of the trigger and reconstruction efficiencies are assigned a systematic uncertainty of 15\%.
+Based on our current understanding, each of the trigger and reconstruction efficiencies are assigned a systematic uncertainty of 15\%.
 Other systematic uncertainties, such as theoretical uncertainties from next-to-leading-order modeling and choices of parton distribution functions, are taken to be negligible for this analysis.
 
 \section{Results}
 \subsection{Computing Upper Limits with the \CLs Criterion}
 \label{sec:dd:cls}
 The procedure for setting an upper limit on the long-lived particle production cross section times the branching fraction to two muons is as follows \cite{CMS-NOTE-2011-005}.
-Let the probability distribution of the observed data $x$ be $\pazocal{P}(x; \sigstr, \theta)$.
+Let the probability of obtaining the observed data $x$ be $\pazocal{P}(x; \sigstr, \theta)$ (probability density if $x$ is continuous).
 Here \sigstr is the signal strength, a quantity proportional to the signal cross section, so that $\sigstr = 0$ represents a background-only model, and $\theta$ represents the systematic uncertainties, also referred to as nuisance parameters.
 A model therefore defines an expected number of signal events, an expected number of background events, and a set of systematic uncertainties.
 Then the likelihood function for a model with signal strength \sigstr and nuisance parameters $\theta$ given some observed data $x = X$ is $\pazocal{L}\left(\sigstr, \theta \,\vert\, X\right)$.
@@ -1347,13 +1348,13 @@ The LHC-style test statistic \cite{CombineManual} is then defined, based on a ra
   q_\text{LHC}(\sigstr) = -2\ln\left[\frac{\pazocal{L}\left(\sigstr, \hat{\hat{\theta}}_\sigstr \,\vert\, X\right)}{\pazocal{L}\left(\sigstr = \hat{\sigstr}, \theta=\hat{\theta}\,\vert\,  X\right)}\right]
   \label{eq:dd:qLHC}
 \end{equation}
-The likelihoods are evaluated following the Cousins-Highland prescription of profiling the signal strength (treating it in a frequentist manner) and incorporating the systematic uncertainties by marginalizing (or integrating over) them (treating them in a Bayesian manner by designating their prior probability distribution functions) \cite{CousinsHighland:SystUnc1992}.
+The likelihoods are evaluated following the Cousins-Highland prescription of treating the signal strength in a frequentist manner and incorporating the systematic uncertainties by marginalizing (or integrating over) them (treating them in a Bayesian manner by designating their prior probability distribution functions) \cite{CousinsHighland:SystUnc1992}.
 
 For most types of systematic uncertainties, the prior probability distributions are assumed to follow a log-normal distribution, with one exception.
 There is a systematic uncertainty on the estimated background associated with the statistical uncertainty arising from estimating the expected background in the signal region from a number of observed events in the control region.
 The prior probability distribution for this systematic uncertainty follows a gamma distribution \cite{Cousins:ZBi2008, Cousins:LogNormal}.
 
-For some observation $X$, the minimal value of the test statistic $Q(X)$ corresponds to the value of \sigstr with maximum likelihood.
+For some observation $X$, the minimal value $Q(X)$ of the test statistic $q_\text{LHC}(\sigstr)$ corresponds to the value of \sigstr with maximum likelihood.
 Then the probability distribution of the minimal value of the test statistic $\pazocal{P}(Q;\sigstr)$, given a signal strength \sigstr, is computed, by sampling observations $X$ from ensembles of toy experiments generated using Monte Carlo methods, computing the likelihood functions, and minimizing the test statistic.
 The actual observation $X_\text{obs}$ in CMS data taken in 2016 corresponds to some minimal value of the test statistic $Q_\text{obs} = Q(X_\text{obs})$.
 Define the $p$-values for signal and background as
@@ -1378,7 +1379,7 @@ The 95\% confidence level upper limit on the signal strength $\sigstr_\text{UL}$
 \label{sec:dd:combine}
 The CMS software framework includes a statistical analysis package known as the Higgs Combine tool (or simply \combine) used throughout CMS for computing statistical significance and upper limits and for performing goodness-of-fit tests \cite{CombineManual}.
 The choices of statistical methods described above were made because this analysis involves low numbers of events.
-These choices result in a technical procedure for using \combine to compute upper limits that differs from both that used by many CMS analyses and the official recommendations by the CMS Statistics Committee.
+These choices result in a technical procedure for using \combine to compute upper limits that differs from that used by many CMS analyses.
 For this reason, the procedure and the command-line options to \combine are documented here.
 
 Using \combine begins with providing an expected number of signal events (given a model), an expected number of background events, (nominal) values for the systematic uncertainties along with the functional form of their distributions, and an observed number of events in data.
@@ -1393,7 +1394,7 @@ The \combine program is then run with the following configurations controlling t
   \item \texttt{--hintMethod AsymptoticLimits}: estimate the upper limit on the signal strength using asymptotic frequentist methods, and use the result to inform the range of signal strengths over which to search when running toy experiments.
   \item \texttt{--testStat LHC}: compute the distribution of the LHC-style test statistic.
   \item \texttt{--generateNuisances 1 --fitNuisances 0}: treats the nuisance parameters in a Bayesian manner by integrating over them. For each toy experiment, the value of the nuisance parameters are randomized within their prior probability distributions functions.
-  \item \texttt{--expectedFromGrid [QUANTILE]}: computes the \texttt{QUANTILE} quantile of the expected upper limit. When omitted, the program computes the observed limit; otherwise, \texttt{QUANTILE} is 0.5 for the median of the distribution; 0.16 and 0.84 for the lower and upper edges of the 68\% quantile; and 0.025 and 0.975 for the lower and upper edges of the 95\% quantile. 
+  \item \texttt{--expectedFromGrid [QUANTILE]}: computes the \texttt{QUANTILE} quantile of the expected upper limit. When omitted, the program computes the observed limit; otherwise, \texttt{QUANTILE} is 0.5 for the median of the distribution under the background-only hypothesis; 0.16 and 0.84 for the lower and upper edges of the 68\% quantile; and 0.025 and 0.975 for the lower and upper edges of the 95\% quantile. 
 \end{itemize}
 
 To provide \combine with an expected number of \twoMu signal events, given a signal model defined by values for \mH, \mX, and \cTau, let
