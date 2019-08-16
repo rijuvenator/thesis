@@ -257,9 +257,9 @@ This forward region experiences very high levels of LHC radiation and thus is co
 The CMS magnet is a superconducting solenoid, 12.5\unit{m} long with an inner diameter of 6.3\unit{m}. Liquid helium cools the magnet to its superconducting operating temperature of 4\unit{K}. It draws 19\unit{kA} of current and is the largest magnet in the world in terms of its 2.6\unit{GJ} of stored energy.
 
 A powerful magnetic field is crucial for precise momentum measurement of high-energy charged particles.
-As an introduction to issues related to muon \pT measurement, consider a charged particle of charge $q$ and transverse momentum $\pT = \vc{p} \cdot \hat{\vc{r}}$ in a uniform magnetic field of strength $B$ pointing in the $z$-direction, which is a good model for a charged particle in the CMS tracker. Such a particle travels in a helix of radius
+As an introduction to issues related to muon \pT measurement, consider a charged particle of charge $q$ and transverse momentum $\pT = \vc{p} \cdot \hat{\vc{r}}$ in a uniform magnetic field of strength $B$ pointing in the $z$-direction, which is a good model for a charged particle in the CMS tracker. Such a particle travels in a helix of (signed) radius
 \begin{equation}
-  R = \frac{\pT}{|q|B}
+  R = \frac{\pT}{qB}
   \label{cms:radius}
 \end{equation}
 The radius of curvature of a charged particle in a magnetic field is thus proportional to its transverse momentum.
@@ -279,13 +279,13 @@ Then $R$, the radius of curvature, can be computed from $L$ and $s$ as follows:
   \label{cms:eqn_sagitta}
 \end{equation}
 Since $s$ is typically small compared to $L$, the $s/2$ term can be dropped.
-Then $|q|/\pT$ is approximately proportional to $s$:
+Then $q/\pT$ is approximately proportional to $s$:
 \begin{align}
-  \frac{|q|}{\pT} = \frac{1}{BR} \approx \frac{8s}{BL^2}
+  \frac{q}{\pT} = \frac{1}{BR} \approx \frac{8s}{BL^2}
   \label{cms:pTError}
 \end{align}
-Since $s$ is linear in the position measurements, its distribution is also Gaussian, and therefore it is the distribution of $|q|/\pT$, and not $\pT$, that is Gaussian.
-The uncertainty on a measurement of \pT obtained from applying standard error propagation to $|q|/\pT$ must therefore be considered carefully, as it does not describe standard deviations of a variable distributed as a Gaussian.
+Since $s$ is linear in the position measurements, its distribution is also Gaussian, and therefore it is the distribution of $q/\pT$, and not $\pT$, that is Gaussian.
+The uncertainty on a measurement of \pT obtained from applying standard error propagation to $q/\pT$ must therefore be considered carefully, as it does not describe standard deviations of a variable distributed as a Gaussian.
 
 \subsection{Muon System}
 As mentioned in \Sec~\ref{cms:intro}, muon detection is a powerful tool for studying high-energy processes in the presence of high background.

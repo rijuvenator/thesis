@@ -65,7 +65,7 @@ This analysis uses simulation of signal models as well as simulation of backgrou
 
 \Tab~\ref{tab:dd:signalsamples} lists the MC simulation samples of the BSM Higgs $\PHiggs \to \PLLP\PLLP$ benchmark signal model described in Chapter~\ref{chap:theory}.
 Both \fourMu final states, in which both long-lived particles decay to two muons, and \twoMu final states, in which one long-lived particle decays to two muons and the other does not, are simulated.
-Samples were produced for several combinations of BSM Higgs masses (\mH), long-lived particle masses (\mX), and long-lived particle lifetimes (\cTau).
+Samples were produced for several combinations of BSM Higgs masses (\mH), long-lived particle masses (\mX), and $c$ times the long-lived particle mean proper lifetimes (\cTau).
 In order to study decays occurring everywhere from near the beam spot to the beginning of the muon system, the long-lived particle lifetimes were chosen such that the mean decay lengths in the transverse plane are 3\cm, 30\cm, and 250\cm in the laboratory frame.
 These signal samples can be reweighted to study additional intermediate lifetimes.
 
@@ -91,7 +91,7 @@ These signal samples can be reweighted to study additional intermediate lifetime
                           &  20 & 13 & 130 & 1300 \\
     \hline
   \end{tabular}
-  \caption{Simulated $\PHiggs \to \PLLP\PLLP$ signal samples used by the analysis, for several combinations of BSM Higgs mass (\mH), long-lived particle mass (\mX), and long-lived particle lifetime (\cTau).}
+  \caption{Simulated $\PHiggs \to \PLLP\PLLP$ signal samples used by the analysis, for several combinations of BSM Higgs mass (\mH), long-lived particle mass (\mX), and \cTau.}
   \label{tab:dd:signalsamples}
 \end{table}
 
@@ -108,7 +108,7 @@ These MC background samples are useful for many studies, but have some important
 \begin{itemize}
   \item The Drell-Yan and QCD processes are the dominant sources of background events in \pp collisions and are simulated. However, the reconstruction mistakes producing this background may not be well modeled, and the simulation of QCD events is known to not accurately reproduce data in the tails of some distributions.
   \item The Drell-Yan and QCD samples also have limited statistical power, as the number of generated events is fewer than the number of expected events in 2016 data.
-  \item The available MC simulation of cosmic muons does not include simulation of multiple cosmic muons from a single atmospheric shower (showers of cosmic muons) or of cosmic muons mixed with \pp collisions.
+  \item The available MC simulation of cosmic muons does not include simulation of multiple cosmic muons from a single atmospheric shower initiated by a cosmic ray or of cosmic muons mixed with \pp collisions.
 \end{itemize}
 For these reasons, MC simulation of background does not provide a good description of the expected background, so optimization of the analysis as well as evaluation of the expected background is consequently performed using data.
 MC simulation of background is therefore primarily used to study general trends and to gain insights.
@@ -119,15 +119,15 @@ MC simulation of background is therefore primarily used to study general trends 
     \hline
     Process & Kinematic Cuts & \multicolumn{1}{c}{$\sigma$ (\unit{pb})} & Events & \multicolumn{1}{c}{$\intlumi^\text{eq}$ (\fbinv)} \\
     \hline
-    \PZ/$\gamma^* \to \ell\ell$        & $10\GeV < m_{\ell\ell} < 50\GeV$ &  18810     &   30,935,823 &   1.20\\
-    \PZ/$\gamma^* \to \ell\ell$        & $m_{\ell\ell} > 50\GeV$          &   6225     &  122,547,040 &  13.19\\
-    QCD \Pgm-enriched                  & $\pT > 20\GeV$                   & 302672.16  &   22,094,081 &   0.07\\
-    $\ttbar \to \ell\ell\nu\nu$        &                                  &     87.31  &   79,140,880 & 906.44\\
-    \Ptop\PW, \Ptbar\PW                &                                  &     35.8   &   13,885,924 & 387.87\\
-    \PW\PZ                             &                                  &     47.13  &    6,995,142 &  84.82\\
-    \PZ\PZ                             &                                  &     16.523 &    2,986,132 & 120.32\\
-    $\PW\PW\to \ell\ell\nu\nu$         &                                  &     12.178 &    1,999,000 & 164.15\\
-    \PW+jets                           &                                  &  61526.7   &   29,804,825 &   0.48\\
+    \PZ/$\gamma^* \to \ell\ell$                         & $10\GeV < m_{\ell\ell} < 50\GeV$ &  18810     &   30,935,823 &   1.20\\
+    \PZ/$\gamma^* \to \ell\ell$                         & $m_{\ell\ell} > 50\GeV$          &   6225     &  122,547,040 &  13.19\\
+    QCD \Pgm-enriched                                   & $\pT > 20\GeV$                   & 302672.16  &   22,094,081 &   0.07\\
+    $\ttbar \to b\overline{b}\PW\PW \to \ell\ell\nu\nu$ &                                  &     87.31  &   79,140,880 & 906.44\\
+    \Ptop\PW, \Ptbar\PW                                 &                                  &     35.8   &   13,885,924 & 387.87\\
+    \PW\PZ                                              &                                  &     47.13  &    6,995,142 &  84.82\\
+    \PZ\PZ                                              &                                  &     16.523 &    2,986,132 & 120.32\\
+    $\PW\PW\to \ell\ell\nu\nu$                          &                                  &     12.178 &    1,999,000 & 164.15\\
+    \PW+jets                                            &                                  &  61526.7   &   29,804,825 &   0.48\\
     \hline
   \end{tabular}
   \caption[CMS simulation samples used by the analysis for each background process, along with the total production cross section and the number of generated events.]{CMS simulation samples used by the analysis for each background process, along with the total production cross section and the number of generated events. The equivalent luminosity in 2016 $\intlumi^\text{eq}$ is the proportionality factor that is used to scale simulated events to correspond to the total integrated luminosity in 2016 (36.3\fbinv).}
@@ -202,6 +202,10 @@ For a real pair of muons originating from a CV formed from the decay of a long-l
 On the other hand, in most types of background events, this quantity is expected to be symmetric around $\pi/2$.
 A small \DeltaPhi is therefore a strong indicator of consistency with the long-lived particle hypothesis.
 
+We follow previous displaced dimuon searches \cite{EXO-12-037, CMS-PAS-EXO-14-012, ATLAS} in defining \Lxy as the unsigned magnitude of this distance.
+The sign information regarding which side of the PV the CV is reconstructed is encoded in the companion variable \DeltaPhi, specifically in the sign of $\cos(\DeltaPhi)$.
+(We call attention to this fact since other analyses in high-energy physics, for example $b$ physics analyses, typically attach the sign to \Lxy.)
+
 \Fig~\ref{fig:dd:keyvars} illustrates these important quantities and their relationship to each other.
 
 \section{Muon Reconstruction}
@@ -212,6 +216,7 @@ Most algorithms performing the offline reconstruction of muon tracks, however, i
 A search for displaced dimuons must therefore use a reconstruction algorithm that does not use this beam spot constraint.
 
 Muons reconstructed using only hits in the muon system are known as standalone muons.
+Standalone muon reconstruction is seeded with groups of segments in the muon system as a starting point for building a muon trajectory \cite{Liu2008}.
 Standalone muons are independent of the more precise information from the silicon tracker, and so have poorer spatial and momentum resolution than muons reconstructed using the tracker.
 However, the reconstruction efficiency for tracker tracks with transverse impact parameter $d_0$ (the closest distance between the track and the beam spot in the transverse plane) of more than a few tens of \cm is essentially zero, while the muon system gives non-vanishing reconstruction efficiency even a few meters away from the beam spot.
 Therefore, standalone muons are the reconstructed object of choice for a displaced dimuon search sensitive to longer lifetimes.
@@ -224,7 +229,7 @@ This reconstruction was intended to reduce the inherent bias towards the beam sp
 RSA muons thus have improved $d_0$ and \pT resolution compared to standalone muons.
 
 Another muon reconstruction algorithm is the displaced standalone muon (DSA muon) reconstruction.
-Compared to ordinary standalone muons without the beam spot constraint, the DSA muon reconstruction is seeded with groups of segments in the muon chambers with criteria similar to those used for the reconstruction of cosmic muons, as opposed to seeds used for the reconstruction of muons originating from \pp collisions \cite{CMS-DP-2015-015}.
+Compared to ordinary standalone muons without the beam spot constraint, the DSA muon reconstruction is seeded with groups of segments in the muon chambers with criteria similar to those used for the reconstruction of cosmic muons (and thus more suitable for reconstruction of displaced muons), as opposed to seeds used for the reconstruction of muons originating from \pp collisions \cite{Liu2008, CMS-DP-2015-015}.
 This reconstruction was intended to further improve the \pT resolution of muons produced from highly displaced decays.
 
 \Fig~\ref{fig:dd:REFF} shows graphs of the efficiency as a function of generated \Lxy to reconstruct a generated muon as DSA or as RSA, with and without the trigger applied, with respect to \mbox{$\PHiggs\to2\PLLP\to2\Pgm$} signal events in which both generated muons are within a detector acceptance, defined as
@@ -264,6 +269,8 @@ The analysis presented in this thesis therefore primarily uses DSA muons.
 \section{Event and Object Selection}
 \subsection{Overview}
 \label{sec:dd:GeneralStrategy}
+This section presents details of the selection criteria used to perform the analysis.
+Informally, selection criteria are referred to as cuts, as application of selection criteria cuts away events.
 An overview of the general strategy for selecting reconstructed events and objects consistent with displaced dimuons is as follows.
 \clearpage
 \begin{enumerate}
@@ -651,13 +658,13 @@ The presence of these dimuons are found to correlate with
       \item And these large numbers of DSA muons are largely parallel, \ie $|\cos{\alpha}| \approx 1$
     \end{itemize}
 \end{itemize}
-Further investigation suggested that these events are consistent with showers of cosmic muons.
-\Fig~\ref{fig:dd:shower} is an example display of an event in data consistent with a shower of cosmic muons in a \pp collision event, containing a large number of approximately parallel pairs of DSA muons in addition to two global muons (not selected) originating from the \pp collision.
+Further investigation suggested that these events are consistent with multiple cosmic muons arriving simultaneously from a single atmospheric shower.
+\Fig~\ref{fig:dd:shower} is an example display of an event in data consistent with multiple cosmic muons from a single shower in a \pp collision event, containing a large number of approximately parallel pairs of DSA muons in addition to two global muons (not selected) originating from the \pp collision.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=\textwidth]{figures/displaced/ED_Cosmic.pdf}
-  \caption[Display of an event in data consistent with a shower of cosmic muons in a \pp collision event.]{Display of an event in data consistent with a shower of cosmic muons in a \pp collision event. Two of the many approximately parallel DSA muons (yellow) reconstructed in this event formed a dimuon vertex with a good \vchisq and the event subsequently passed all our other selections. Requirements that events not contain too many parallel pairs of DSA muons and that the opening angle between the two muons not be too close to $\pi$ were found to be effective in suppressing such events.}
+  \caption[Display of an event in data consistent with multiple cosmic muons from a single atmospheric shower in a \pp collision event.]{Display of an event in data consistent with multiple cosmic muons from a single atmospheric shower in a \pp collision event. Two of the many approximately parallel DSA muons (yellow) reconstructed in this event formed a dimuon vertex with a good \vchisq and the event subsequently passed all our other selections. Requirements that events not contain too many parallel pairs of DSA muons and that the opening angle between the two muons not be too close to $\pi$ were found to be effective in suppressing such events.}
   \label{fig:dd:shower}
 \end{figure}
 
@@ -665,7 +672,7 @@ A cosmic muon can be reconstructed as two back-to-back muons, one in the upper h
 A reconstructed dimuon could also be formed from half a cosmic muon and a track from the \pp collision.
 These dimuons are reconstructed as highly displaced, which is why the muons have such large $d_0$ values.
 The common vertex fit discussed above has anomalous behavior at large displacements, so the presence of the flip-by-$\pi$ and small \pT uncertainty anomalies when fitting to muons with large $d_0$ is perhaps not unexpected.
-Such events are background events and so the analysis imposes a set of selections designed to suppress showers of cosmic muons.
+Such events are background events and so the analysis imposes a set of selections designed to large numbers of cosmic muons.
 
 Some of these events have no \pp collision vertices and contain only cosmic muons.
 Events are therefore required to contain at least one well-identified vertex with position $(x, y, z)$ satisfying the following requirements:
@@ -680,8 +687,8 @@ This set of requirements is referred to in CMS as the \Code{PrimaryVertexFilter}
 A typical strategy to suppress back-to-back cosmic muons is with a selection on $\cos{\alpha}$, and indeed the trigger has just such a cut, roughly equivalent to $\cos{\alpha} > -0.8$.
 Following the trigger, our offline analysis selection also requires $\cos{\alpha} > -0.8$, on the opening angles both between the vertex-constrained muons and between the original (before the vertex fit) muons.
 
-However, these two requirements alone are not sufficient to suppress all events consistent with cosmic muon showers.
-As an additional measure to suppress cosmic muon showers, the analysis rejects events with a large number of parallel pairs of DSA muons.
+However, these two requirements alone are not sufficient to suppress all events consistent with multiple cosmic muons from an atmospheric shower.
+As an additional measure to suppress cosmic muons, the analysis rejects events with a large number of parallel pairs of DSA muons.
 All possible pairs of DSA muons, with no common vertex fit, are considered, and the number $N(\text{parallel pairs})$ of such pairs with $|\cos{\alpha}| > 0.99$ are counted.
 The analysis selection then requires that events contain no more than 5 such pairs, verified to be of negligible efficiency in signal.
 
@@ -759,7 +766,7 @@ For dimuons consistent with the signal hypothesis, the dimuon momentum vector sh
   \label{fig:dd:deltaPhi_Sig}
 \end{figure}
 
-On the other hand, dimuons in some background events, such as misreconstructed Drell-Yan events, are expected to have a \DeltaPhi distribution symmetric around $\pi/2$, because the dimuon momentum vector is uncorrelated with the direction of flight from the primary vertex.
+On the other hand, dimuons in some background events, such as misreconstructed Drell-Yan (DY) events, are expected to have a \DeltaPhi distribution symmetric around $\pi/2$, because the dimuon momentum vector is uncorrelated with the direction of flight from the primary vertex.
 This expected symmetry of \DeltaPhi motivates the definition of the signal region as events with \DeltaPhi near 0, \ie $\DeltaPhi < \pi/4$ and a symmetric control region as events with \DeltaPhi near $\pi$, \ie $\DeltaPhi > 3\pi/4$.
 A transfer factor (\TF) is defined as the ratio between the number of events in the signal region to the control region.
 With $\TF = 1$, the number of events in the control region is a nominal estimate of the expected (Drell-Yan) background in the signal region.
@@ -796,21 +803,21 @@ These regions are labeled CR with the following sublabels:
   \item The superscript on the right side of CR is of the format $L<x$ or $L>x$ with $x$ a cut value, usually 6, corresponding to DSA dimuons with a reversed \LxySig selection, as described above. This label means that \LxySig value for the dimuon formed from two DSA muons is less than $x$ or greater than $x$. The $L$ in this expression is a reminder that the cut value is for \LxySig.
   \item The subscript on the right side of CR is one of
     \begin{itemize}
-      \item $P(\mathrm{full})$, corresponding to a control region in which the full, standard \DSAToPAT association is performed;
-      \item $P(D)$, corresponding to the DSA dimuons with reversed \DSAToPAT association as described above with the PAT dimuon satisfying $\LxySig < 1$ and muons isolated; or
-      \item $P(Q)$, corresponding to the DSA dimuons with reversed \DSAToPAT association as described above with the PAT dimuon satisfying $60 < \LxySig < 115$ and muons not isolated.
+      \item $\mathrm{full}$, corresponding to a control region in which the full, standard \DSAToPAT association is performed;
+      \item $\mathrm{DY}$, corresponding to the DSA dimuons with reversed \DSAToPAT association as described above with the PAT dimuon satisfying $\LxySig < 1$ and muons isolated; or
+      \item $\mathrm{QCD}$, corresponding to the DSA dimuons with reversed \DSAToPAT association as described above with the PAT dimuon satisfying $60 < \LxySig < 115$ and muons not isolated.
     \end{itemize}
-    The DSA dimuon passes the selections on \DeltaPhi and \LxySig given by the other two labels. The $D$ and $Q$ in these expressions are abbreviations for the type of background, either \textbf{D}rell-Yan or \textbf{Q}CD, that these control regions are designed to help estimate; the PAT \LxySig ranges were chosen accordingly.
+    The DSA dimuon passes the selections on \DeltaPhi and \LxySig given by the other two labels. The $\mathrm{DY}$ and $\mathrm{QCD}$ in these expressions indicate the type of background that these control regions are designed to help estimate; the PAT \LxySig ranges were chosen accordingly.
 \end{itemize}
-For example, \CR[OS]{D}{<6}{\pi} corresponds to opposite-sign DSA dimuons with \mbox{$\DeltaPhi > 3\pi/4$}, DSA $\LxySig < 6$, and reversed \DSAToPAT association with PAT $\LxySig < 1$.
+For example, \CR[OS]{DY}{<6}{\pi} corresponds to opposite-sign DSA dimuons with \mbox{$\DeltaPhi > 3\pi/4$}, DSA $\LxySig < 6$, and reversed \DSAToPAT association with PAT $\LxySig < 1$.
 The signal region SR consisting of DSA dimuons passing all selections can be expressed in this notation as $\mathrm{SR} \equiv\, \CR[OS]{\Full}{>6}{0}$.
 
 \subsection{Estimation of Drell-Yan Background}
 \label{sec:dd:bgest-DY}
 Misreconstructed Drell-Yan events form a large majority of the background in most regions.
 \Fig~\ref{fig:dd:BGDeltaPhi_NoPAT} shows distributions of \DeltaPhi in data and in MC simulation for the control regions with \DSAToPAT association reversed, for all ranges of \DeltaPhi.
-The left plot is for all values of \LxySig; that is, it contains both \CR{D}{>6}{} and \CR{D}{<6}{} for all \DeltaPhi ranges $(0, 1, 2, \pi)$.
-The right plot is only for $\LxySig > 6$; that is, it only contains \CR{D}{>6}{} for all \DeltaPhi ranges.
+The left plot is for all values of \LxySig; that is, it contains both \CR{DY}{>6}{} and \CR{DY}{<6}{} for all \DeltaPhi ranges $(0, 1, 2, \pi)$.
+The right plot is only for $\LxySig > 6$; that is, it only contains \CR{DY}{>6}{} for all \DeltaPhi ranges.
 Without any \LxySig cut, the distribution is somewhat symmetric, with some excess of events at $\pi$ compared to 0.
 With the \LxySig cut, events at 0, $\pi/2$, and $\pi$ are suppressed less than other events, although the distributions are still fairly symmetric.
 
@@ -819,7 +826,7 @@ With the \LxySig cut, events at 0, $\pi/2$, and $\pi$ are suppressed less than o
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_NOPAT_deltaPhi_Lin.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_NOPAT_deltaPhi-Big_Lin.pdf}
-  \caption[Histograms of \DeltaPhi in data and in MC simulation for the control regions with \DSAToPAT association reversed, for all values of \DeltaPhi, for all values of \LxySig and for $\LxySig > 6$.]{Histograms of \DeltaPhi in data and in MC simulation for the control regions with \DSAToPAT association reversed, for all values of \DeltaPhi, for \figpos{left} all values of \LxySig and \figpos{right} only $\LxySig > 6$. In the previously introduced notation, \figpos{right} consists of \CR{D}{>6}{0}, \CR{D}{>6}{\pi}, \etc, and \figpos{left} consists of all the events in the right plot plus \CR{D}{<6}{0}, \CR{D}{<6}{\pi}, \etc Without any \LxySig cut, the distribution is somewhat symmetric, with some excess of events at $\pi$ compared to 0. With the \LxySig cut, events at 0, $\pi/2$, and $\pi$ are suppressed less than other events, although the distributions are still fairly symmetric.}
+  \caption[Histograms of \DeltaPhi in data and in MC simulation for the control regions with \DSAToPAT association reversed, for all values of \DeltaPhi, for all values of \LxySig and for $\LxySig > 6$.]{Histograms of \DeltaPhi in data and in MC simulation for the control regions with \DSAToPAT association reversed, for all values of \DeltaPhi, for \figpos{left} all values of \LxySig and \figpos{right} only $\LxySig > 6$. In the previously introduced notation, \figpos{right} consists of \CR{DY}{>6}{0}, \CR{DY}{>6}{\pi}, \etc, and \figpos{left} consists of all the events in the right plot plus \CR{DY}{<6}{0}, \CR{DY}{<6}{\pi}, \etc Without any \LxySig cut, the distribution is somewhat symmetric, with some excess of events at $\pi$ compared to 0. With the \LxySig cut, events at 0, $\pi/2$, and $\pi$ are suppressed less than other events, although the distributions are still fairly symmetric.}
   \label{fig:dd:BGDeltaPhi_NoPAT}
 \end{figure}
 
@@ -853,7 +860,7 @@ The diagrams in the bottom row of \Fig~\ref{fig:dd:BGEST_WavyExplanationDiagram}
 
 A selection on \LxySig selects events with large \Lxy and/or small \LxyErr, which have been shown to preferentially occur at 0, $\pi/2$, and $\pi$.
 The resulting shape of the \DeltaPhi distribution appears to be geometric in origin, and is the motivation for defining the signal and control regions as $\DeltaPhi < \pi/4$ and its symmetric region around $\pi/2$, in order to cut away from the extra background at $\pi/2$.
-\Fig~\ref{fig:dd:SeqLxySig} shows the $\DeltaPhi$ distributions as in the right plot of \Fig~\ref{fig:dd:BGDeltaPhi_NoPAT}, each scaled to unit area, for data and for Drell-Yan simulation, for sequentially increasing cuts on \LxySig (\ie \CR{D}{>x}{} for all \DeltaPhi and $x$ variable).
+\Fig~\ref{fig:dd:SeqLxySig} shows the $\DeltaPhi$ distributions as in the right plot of \Fig~\ref{fig:dd:BGDeltaPhi_NoPAT}, each scaled to unit area, for data and for Drell-Yan simulation, for sequentially increasing cuts on \LxySig (\ie \CR{DY}{>x}{} for all \DeltaPhi and $x$ variable).
 The Drell-Yan plot indicates that the shape is well-reproduced by simulation.
 
 \begin{figure}[t]
@@ -875,25 +882,25 @@ The Drell-Yan plot indicates that the shape is well-reproduced by simulation.
     \CR{\Full}{>6}{\pi} & 0       \\
     \CR{\Full}{<6}{0}   & 60      \\
     \CR{\Full}{<6}{\pi} & 55      \\
-    \CR{D}    {>6}{0}   & 13636   \\
-    \CR{D}    {>6}{\pi} & 17405   \\
-    \CR{D}    {<6}{0}   & 1026522 \\
-    \CR{D}    {<6}{\pi} & 1153133 \\
+    \CR{DY}   {>6}{0}   & 13636   \\
+    \CR{DY}   {>6}{\pi} & 17405   \\
+    \CR{DY}   {<6}{0}   & 1026522 \\
+    \CR{DY}   {<6}{\pi} & 1153133 \\
     \hline
   \end{tabular}
-  \caption[Event counts for control regions for estimating Drell-Yan background.]{Event counts for control regions for estimating Drell-Yan background. The ratio of \CR{D}{>6}{\pi} to \CR{D}{>6}{0} gives a transfer factor; dividing the number of events in \CR{\Full}{>6}{\pi} by this transfer factor gives an estimate of the Drell-Yan background in SR.}
+  \caption[Event counts for control regions for estimating Drell-Yan background.]{Event counts for control regions for estimating Drell-Yan background. The ratio of \CR{DY}{>6}{0} to \CR{DY}{>6}{\pi} gives a transfer factor; multiplying the number of events in \CR{\Full}{>6}{\pi} by this transfer factor gives an estimate of the Drell-Yan background in SR.}
   \label{tab:dd:controlregions}
 \end{table}
 
 \Tab~\ref{tab:dd:controlregions} gives the number of events in data for each of the control regions.
-A data-driven estimate of the transfer factor $\TF_\text{DY}$ can be obtained by dividing the number of events in \CR{D}{>6}{\pi} by the number of events in \CR{D}{>6}{0} and is found to be
+A data-driven estimate of the transfer factor $\TF_\text{DY}$ can be obtained by dividing the number of events in \CR{DY}{>6}{0} by the number of events in \CR{DY}{>6}{\pi} and is found to be
 
 \begin{equation}
-  \TF_\text{DY} = \frac{N\left[\CR{D}    {>6}{\pi}\right]}{N\left[\CR{D}    {>6}{0}\right]} = 1.28
+  \TF_\text{DY} = \frac{N\left[\CR{DY}{>6}{0}\right]}{N\left[\CR{DY}{>6}{\pi}\right]} = 0.78
   \label{eq:dd:DYtransferfactor}
 \end{equation}
 
-Other ratios, such as $\CR{D}{<6}{\pi}/\CR{D}{<6}{0} = 1.12$ and $\CR{\Full}{<6}{\pi}/\CR{\Full}{<6}{0} = 0.92$ serve to validate the (approximate) symmetry in the Drell-Yan background (because the values are close to 1).
+Other ratios, such as $\CR{DY}{<6}{0}/\CR{DY}{<6}{\pi} = 0.89$ and $\CR{\Full}{<6}{0}/\CR{\Full}{<6}{\pi} = 1.09$ serve to validate the (approximate) symmetry in the Drell-Yan background (because the values are close to 1).
 
 There are 0 events in the full 2016 dataset in \CR{\Full}{>6}{\pi}.
 The estimate of the expected Drell-Yan background in SR is therefore also 0 events (with or without the mass window cuts described in \Sec~\ref{sec:dd:cutopt_mass}).
@@ -905,21 +912,21 @@ Background events arising from QCD processes, such as from collimated muons in j
 \DeltaPhi for such events may not be symmetric around $\pi/2$, instead having a peak at 0.
 
 \Fig~\ref{fig:dd:SeqLxySig_QCD_DeltaPhi} illustrates this with a histogram of \DeltaPhi for opposite sign events with the \DSAToPAT association reversed, with the corresponding matched PAT dimuon satisfying $60 < \LxySig < 115$, and the constituent PAT muon tracks not isolated, for sequentially increasing cuts on DSA \LxySig.
-Unlike the \mbox{Drell-Yan}-like events in the data plot of \Fig~\ref{fig:dd:SeqLxySig}, which are symmetric around $\pi/2$, these events have a strong, signal-like peak in \DeltaPhi at 0, especially for larger values of \LxySig.
+Unlike the DY-like events in the data plot of \Fig~\ref{fig:dd:SeqLxySig}, which are symmetric around $\pi/2$, these events have a strong, signal-like peak in \DeltaPhi at 0, especially for larger values of \LxySig.
 
 \begin{figure}[htpb]
   \centering
   \includegraphics[width=\DFigWidth]{figures/displaced/BGEST_EffectOfLxySigCut_DeltaPhi_Data_QCD-Like.pdf}
-  \caption[Histogram of \DeltaPhi for sequentially increasing cut values of \LxySig for QCD-like events in data.]{Histogram of \DeltaPhi for sequentially increasing cut values of \LxySig in data for the control region \CR[OS]{Q}{>x}{0}, normalized to unit area, with variable, sequentially increasing cut values $x$ of DSA \LxySig. These events are QCD-like, and have a strong, signal-like peak in \DeltaPhi at 0, especially for larger values of \LxySig, in stark contrast to the symmetry around $\pi/2$ of the \mbox{Drell-Yan}-like events in the data plot of \Fig~\ref{fig:dd:SeqLxySig}.}
+  \caption[Histogram of \DeltaPhi for sequentially increasing cut values of \LxySig for QCD-like events in data.]{Histogram of \DeltaPhi for sequentially increasing cut values of \LxySig in data for the control region \CR[OS]{QCD}{>x}{0}, normalized to unit area, with variable, sequentially increasing cut values $x$ of DSA \LxySig. These events are QCD-like, and have a strong, signal-like peak in \DeltaPhi at 0, especially for larger values of \LxySig, in stark contrast to the symmetry around $\pi/2$ of the DY-like events in the data plot of \Fig~\ref{fig:dd:SeqLxySig}.}
   \label{fig:dd:SeqLxySig_QCD_DeltaPhi}
 \end{figure}
 
 \pagebreak
-To demonstrate that calling these two sets of events \mbox{Drell-Yan}-like and QCD-like is justified, \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR} shows histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data, as in \Fig~\ref{fig:dd:SeqLxySig}, for the events in the control region (\ie \CR{D}{>x}{0} for variable $x$) used to estimate the Drell-Yan background in \Sec~\ref{sec:dd:bgest-DY}.
+To demonstrate that calling these two sets of events DY-like and QCD-like is justified, \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR} shows histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data, as in \Fig~\ref{fig:dd:SeqLxySig}, for the events in the control region (\ie \CR{DY}{>x}{0} for variable $x$) used to estimate the Drell-Yan background in \Sec~\ref{sec:dd:bgest-DY}.
 As the cut increases, the contribution of the \PZ\ mass peak decreases, and the contribution of QCD events at lower mass increases slightly.
-Moreover, the \deltaR distribution is highly \mbox{Drell-Yan}-like, with a strong peak at $\pi$ whose contribution also decreases with increasing \LxySig cut values, with some enhancement of low \deltaR QCD background.
+Moreover, the \deltaR distribution is highly DY-like, with a strong peak at $\pi$ whose contribution also decreases with increasing \LxySig cut values, with some enhancement of low \deltaR QCD background.
 
-In contrast, \Fig~\ref{fig:dd:SeqLxySig_QCD_MassDeltaR} shows similar histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for the QCD-like events in data (\ie \CR[OS]{Q}{>x}{0} for variable $x$).
+In contrast, \Fig~\ref{fig:dd:SeqLxySig_QCD_MassDeltaR} shows similar histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for the QCD-like events in data (\ie \CR[OS]{QCD}{>x}{0} for variable $x$).
 As the cut increases, the contribution of lower mass QCD events increases, and the \deltaR distribution has a strong peak at 0, suggestive of QCD background, with successively decreasing contributions from Drell-Yan backgrounds at $\pi$.
 
 \begin{figure}[p]
@@ -927,7 +934,7 @@ As the cut increases, the contribution of lower mass QCD events increases, and t
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_EffectOfLxySigCut_Mass_Data_DY-Like.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_EffectOfLxySigCut_DeltaR_Data_DY-Like.pdf}
-  \caption[Histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for \mbox{Drell-Yan}-like events in data for sequentially increasing cut values of \LxySig.]{Histograms of \figpos{left} \mMuMu and \figpos{right} $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data as in \Fig~\ref{fig:dd:SeqLxySig}, normalized to unit area, using the control regions \CR{D}{>x}{0} for variable, sequentially increasing cut values $x$ of DSA \LxySig.}
+  \caption[Histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for DY-like events in data for sequentially increasing cut values of \LxySig.]{Histograms of \figpos{left} \mMuMu and \figpos{right} $\deltaR(\Pgm\Pgm)$ for sequentially increasing cut values of \LxySig in data as in \Fig~\ref{fig:dd:SeqLxySig}, normalized to unit area, using the control regions \CR{DY}{>x}{0} for variable, sequentially increasing cut values $x$ of DSA \LxySig.}
   \label{fig:dd:SeqLxySig_DY_MassDeltaR}
 \end{figure}
 
@@ -936,7 +943,7 @@ As the cut increases, the contribution of lower mass QCD events increases, and t
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_EffectOfLxySigCut_Mass_Data_QCD-Like.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_EffectOfLxySigCut_DeltaR_Data_QCD-Like.pdf}
-  \caption[Histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for QCD-like events in data for sequentially increasing cut values of \LxySig.]{Histograms of \figpos{left} \mMuMu and \figpos{right} $\deltaR(\Pgm\Pgm)$ as in \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR}, but for QCD-like events in data, using the control regions \CR{Q}{>x}{0} for variable, sequentially increasing cut values $x$ of DSA \LxySig.}
+  \caption[Histograms of \mMuMu and $\deltaR(\Pgm\Pgm)$ for QCD-like events in data for sequentially increasing cut values of \LxySig.]{Histograms of \figpos{left} \mMuMu and \figpos{right} $\deltaR(\Pgm\Pgm)$ as in \Fig~\ref{fig:dd:SeqLxySig_DY_MassDeltaR}, but for QCD-like events in data, using the control regions \CR{QCD}{>x}{0} for variable, sequentially increasing cut values $x$ of DSA \LxySig.}
   \label{fig:dd:SeqLxySig_QCD_MassDeltaR}
 \end{figure}
 
@@ -944,14 +951,14 @@ Such QCD-like events hence would not appear in control regions with low \LxySig 
 
 Instead, pairs of regions with same-sign dimuons and opposite-sign dimuons are considered.
 \Tab~\ref{tab:dd:QCDcontrolregions} gives the number of events in data for several control regions.
-The relevant control regions are then \CR[OS]{Q}{>6}{0} and \CR[SS]{Q}{>6}{0}, and the transfer factor obtained thus can be applied to \CR[SS]{\Full}{>6}{0} to obtain a QCD background estimate for \CR[OS]{\Full}{>6}{0}.
+The relevant control regions are then \CR[OS]{QCD}{>6}{0} and \CR[SS]{QCD}{>6}{0}, and the transfer factor obtained thus can be applied to \CR[SS]{\Full}{>6}{0} to obtain a QCD background estimate for \CR[OS]{\Full}{>6}{0}.
 This transfer factor has a value of
 \begin{equation}
-  \TF_\text{QCD} = \frac{N\left[\CR[OS]{Q}{>6}{0}\right]}{N\left[\CR[SS]{Q}{>6}{0}\right]} = 2.81
+  \TF_\text{QCD} = \frac{N\left[\CR[OS]{QCD}{>6}{0}\right]}{N\left[\CR[SS]{QCD}{>6}{0}\right]} = 2.81
   \label{eq:dd:QCDtransferfactor}
 \end{equation}
 
-There are 4 same-sign events in \CR[SS]{Q}{>6}{0} in the full 2016 dataset, giving an estimate of QCD background in the SR of 11.2 events (without the mass window cuts described in \Sec~\ref{sec:dd:cutopt_mass}).
+There are 4 same-sign events in \CR[SS]{QCD}{>6}{0} in the full 2016 dataset, giving an estimate of QCD background in the SR of 11.2 events (without the mass window cuts described in \Sec~\ref{sec:dd:cutopt_mass}).
 As with the Drell-Yan transfer factor, there is a large systematic uncertainty on the QCD transfer factor (among other factors, it is sensitive to the window used for the PAT \LxySig); this uncertainty will be described and evaluated in \Sec~\ref{sec:dd:bgunc}.
 
 \begin{table}
@@ -964,18 +971,18 @@ As with the Drell-Yan transfer factor, there is a large systematic uncertainty o
     \CR[SS]{\Full}{>6}{0} & 4   \\
     \CR[OS]{\Full}{<6}{0} & 60  \\
     \CR[SS]{\Full}{<6}{0} & 4   \\
-    \CR[OS]{Q}  {>6}{0}   & 323 \\
-    \CR[SS]{Q}  {>6}{0}   & 115 \\
-    \CR[OS]{Q}  {<6}{0}   & 314 \\
-    \CR[SS]{Q}  {<6}{0}   & 196 \\
+    \CR[OS]{QCD}  {>6}{0} & 323 \\
+    \CR[SS]{QCD}  {>6}{0} & 115 \\
+    \CR[OS]{QCD}  {<6}{0} & 314 \\
+    \CR[SS]{QCD}  {<6}{0} & 196 \\
     \hline
   \end{tabular}
-  \caption[Event counts for control regions for estimating QCD background.]{Event counts for control regions for estimating QCD background. A ratio of events in \CR[SS]{Q}{>6}{0} with same-sign muons to the corresponding control region with opposite-sign muons \CR[OS]{Q}{>6}{0} gives a transfer factor; multiplying the number of events in \CR[SS]{\Full}{>6}{0} by this transfer factor gives an estimate of the QCD background in SR.}
+  \caption[Event counts for control regions for estimating QCD background.]{Event counts for control regions for estimating QCD background. A ratio of events in \CR[SS]{QCD}{>6}{0} with same-sign muons to the corresponding control region with opposite-sign muons \CR[OS]{QCD}{>6}{0} gives a transfer factor; multiplying the number of events in \CR[SS]{\Full}{>6}{0} by this transfer factor gives an estimate of the QCD background in SR.}
   \label{tab:dd:QCDcontrolregions}
 \end{table}
 
 Other ratios in \Tab~\ref{tab:dd:controlregions} do not give an appropriate transfer factor but rather serve to illuminate features of the QCD background.
-The ratio of \CR[OS]{Q}{<6}{0} to \CR[SS]{Q}{<6}{0} is 1.6, much closer to 1; this clarifies that there is proportionally more opposite-sign QCD background for large values of \LxySig, and so a large \LxySig region needed to be used to quantify it.
+The ratio of \CR[OS]{QCD}{<6}{0} to \CR[SS]{QCD}{<6}{0} is 1.6, much closer to 1; this clarifies that there is proportionally more opposite-sign QCD background for large values of \LxySig, and so a large \LxySig region needed to be used to quantify it.
 The ratio of \CR[SS]{\Full}{<6}{0} to \CR[OS]{\Full}{<6}{0} is quite small, showing that the same-sign background is not an important contributor to the regions with small \LxySig, and so the same-sign events in this region could not have been used to extrapolate an estimate in the signal region.
 
 \section{Cut Optimization}
@@ -996,8 +1003,9 @@ The signal histogram is scaled to 2016 integrated luminosity assuming an arbitra
 For \LxySig, the number of events in either histogram passing a given cut is an integral from the cut value to infinity; for some other variables (such as track \normchisq), the number of events passing a given cut is an integral from zero to the cut value.
 In the following discussion, the ``integral'' of a histogram is assumed to be performed over the appropriate interval.
 
-In the notation found in Reference~\cite{Cousins:ZBi2008}, the integral of the simulated signal histogram corresponds to an estimate $\hat{\mu}_s$ of the true Poisson mean number of signal events in the signal region;
+In the notation found in Reference~\cite{Cousins:ZBi2008}, the integral of the simulated signal histogram corresponds to ${\mu}_s$, the true Poisson mean number of signal events in the signal region;
 and the integral of the background histogram corresponds to a number of observed events in the signal-free region $n_\text{off}$, from which one derives the estimate $\hat{\mu}_b = n_\text{off}/\TF$ of the true Poisson mean number of background events in the signal region.
+To obtain the median \ZBi, $\mu_s$ is used as the estimate of the true Poisson signal mean $\hat{\mu}_s$.
 \ZBi is then calculated for each cut value, a function of three quantities: the number of background events in the control region $n_\text{off}$, the total number of observed events in the signal region $n_\text{on} = \hat{\mu}_s + \hat{\mu}_b$, and the transfer factor is taken to be $\TF = 1$.
 
 \Fig~\ref{fig:dd:CutOptExample} shows an example of the cut optimization procedure, with the background (control region in data) distribution in red, the signal distribution (here for the \twoMu signal sample with \FullSP{1000}{20}{20}) in blue, and the value of \ZBi for each cut value in green.
@@ -1167,26 +1175,26 @@ The values of the QCD transfer factors are therefore given for each mass window,
   \centering
   \begin{tabular}{lrrll}
     \hline
-    Mass Window & \CR[SS]{Q}{>6}{0} & \CR[OS]{Q}{>6}{0} & $\tau_\text{QCD}$ & $\sigma_{\TF_\text{QCD}}$ \\
+    Mass Window & \CR[SS]{QCD}{>6}{0} & \CR[OS]{QCD}{>6}{0} & $\tau_\text{QCD}$ & $\sigma_{\TF_\text{QCD}}$ \\
     \hline
-    $10\GeV < \mMuMu < 32\GeV$   & 103 & 302         & $2.93 \pm 0.33$  & 11\% \\
-    $20\GeV < \mMuMu < 80\GeV$   & 35  & 51          & $1.46 \pm 0.32$  & 22\% \\
-    $35\GeV < \mMuMu < 245\GeV$  & 10  & 18          & $1.80 \pm 0.71$  & 39\% \\
-    $65\GeV < \mMuMu$            & 3   & 7           & $2.33 \pm 1.61$  & 69\% \\
-    Total                        & 115 & 323         & $2.81 \pm 0.86$  & 11\% \\
+    $10\GeV < \mMuMu < 32\GeV$   & 103 & 302         & $2.9 \pm 0.3$  & 11\% \\
+    $20\GeV < \mMuMu < 80\GeV$   & 35  & 51          & $1.5 \pm 0.3$  & 22\% \\
+    $35\GeV < \mMuMu < 245\GeV$  & 10  & 18          & $1.8 \pm 0.7$  & 39\% \\
+    $65\GeV < \mMuMu$            & 3   & 7           & $2.3 \pm 1.6$  & 69\% \\
+    Total                        & 115 & 323         & $2.8 \pm 0.9$  & 11\% \\
     \hline
   \end{tabular}
   \caption{Transfer factors $\TF_\text{QCD}$ for estimating QCD background, along with their systematic uncertainties, given in dimuon mass windows.}
   \label{tab:dd:QCDSystUnc}
 \end{table}
 
-Events in data with $\LxySig < 6$ are used to check the internal consistency of these transfer factors.
+Events in data with $\LxySig < 6$ are used to cross check these transfer factors.
 The histograms of events with $\LxySig < 6$ in the $\DeltaPhi > 3\pi/4$ region are scaled according to transfer factors obtained from the histograms for estimating Drell-Yan background and QCD background.
 These plots are given in \Fig~\ref{fig:dd:TFLess}.
 \begin{itemize}
-  \item The top left plot of \Fig~\ref{fig:dd:TFLess} shows the events passing the full selection in data for $\CR{\Full}{<6}{0}$ (labeled SR, colored red) and for $\CR{\Full}{<6}{\pi}$ (labeled CR, colored blue), showing general agreement between the $\DeltaPhi < \pi/4$ and $\DeltaPhi > 3\pi/4$ regions.
-  \item The binwise ratio of the \CR{D}{<6}{0} and \CR{D}{<6}{\pi} histograms gives a weight factor for each \LxySig bin; binwise scaling \CR{\Full}{<6}{\pi} by these weights gives the top right plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled CR w/ DY and colored green, to represent a correction by the Drell-Yan transfer factor.
-  \item The binwise ratio of the \CR[SS]{Q}{<6}{0} and \CR[OS]{Q}{<6}{0} histograms gives a weight factor for each \LxySig bin; binwise scaling the 4 events in \CR[SS]{\Full}{<6}{0} by these weights and adding them to the modified \CR{\Full}{<6}{\pi} histogram in the top right plot gives the bottom left plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled CR w/ DY+QCD and colored violet, to represent a correction by both the Drell-Yan transfer factor and the QCD transfer factor.
+  \item The top left plot of \Fig~\ref{fig:dd:TFLess} shows the events passing the full selection in data for $\CR{\Full}{<6}{0}$ (labeled ``SR'', colored red) and for $\CR{\Full}{<6}{\pi}$ (labeled ``CR'', colored blue), showing general agreement between the $\DeltaPhi < \pi/4$ and $\DeltaPhi > 3\pi/4$ regions.
+  \item The binwise ratio of the \CR{DY}{<6}{0} and \CR{DY}{<6}{\pi} histograms gives a weight factor for each \LxySig bin; binwise scaling \CR{\Full}{<6}{\pi} by these weights gives the top right plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled ``CR w/ DY'' and colored green, to represent a correction by the Drell-Yan transfer factor.
+  \item The binwise ratio of the \CR[SS]{QCD}{<6}{0} and \CR[OS]{QCD}{<6}{0} histograms gives a weight factor for each \LxySig bin; binwise scaling the 4 events in \CR[SS]{\Full}{<6}{0} by these weights and adding them to the modified \CR{\Full}{<6}{\pi} histogram in the top right plot gives the bottom left plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled ``CR w/ DY+QCD'' and colored violet, to represent a correction by both the Drell-Yan transfer factor and the QCD transfer factor.
   \item All four histograms are plotted together in the bottom right plot of \Fig~\ref{fig:dd:TFLess} for comparison.
 \end{itemize}
 
@@ -1198,17 +1206,17 @@ These plots are given in \Fig~\ref{fig:dd:TFLess}.
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_smallLxySig_CR_Corr_SS.pdf}
   \hspace*{-2em}
   \includegraphics[width=\DSquareWidth]{figures/displaced/BGEST_smallLxySig.pdf}
-  \caption{Histograms of \CR{\Full}{<6}{0} and \CR{\Full}{<6}{\pi} in data, with the latter binwise scaled by Drell-Yan and QCD transfer factors, demonstrating agreement and internal consistency of obtaining background estimates in the signal region with transfer factors from control regions.}
+  \caption{Histograms of \CR{\Full}{<6}{0} and \CR{\Full}{<6}{\pi} in data, with the latter binwise scaled by Drell-Yan and QCD transfer factors, demonstrating agreement and validating the method of obtaining background estimates in the signal region with transfer factors from control regions.}
   \label{fig:dd:TFLess}
 \end{figure}
 \clearpage
 
-With the exception of a presumed fluctuation in the last bin with a large uncertainty, the corrected CR w/ DY+QCD histogram (violet) is within error bars of the SR histogram, verifying that the use of the transfer factors to obtain estimates of background events in the signal region is internally consistent.
+With the exception of a presumed fluctuation in the last bin with a large uncertainty, the corrected ``CR w/ DY+QCD'' histogram (violet) is within error bars of the SR histogram, verifying that the use of the transfer factors to obtain estimates of background events in the signal region is consistent.
 
 \subsection{Signal Uncertainties}
 \subsubsection{Signal Lifetime Reweighting}
 \label{sec:dd:lifetimereweighting}
-As enumerated in \Tab~\ref{tab:dd:signalsamples}, for a given BSM Higgs mass and long-lived particle mass \mH and \mX, this analysis simulated and produced signal samples for only three distinct values of the long-lived particle lifetime \cTau.
+As enumerated in \Tab~\ref{tab:dd:signalsamples}, for a given BSM Higgs mass and long-lived particle mass \mH and \mX, this analysis simulated and produced signal samples for only three distinct values of \cTau.
 To calculate an estimated number of signal events for lifetimes other than these three nominal lifetimes, this analysis employs a procedure to reweight one signal lifetime into another.
 A particle with lifetime $\tau$ will decay after a time $t$ given by a decaying exponential probability distribution $\pazocal{P}(t; \tau) = e^{-t/\tau}/\tau$.
 A sample with a decay time distribution of reference lifetime $\tau_\text{ref}$ can be reweighted so that it is distributed with a new lifetime $\tau_\text{new}$ by multiplying the contribution of each event by a weight factor given by the ratio of the two distributions:
@@ -1338,24 +1346,25 @@ Other systematic uncertainties, such as theoretical uncertainties from next-to-l
 \subsection{Computing Upper Limits with the \CLs Criterion}
 \label{sec:dd:cls}
 The procedure for setting an upper limit on the long-lived particle production cross section times the branching fraction to two muons is as follows \cite{CMS-NOTE-2011-005}.
-Let the probability of obtaining the observed data $x$ be $\pazocal{P}(x; \sigstr, \theta)$ (probability density if $x$ is continuous).
+Let the probability of obtaining the observed data $x$ be $\pazocal{P}(x; \sigstr, \theta)$ (probability density function, or pdf, if $x$ is continuous).
 Here \sigstr is the signal strength, a quantity proportional to the signal cross section, so that $\sigstr = 0$ represents a background-only model, and $\theta$ represents the systematic uncertainties, also referred to as nuisance parameters.
 A model therefore defines an expected number of signal events, an expected number of background events, and a set of systematic uncertainties.
 Then the likelihood function for a model with signal strength \sigstr and nuisance parameters $\theta$ given some observed data $x = X$ is $\pazocal{L}\left(\sigstr, \theta \,\vert\, X\right)$.
 This likelihood function is globally maximized at some values $\sigstr = \hat{\sigstr}$ and $\theta = \hat{\theta}$, and for a specific value of \sigstr, locally maximized at $\theta = \hat{\hat{\theta}}_\sigstr$.
 The LHC-style test statistic \cite{CombineManual} is then defined, based on a ratio of profile likelihoods, as
+
 \begin{equation}
   q_\text{LHC}(\sigstr) = -2\ln\left[\frac{\pazocal{L}\left(\sigstr, \hat{\hat{\theta}}_\sigstr \,\vert\, X\right)}{\pazocal{L}\left(\sigstr = \hat{\sigstr}, \theta=\hat{\theta}\,\vert\,  X\right)}\right]
   \label{eq:dd:qLHC}
 \end{equation}
-The likelihoods are evaluated following the Cousins-Highland prescription of treating the signal strength in a frequentist manner and incorporating the systematic uncertainties by marginalizing (or integrating over) them (treating them in a Bayesian manner by designating their prior probability distribution functions) \cite{CousinsHighland:SystUnc1992}.
+The likelihoods are evaluated following the Cousins-Highland prescription of treating the signal strength in a frequentist manner and incorporating the systematic uncertainties by marginalizing (or integrating over) them (treating them in a Bayesian manner by designating their prior pdfs) \cite{CousinsHighland:SystUnc1992}.
 
-For most types of systematic uncertainties, the prior probability distributions are assumed to follow a log-normal distribution, with one exception.
+For most types of systematic uncertainties, the prior pdfs are assumed to follow a log-normal distribution, with one exception.
 There is a systematic uncertainty on the estimated background associated with the statistical uncertainty arising from estimating the expected background in the signal region from a number of observed events in the control region.
-The prior probability distribution for this systematic uncertainty follows a gamma distribution \cite{Cousins:ZBi2008, Cousins:LogNormal}.
+The prior pdf for this systematic uncertainty is assumed to follow a gamma distribution, which has good frequentist properties; from a Bayesian point of view, it is the posterior pdf for the background mean if the prior pdf is uniform and the likelihood function is from one sample of a Poisson distribution \cite{Cousins:ZBi2008, Cousins:LogNormal}.
 
 For some observation $X$, the minimal value $Q(X)$ of the test statistic $q_\text{LHC}(\sigstr)$ corresponds to the value of \sigstr with maximum likelihood.
-Then the probability distribution of the minimal value of the test statistic $\pazocal{P}(Q;\sigstr)$, given a signal strength \sigstr, is computed, by sampling observations $X$ from ensembles of toy experiments generated using Monte Carlo methods, computing the likelihood functions, and minimizing the test statistic.
+Then the pdf of the minimal value of the test statistic $\pazocal{P}(Q;\sigstr)$, given a signal strength \sigstr, is computed, by sampling observations $X$ from ensembles of toy experiments generated using Monte Carlo methods, computing the likelihood functions, and minimizing the test statistic.
 The actual observation $X_\text{obs}$ in CMS data taken in 2016 corresponds to some minimal value of the test statistic $Q_\text{obs} = Q(X_\text{obs})$.
 Define the $p$-values for signal and background as
 \begin{align}
@@ -1393,7 +1402,7 @@ The \combine program is then run with the following configurations controlling t
   \item \texttt{--seed -1}: randomizes the seed
   \item \texttt{--hintMethod AsymptoticLimits}: estimate the upper limit on the signal strength using asymptotic frequentist methods, and use the result to inform the range of signal strengths over which to search when running toy experiments.
   \item \texttt{--testStat LHC}: compute the distribution of the LHC-style test statistic.
-  \item \texttt{--generateNuisances 1 --fitNuisances 0}: treats the nuisance parameters in a Bayesian manner by integrating over them. For each toy experiment, the value of the nuisance parameters are randomized within their prior probability distributions functions.
+  \item \texttt{--generateNuisances 1 --fitNuisances 0}: treats the nuisance parameters in a Bayesian manner by integrating over them. For each toy experiment, the value of the nuisance parameters are randomized within their pdfs.
   \item \texttt{--expectedFromGrid [QUANTILE]}: computes the \texttt{QUANTILE} quantile of the expected upper limit. When omitted, the program computes the observed limit; otherwise, \texttt{QUANTILE} is 0.5 for the median of the distribution under the background-only hypothesis; 0.16 and 0.84 for the lower and upper edges of the 68\% quantile; and 0.025 and 0.975 for the lower and upper edges of the 95\% quantile. 
 \end{itemize}
 
@@ -1423,6 +1432,18 @@ As in \Fig~\ref{fig:dd:shower}, views are presented in both the transverse plane
 DSA muon tracks are drawn in yellow (associated segments drawn as yellow dots); PAT muons are drawn in red; jets are drawn in cyan; tracks in the tracker are drawn in gray; missing transverse energy is drawn in purple.
 Detailed inspection of the individual events passing all cuts gives no indication that the events are not individually compatible with known backgrounds.
 As the numbers of events passing all cuts are compatible with expectations based on the background estimates and the transfer factors, we conclude that no excess is observed.
+
+
+
+\subsection{Upper Limits on the Cross Section Times Branching Ratio}
+\label{sec:dd:limits}
+\Tab~\ref{tab:dd:exp_obs} enumerates the number of opposite-sign events in the control region \CR[OS]{\Full}{>6}{\pi}, the number of same-sign events in the control region \CR[SS]{\Full}{>6}{0}, the corresponding number of expected background events in the signal region, and the number observed events in the signal region, for each mass window in \Tab~\ref{tab:dd:masswindow}, given the events enumerated in \Tab~\ref{tab:dd:signalregionevents}.
+Given these observations, the systematic uncertainties described in \Sec~\ref{sec:dd:systunc}, and the procedure described in \Secs~\ref{sec:dd:cls}--\ref{sec:dd:combine}, upper limits on the signal strength for each mass hypothesis are computed and converted to limits on the cross section times the branching ratio.
+\Figs~\ref{fig:dd:UpperLimits_mH_1000}--\ref{fig:dd:UpperLimits_mH_125} are plots of the upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for various values of BSM Higgs mass \mH and long-lived particle mass \mX as a function of $c$ times the long-lived particle mean proper lifetime \cTau.
+In the figure for each limit curve, there is also shown the median upper limit that would be obtained in an imagined ensemble of similar experiments having only background events.
+The spread of upper limits about the median in such an ensemble of background-only experiments is indicated by yellow bands containing the central 68\% quantile.
+\Tab~\ref{tab:dd:limits} summarizes the values of the median and observed upper limits for the 33 sets of signal parameters (\mH, \mX, \cTau) without any lifetime reweighting.
+Some values are omitted, corresponding to signal samples with zero efficiency or statistical uncertainty greater than 50\%.
 
 \begin{table}
   \centering
@@ -1454,6 +1475,24 @@ As the numbers of events passing all cuts are compatible with expectations based
   \caption{List of events passing the full selection in 2016 data, with their run, lumi section, and event numbers, the values of \mMuMu, \DeltaPhi, and \LxySig, and the associated event display.}
   \label{tab:dd:signalregionevents}
 \end{table}
+
+\begin{table}
+  \centering
+  \begin{tabular}{lllll}
+    \hline
+    Dimuon Mass Window           & O.S. in \CR[OS]{\Full}{>6}{\pi} & S.S. in \CR[SS]{\Full}{>6}{0}  & Expected & Observed \\
+    \hline
+    $10\GeV < \mMuMu < 32\GeV$   & 0                               & 3           &  8.8     & 6        \\
+    $20\GeV < \mMuMu < 80\GeV$   & 0                               & 1           &  1.5     & 3        \\
+    $35\GeV < \mMuMu < 245\GeV$  & 0                               & 0           &  0.0     & 2        \\
+    $65\GeV < \mMuMu$            & 0                               & 0           &  0.0     & 1        \\
+    Total                        & 0                               & 4           & 11.2     & 8        \\
+    \hline
+  \end{tabular}
+  \caption[Number of opposite-sign and same-sign events, expected background events, and observed events.]{Number of opposite-sign events in \CR[OS]{\Full}{>6}{\pi}, same-sign events in \CR[SS]{\Full}{>6}{0}, expected background events in SR, and observed events in SR.}
+  \label{tab:dd:exp_obs}
+\end{table}
+
 
 \begin{figure}[htpb]
   \centering
@@ -1519,31 +1558,6 @@ As the numbers of events passing all cuts are compatible with expectations based
   \label{fig:dd:event-501}
 \end{figure}
 
-\subsection{Upper Limits on the Cross Section Times Branching Ratio}
-\label{sec:dd:limits}
-\Tab~\ref{tab:dd:exp_obs} enumerates the number of opposite-sign events in the control region \CR[OS]{\Full}{>6}{\pi}, the number of same-sign events in the control region \CR[SS]{\Full}{>6}{0}, the corresponding number of expected background events in the signal region, and the number observed events in the signal region, for each mass window in \Tab~\ref{tab:dd:masswindow}, given the events enumerated in \Tab~\ref{tab:dd:signalregionevents}.
-Given these observations, the systematic uncertainties described in \Sec~\ref{sec:dd:systunc}, and the procedure described in \Secs~\ref{sec:dd:cls}--\ref{sec:dd:combine}, upper limits on the signal strength for each mass hypothesis are computed and converted to limits on the cross section times the branching ratio.
-\Figs~\ref{fig:dd:UpperLimits_mH_1000}--\ref{fig:dd:UpperLimits_mH_125} are plots of the upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for various values of BSM Higgs mass \mH and long-lived particle mass \mX as a function of long-lived particle lifetime \cTau.
-In the figure for each limit curve, there is also shown the median upper limit that would be obtained in an imagined ensemble of similar experiments having only background events.
-The spread of upper limits about the median in such an ensemble of background-only experiments is indicated by yellow bands containing the central 68\% quantile.
-
-\begin{table}
-  \centering
-  \begin{tabular}{lllll}
-    \hline
-    Dimuon Mass Window           & O.S. in \CR[OS]{\Full}{>6}{\pi} & S.S. in \CR[SS]{\Full}{>6}{0}  & Expected & Observed \\
-    \hline
-    $10\GeV < \mMuMu < 32\GeV$   & 0                               & 3           &  8.8     & 6        \\
-    $20\GeV < \mMuMu < 80\GeV$   & 0                               & 1           &  1.5     & 3        \\
-    $35\GeV < \mMuMu < 245\GeV$  & 0                               & 0           &  0.0     & 2        \\
-    $65\GeV < \mMuMu$            & 0                               & 0           &  0.0     & 1        \\
-    Total                        & 0                               & 4           & 11.2     & 8        \\
-    \hline
-  \end{tabular}
-  \caption[Number of opposite-sign and same-sign events, expected background events, and observed events.]{Number of opposite-sign events in \CR[OS]{\Full}{>6}{\pi}, same-sign events in \CR[SS]{\Full}{>6}{0}, expected background events in SR, and observed events in SR.}
-  \label{tab:dd:exp_obs}
-\end{table}
-
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\DSquareWidth]{figures/displaced/Limits_2Mu_1000_350_HybridNew.pdf}
@@ -1583,6 +1597,62 @@ The spread of upper limits about the median in such an ensemble of background-on
   \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 125\GeV$ for various values of \mX.]{95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for $\mH = 125\GeV$ for various values of \mX. Black dots are observed limits; the blue line represents the median expected limits; the yellow shaded bands show the central 68\% quantile.}
   \label{fig:dd:UpperLimits_mH_125}
 \end{figure}
+
+\begin{table}
+  \renewcommand{\arraystretch}{0.75}
+  \centering
+  \begin{tabular}{lllll}
+    \hline
+    \mH (\GeVns) & \mX (\GeVns) & \cTau (\mm) & Expected $[\sigma B]_\text{UL}$ [pb] & Observed $[\sigma B]_\text{UL}$ [pb] \\
+    \hline
+    \multirow{3}{*}{1000}  & \multirow{3}{*}{350} & 35   & $4.55 \times 10^{-2}$ & $3.65 \times 10^{-2}$ \\
+                           &                      & 350  & $2.08 \times 10^{-3}$ & $1.69 \times 10^{-3}$ \\
+                           &                      & 3500 & $3.31 \times 10^{-3}$ & $3.04 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{1000}  & \multirow{3}{*}{150} & 10   & $2.84 \times 10^{-1}$ & $2.84 \times 10^{-1}$ \\
+                           &                      & 100  & $3.07 \times 10^{-3}$ & $3.13 \times 10^{-3}$ \\
+                           &                      & 1000 & $2.04 \times 10^{-3}$ & $2.07 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{1000}  & \multirow{3}{*}{ 50} & 4    & -        & -                                  \\
+                           &                      & 40   & $4.91 \times 10^{-3}$ & $4.92 \times 10^{-3}$ \\
+                           &                      & 400  & $1.87 \times 10^{-3}$ & $1.91 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{1000}  & \multirow{3}{*}{ 20} & 2    & -        & -                                  \\
+                           &                      & 20   & $1.43 \times 10^{-2}$ & $9.01 \times 10^{-3}$ \\
+                           &                      & 200  & $7.99 \times 10^{-3}$ & $4.90 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{ 400}  & \multirow{3}{*}{150} & 40   & $4.13 \times 10^{-2}$ & $4.04 \times 10^{-2}$ \\
+                           &                      & 400  & $2.25 \times 10^{-3}$ & $2.17 \times 10^{-3}$ \\
+                           &                      & 4000 & $5.19 \times 10^{-3}$ & $5.32 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{ 400}  & \multirow{3}{*}{ 50} & 8    & -        & -                                  \\
+                           &                      & 80   & $3.85 \times 10^{-3}$ & $3.93 \times 10^{-3}$ \\
+                           &                      & 800  & $2.10 \times 10^{-3}$ & $2.21 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{ 400}  & \multirow{3}{*}{ 20} & 4    & -        & -                                  \\
+                           &                      & 40   & $9.78 \times 10^{-3}$ & $6.11 \times 10^{-3}$ \\
+                           &                      & 400  & $5.56 \times 10^{-3}$ & $3.05 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{ 200}  & \multirow{3}{*}{ 50} & 20   & $4.36 \times 10^{-1}$ & $4.24 \times 10^{-1}$ \\
+                           &                      & 200  & $4.99 \times 10^{-3}$ & $5.10 \times 10^{-3}$ \\
+                           &                      & 2000 & $8.19 \times 10^{-3}$ & $8.37 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{ 200}  & \multirow{3}{*}{ 20} & 7    & -        & -                                  \\
+                           &                      & 70   & $1.39 \times 10^{-2}$ & $8.13 \times 10^{-3}$ \\
+                           &                      & 700  & $9.37 \times 10^{-3}$ & $5.74 \times 10^{-3}$ \\
+    \hline
+    \multirow{3}{*}{ 125}  & \multirow{3}{*}{ 50} & 50   & $1.17 \times 10^{-1}$ & $1.16 \times 10^{-1}$ \\
+                           &                      & 500  & $9.82 \times 10^{-3}$ & $1.00 \times 10^{-2}$ \\
+                           &                      & 5000 & $3.41 \times 10^{-2}$ & $3.46 \times 10^{-2}$ \\
+    \hline
+    \multirow{3}{*}{ 125}  & \multirow{3}{*}{ 20} & 13   & -        & -                                  \\
+                           &                      & 130  & $2.22 \times 10^{-2}$ & $1.31 \times 10^{-2}$ \\
+                           &                      & 1300 & $2.54 \times 10^{-2}$ & $1.55 \times 10^{-2}$ \\
+    \hline
+  \end{tabular}
+  \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for the 33 sets of signal parameters (\mH, \mX, \cTau) in \twoMu simulated signal samples.]{95\% CL expected and observed upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for the 33 sets of signal parameters (\mH, \mX, \cTau) in \twoMu simulated signal samples. Omitted entries refer to signal samples with zero efficiency or with a large statistical uncertainty.}
+  \label{tab:dd:limits}
+\end{table}
 
 \subsection{Robustness of Upper Limits to Systematic Uncertainties}
 \label{sec:dd:robustness}
