@@ -100,7 +100,7 @@ where $R$ is a geometrical factor accounting for the beam crossing angle,
   \frac{1}{R} = \sqrt{1 + \left(\frac{\theta\sigma_z}{2\sigma^*}\right)^2}
   \label{cms:geo}
 \end{equation}
-The design LHC beam parameters in \Eqs~\ref{cms:instlumi}--\ref{cms:geo} are defined and summarized in \Tab~\ref{cms:beam} \cite{Bruning:782076, Baird:1017689}.
+The design LHC beam parameters in \Eqs~\ref{cms:instlumi}--\ref{cms:geo} are defined and summarized in \Tab~\ref{cms:beam} \cite{Baird:1017689, Bruning:782076}.
 This yields a peak instantaneous luminosity of $\lumi = 10^{34} \,  \mathrm{cm}^{-1} \, \mathrm{s}^{-1}$.
 
 \begin{table}
@@ -181,8 +181,8 @@ It also shows the detector signatures of the general categories of particles dir
   \item neutral hadrons
   \item muons
 \end{itemize}
-The charged particles --- electrons, muons, and charged hadrons --- are detected as they form curved, helical tracks in the silicon tracker (and in the case of muons, in the muon system as well).
-Electrons, charged hadrons, and the neutral particles --- photons and neutral hadrons --- leave energy deposits in the electromagnetic and hadronic calorimeters.
+The charged particles---electrons, muons, and charged hadrons---are detected as they form curved, helical tracks in the silicon tracker (and in the case of muons, in the muon system as well).
+Electrons, charged hadrons, and the neutral particles---photons and neutral hadrons---leave energy deposits in the electromagnetic and hadronic calorimeters.
 
 \subsection{Coordinate System}
 The origin of the coordinate system used by CMS is the nominal \pp collision point.
@@ -293,7 +293,7 @@ Because of the amount of material in the inner subsystems, typically mostly muon
 A track in the muon system therefore is associated with a muon.
 Hadronic ``punchthrough'' in the muon system is minimal.
 
-The muon system has three tasks: triggering (see \Sec~\ref{cms:trigger}), muon identification, and muon reconstruction.
+The muon system has three tasks: triggering (\Sec~\ref{cms:trigger}), muon identification, and muon reconstruction.
 As with the other subsystems, the shape of the solenoid informs a design of a cylindrical barrel section and an endcap disk section.
 Both sections consist of four stations of muon detectors, concentric for the barrel and sequential for the endcap.
 The muon system consists of three kinds of gaseous ionization detectors: drift tubes (DT), cathode strip chambers (CSC), and resistive plate chambers (RPC).
@@ -363,7 +363,7 @@ The High-Level Trigger (HLT) makes its decisions at the software level, performi
 HLT processing operates more slowly than the L1 trigger, but faster than the full event readout, serving to reduce the rate from 100\unit{kHz} to the data acquisition rate of hundreds of Hz \cite{Chatrchyan:2008zzk, Adam:2005zf}.
 
 The L1 trigger consists of a muon trigger and a calorimeter trigger, organized into local, regional, and global components.
-Both the ECAL and all components of the HCAL participate in the calorimeter trigger, and all three muon chambers --- DTs, CSCs, and RPCs --- participate in the muon trigger, the first muon trigger to measure momentum at the hardware Level-1.
+Both the ECAL and all components of the HCAL participate in the calorimeter trigger, and all three muon chambers---DTs, CSCs, and RPCs---participate in the muon trigger, the first muon trigger to measure momentum at the hardware Level-1.
 The local components are the lowest level, based on energy deposits in the calorimeters and hits and segments in the muon system.
 Regional components combine the information from the local components using pattern recognition and track finding and rank trigger objects in small regions.
 The global components determine the highest-rank objects and transfer them to the global trigger of the L1 system.
@@ -375,7 +375,7 @@ The L1 trigger must analyze every bunch crossing, doing so with a maximum latenc
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/cms/L1Architecture.pdf}
-  \caption[Architecture of the L1 trigger system, depicting the local, regional, and global components of the muon and calorimeter triggers.]{Architecture of the L1 trigger system, based on a figure from \cite{Chatrchyan:2008zzk}, depicting the local, regional, and global components of the muon and calorimeter triggers, the information from which is processed by the global L1 trigger for trigger decision at L1.}
+  \caption[Architecture of the L1 trigger system, depicting the local, regional, and global components of the muon and calorimeter triggers.]{Architecture of the L1 trigger system, based on a figure from Reference~\cite{Chatrchyan:2008zzk}, depicting the local, regional, and global components of the muon and calorimeter triggers, the information from which is processed by the global L1 trigger for trigger decision at L1.}
   \label{cms:L1}
 \end{figure}
 
