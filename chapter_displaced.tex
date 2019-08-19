@@ -99,7 +99,7 @@ The main backgrounds for this analysis are
 \begin{itemize}
   \item the Drell-Yan process yielding dileptons ($\pp\to\PZ/\gamma^* \to \ell\ell$), especially from reconstruction mistakes;
   \item QCD processes yielding dileptons, especially from decays of bottom and charm quarks and hadron decays in flight; and
-  \item cosmic muons reconstructed as dileptons
+  \item cosmic muons reconstructed as dileptons.
 \end{itemize}
 Other backgrounds from top quark production and diboson production with leptonic decays produce negligible contributions.
 The CMS collaboration centrally produces MC simulation of background processes for physics analysis; this analysis uses the ``Summer16'' campaign produced for the winter conferences of 2017.
@@ -216,31 +216,37 @@ Most algorithms performing the offline reconstruction of muon tracks, however, i
 A search for displaced dimuons must therefore use a reconstruction algorithm that does not use this beam spot constraint.
 
 Muons reconstructed using only hits in the muon system are known as standalone muons.
-Standalone muon reconstruction is seeded with groups of segments in the muon system as a starting point for building a muon trajectory \cite{Liu2008}.
 Standalone muons are independent of the more precise information from the silicon tracker, and so have poorer spatial and momentum resolution than muons reconstructed using the tracker.
 However, the reconstruction efficiency for tracker tracks with transverse impact parameter $d_0$ (the closest distance between the track and the beam spot in the transverse plane) of more than a few tens of \cm is essentially zero, while the muon system gives non-vanishing reconstruction efficiency even a few meters away from the beam spot.
-Therefore, standalone muons are the reconstructed object of choice for a displaced dimuon search sensitive to longer lifetimes.
-Furthermore, standalone muon reconstruction is available with and without the beam spot constraint.
-Standalone muons without this beam spot constraint are the starting point for choosing a muon reconstruction suitable for studying displaced dimuons.
+Standalone muon reconstruction (as well as its variants, discussed below) is available with and without the beam spot constraint; the reconstructions without the beam spot constraint for more suitable for studying displaced muons.
+Therefore, variants of standalone muons reconstructed without the beam spot constraint are the starting points for choosing a muon reconstruction suitable for a search for displaced dimuons sensitive to longer lifetimes.
+
+Muon reconstruction in CMS begins with local reconstruction of hits in muon chambers and of segments formed from linear fits to groups of hits within a station \cite{Liu2008}.
+Standalone muon reconstruction follows local reconstruction of hits and segments with a trajectory seeding step and a trajectory building step.
+A trajectory seed consists of a state vector (track position, momentum, and errors) associated with one or a few hits or segments in the DTs or CSCs.
+A navigation algorithm uses these trajectory seeds to determine possible layers through which the trajectory may pass, known as compatible layers.
+A trajectory building step, using these seeds and their compatible layers as inputs, employs a Kalman filter algorithm to iterate over compatible layers and incrementally build a muon trajectory from multiple hits and segments.
+
+Standard trajectory seed generation involves an estimate of the state vector with a parametrization that includes the \pp interaction point, and is therefore suitable for reconstruction of muons originating from \pp collisions.
+Another implementation, known as cosmic muon seed generation, modifies the standard algorithm in a few ways:
+\begin{itemize}
+  \item Each seed is built from exactly one DT or CSC segment;
+  \item Segments located with a larger $y$ value in the CMS reference coordinates (\Sec~\ref{cms:coordinates}) are preferred to segments with smaller $y$ values;
+  \item The trajectory seed state vector direction is determined by the segment direction, excluding the parametrization involving the interaction point;
+  \item The momentum direction for seeds is set to be downward.
+\end{itemize}
+These seeds are thus more suitable for reconstruction of muons originating from cosmic rays.
+As cosmic muons may have large impact parameters, such a reconstruction is also expected to be more suitable for reconstruction of muons originating from highly displaced decays.
 
 The analyses performed using Run~1 data used refitted standalone muons (RSA muons) as their primary muon reconstruction \cite{CMS-PAS-EXO-14-012,CMS-AN-14-176}.
-Compared to ordinary standalone muons without the beam spot constraint, the RSA muon algorithm computes a final refit (an additional iteration in the standalone muon trajectory builder) excluding the beam spot.
+Compared to ordinary standalone muons without the beam spot constraint (with standard seeding), the RSA muon algorithm computes a final refit (an additional iteration in the standalone muon trajectory builder) excluding the beam spot.
 This reconstruction was intended to reduce the inherent bias towards the beam spot exhibited by the standard standalone muon reconstruction designed to study muons originating directly from the \pp collision.
 RSA muons thus have improved $d_0$ and \pT resolution compared to standalone muons.
 
 Another muon reconstruction algorithm is the displaced standalone muon (DSA muon) reconstruction.
-Compared to ordinary standalone muons without the beam spot constraint, the DSA muon reconstruction is seeded with groups of segments in the muon chambers with criteria similar to those used for the reconstruction of cosmic muons (and thus more suitable for reconstruction of displaced muons), as opposed to seeds used for the reconstruction of muons originating from \pp collisions \cite{Liu2008, CMS-DP-2015-015}.
-This reconstruction was intended to further improve the \pT resolution of muons produced from highly displaced decays.
-
-\Fig~\ref{fig:dd:REFF} shows graphs of the efficiency as a function of generated \Lxy to reconstruct a generated muon as DSA or as RSA, with and without the trigger applied, with respect to \mbox{$\PHiggs\to2\PLLP\to2\Pgm$} signal events in which both generated muons are within a detector acceptance, defined as
-\begin{itemize}
-  \item both generated muon $\pT > 25\GeV$
-  \item both generated muon $|\eta| < 2$
-  \item generated \mbox{$\Lxy < 500\cm$}
-\end{itemize}
-In order to have a sufficient sample size, all 33 of the \twoMu signal samples are combined together for these graphs.
-The reconstruction efficiency decreases steadily as a function of generated \Lxy, dropping off sharply at about 600\cm, corresponding roughly to the start of the third barrel muon station, and the DSA reconstruction is consistently higher than the RSA reconstruction.
-With the trigger applied, the reconstruction efficiency is high for both DSA and RSA muons, up until about 300\cm at which point the trigger efficiency seriously limits the number of passing events.
+Compared to ordinary standalone muons without the beam spot constraint (with standard seeding), the DSA muon reconstruction uses cosmic muon seeding with the modification that the seeds are not forced to point downwards \cite{Liu2008, CMS-DP-2015-015}.
+DSA muon reconstruction was intended to further improve the \pT resolution of muons produced from highly displaced decays.
+Since this reconstruction is based on cosmic muon seeds, it is more suitable for reconstruction of displaced muons than the ordinary standalone muon reconstruction.
 
 \begin{figure}[p]
   \centering
@@ -259,6 +265,15 @@ With the trigger applied, the reconstruction efficiency is high for both DSA and
   \label{fig:dd:PTRES_DSA_RSA}
 \end{figure}
 
+To compare DSA and RSA muon reconstruction, \Fig~\ref{fig:dd:REFF} shows graphs of the efficiency as a function of generated \Lxy to reconstruct a generated muon as DSA or as RSA, with and without the trigger applied, with respect to \mbox{$\PHiggs\to2\PLLP\to2\Pgm$} signal events in which both generated muons are within a detector acceptance, defined as
+\begin{itemize}
+  \item both generated muon $\pT > 25\GeV$;
+  \item both generated muon $|\eta| < 2$;
+  \item generated \mbox{$\Lxy < 500\cm$}.
+\end{itemize}
+In order to have a sufficient sample size, all 33 of the \twoMu signal samples are combined together for these graphs.
+The reconstruction efficiency decreases steadily as a function of generated \Lxy, dropping off sharply at about 600\cm, corresponding roughly to the start of the third barrel muon station, and the DSA reconstruction is consistently higher than the RSA reconstruction.
+With the trigger applied, the reconstruction efficiency is high for both DSA and RSA muons, up until about 300\cm at which point the trigger efficiency seriously limits the number of passing events.
 
 \Fig~\ref{fig:dd:PTRES_DSA_RSA} shows distributions of the \pT resolution for the DSA and RSA reconstructions, normalized to unit area, for generated events within acceptance, with and without the trigger applied, for the \twoMu signal sample with \FullSP{1000}{350}{350}.
 The RSA reconstruction gives a visibly worse \pT resolution, with a larger shoulder near $-1$, indicating that RSA muons tend to underestimate the muon \pT compared to DSA muons.
@@ -271,7 +286,7 @@ The analysis presented in this thesis therefore primarily uses DSA muons.
 \label{sec:dd:GeneralStrategy}
 This section presents details of the selection criteria used to perform the analysis.
 Informally, selection criteria are referred to as cuts, as application of selection criteria cuts away events.
-An overview of the general strategy for selecting reconstructed events and objects consistent with displaced dimuons is as follows.
+An overview of the general strategy for selecting reconstructed events and objects consistent with displaced dimuons is as follows; subsequent subsections describe each step in more detail.
 \clearpage
 \begin{enumerate}
   \item \textbf{DSA muon preselection}. Begin with DSA muons as seeds for searching for displaced dimuons and apply a set of quality criteria to select muons that are reasonably well reconstructed. (\Sec~\ref{sec:dd:DSAQuality})
@@ -446,7 +461,7 @@ As DSA muons are not used by many CMS analyses, a standard set of selections to 
 In order to further select high-quality DSA muons as well as to discriminate signal-like events from background-like events, the following requirements, along with the DSA muon preselection cuts explained in \Sec~\ref{sec:dd:DSAQuality}, serve as the DSA muon identification selection.
 DSA muons are required to have
 \begin{itemize}
-  \item muon $\pT$ of at least 10\GeV, \ie $$\pT > 10\GeV$$
+  \item muon $\pT$ of at least 10\GeV, \ie $$\pT > 10\GeV$$;
   \item \normchisq of the muon track fit of at most 2.5, \ie $$\chisq_\text{track}/\text{dof} < 2.5$$
   \item at least 19 hits in the DTs for muons reconstructed only in the barrel, \ie $$N(\text{CSC hits}) = 0 \implies N(\text{DT hits}) > 18$$
   \item time with respect to bunch crossing of at most 12\unit{ns}, \ie $$|t_\text{in-out}| < 12\unit{ns}$$
@@ -499,8 +514,8 @@ In this analysis, this restricted range is extended to the beginning of the muon
 The technical changes to the CMS software are documented here.
 The following changes were made to \Code{RecoVertex/VertexTools/src/SequentialVertexFitter.cc}:
 \begin{itemize}
-  \item \Code{TrackerBoundsRadius} was changed from 112 to 500
-  \item \Code{TrackerBoundsHalfLength} was changed from 273.5 to 1000
+  \item \Code{TrackerBoundsRadius} was changed from 112 to 500;
+  \item \Code{TrackerBoundsHalfLength} was changed from 273.5 to 1000.
 \end{itemize}
 
 The results of the common vertex fit are used to define dimuon quantities such as transverse decay length.
@@ -551,11 +566,11 @@ The 4 muons can be nominally paired into 6 overlapping dimuons, which can be par
 This situation is made more complex when, among other things,
 \begin{itemize}
   \setlength\itemsep{.2\baselineskip}
-  \item one or more muons are not reconstructed
-  \item duplicate muons are reconstructed from partial sets of hits
-  \item muons are not all reconstructed with the correct charge
-  \item pairs of muons are highly collimated and distinguishing them is difficult
-  \item vertex fits of muons from different long-lived particle decays yield a good \vchisq
+  \item one or more muons are not reconstructed;
+  \item duplicate muons are reconstructed from partial sets of hits;
+  \item muons are not all reconstructed with the correct charge;
+  \item pairs of muons are highly collimated and distinguishing them is difficult;
+  \item vertex fits of muons from different long-lived particle decays yield a good \vchisq.
 \end{itemize}
 In developing this set of pairing criteria, several combinations of metrics were considered.
 \begin{itemize}
@@ -623,8 +638,8 @@ Along with the DCA requirement, the requirement of convergence of the common ver
 These requirements further select high-quality dimuons as well as suppress background events.
 Dimuons are required:
 \begin{itemize}
-  \item to have a reconstructed dimuon mass of at least 10\GeV, \ie $\mMuMu > 10\GeV$
-  \item to have a $\chi^2$ of the common vertex fit of at most 20, \ie $\chi^2_\text{vertex} < 20$
+  \item to have a reconstructed dimuon mass of at least 10\GeV, \ie $\mMuMu > 10\GeV$;
+  \item to have a $\chi^2$ of the common vertex fit of at most 20, \ie $\chi^2_\text{vertex} < 20$.
 \end{itemize}
 
 The \vchisq cut ensures that the dimuon is formed from tracks that can be reasonably well associated with a common vertex.
@@ -636,9 +651,9 @@ The following criteria select displaced dimuons consistent with the signal hypot
 The relevant quantities were defined in \Sec~\ref{sec:dd:keyvars}.
 Dimuons are required:
 \begin{itemize}
-  \item to have an \Lxy significance of at least 6, \ie $\LxySig > 6$
-  \item to have a transverse collinearity angle of less than $\pi/4$, \ie $\DeltaPhi < \pi/4$
-  \item to be formed from two DSA muons with electric charges of opposite sign
+  \item to have an \Lxy significance of at least 6, \ie $\LxySig > 6$;
+  \item to have a transverse collinearity angle of less than $\pi/4$, \ie $\DeltaPhi < \pi/4$;
+  \item to be formed from two DSA muons with electric charges of opposite sign.
 \end{itemize}
 
 \subsection{Cosmic Muon Suppression}
@@ -646,16 +661,16 @@ Dimuons are required:
 As mentioned in \Sec~\ref{sec:dd:VertexFitting}, one result of the common vertex fit of two muons is a pair of vertex-constrained tracks.
 After the common vertex fit, a population of selected dimuons with relatively small \vchisq values was observed in data, and not in simulation, with the following unusual properties, compared to before the common vertex fit:
 \begin{itemize}
-  \item Muon vertex-constrained momentum $\phi$ directions change by approximately $\pi$
-  \item Muon vertex-constrained \pT uncertainties are unusually small, \ie $\pTErr/\pT \approx 10^{-7}\text{--}10^{-5}$
+  \item Muon vertex-constrained momentum $\phi$ directions change by approximately $\pi$;
+  \item Muon vertex-constrained \pT uncertainties are unusually small, \ie $\pTErr/\pT \approx 10^{-7}\text{--}10^{-5}$.
 \end{itemize}
 The presence of these dimuons are found to correlate with
 \begin{itemize}
   \item Muons with relatively large transverse impact parameters, \ie $d_0 \approx 200\text{--}1000\cm$, and
   \item Events with no \pp collision vertices, and/or
-  \item Events with large numbers of DSA muons, \ie $N(\text{DSA}) \approx 15\text{--}20$
+  \item Events with large numbers of DSA muons, \ie $N(\text{DSA}) \approx 15\text{--}20$;
     \begin{itemize}
-      \item And these large numbers of DSA muons are largely parallel, \ie $|\cos{\alpha}| \approx 1$
+      \item And these large numbers of DSA muons are largely parallel, \ie $|\cos{\alpha}| \approx 1$.
     \end{itemize}
 \end{itemize}
 Further investigation suggested that these events are consistent with multiple cosmic muons arriving simultaneously from a single atmospheric shower.
@@ -678,9 +693,9 @@ Some of these events have no \pp collision vertices and contain only cosmic muon
 Events are therefore required to contain at least one well-identified vertex with position $(x, y, z)$ satisfying the following requirements:
 \pagebreak
 \begin{itemize}
-  \item At least 4 degrees of freedom when constructing the vertex
-  \item $|z| < 24\mm$
-  \item $\sqrt{x^2 + y^2} < 2\mm$
+  \item At least 4 degrees of freedom when constructing the vertex;
+  \item $|z| < 24\mm$;
+  \item $\sqrt{x^2 + y^2} < 2\mm$.
 \end{itemize}
 This set of requirements is referred to in CMS as the \Code{PrimaryVertexFilter}.
 
@@ -694,9 +709,9 @@ The analysis selection then requires that events contain no more than 5 such pai
 
 In summary, the cosmic muon suppression selections are
 \begin{itemize}
-  \item Events pass the \Code{PrimaryVertexFilter}
-  \item Events have $N(\text{parallel pairs}) < 6$
-  \item Dimuons have original and vertex-constrained $\cos{\alpha} > -0.8$
+  \item Events pass the \Code{PrimaryVertexFilter};
+  \item Events have $N(\text{parallel pairs}) < 6$;
+  \item Dimuons have original and vertex-constrained $\cos{\alpha} > -0.8$.
 \end{itemize}
 
 \subsection{Summary of Event and Object Selection}
@@ -1387,7 +1402,7 @@ The 95\% confidence level upper limit on the signal strength $\sigstr_\text{UL}$
 \subsection{Technical Details of Using the Higgs Combine Tool}
 \label{sec:dd:combine}
 The CMS software framework includes a statistical analysis package known as the Higgs Combine tool (or simply \combine) used throughout CMS for computing statistical significance and upper limits and for performing goodness-of-fit tests \cite{CombineManual}.
-The choices of statistical methods described above were made because this analysis involves low numbers of events.
+The choices of statistical methods described above were made because this analysis involves low numbers of events in both the signal and control regions.
 These choices result in a technical procedure for using \combine to compute upper limits that differs from that used by many CMS analyses.
 For this reason, the procedure and the command-line options to \combine are documented here.
 
@@ -1442,7 +1457,7 @@ Given these observations, the systematic uncertainties described in \Sec~\ref{se
 \Figs~\ref{fig:dd:UpperLimits_mH_1000}--\ref{fig:dd:UpperLimits_mH_125} are plots of the upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for various values of BSM Higgs mass \mH and long-lived particle mass \mX as a function of $c$ times the long-lived particle mean proper lifetime, \cTau.
 In the figure for each limit curve, there is also shown the median upper limit that would be obtained in an imagined ensemble of similar experiments having only background events.
 The spread of upper limits about the median in such an ensemble of background-only experiments is indicated by yellow bands containing the central 68\% quantile.
-\Tab~\ref{tab:dd:limits} summarizes the values of the median and observed upper limits for the 33 sets of signal parameters (\mH, \mX, \cTau) without any lifetime reweighting.
+\Tab~\ref{tab:dd:limits} summarizes the values of the median and observed upper limits for the 33 sets of signal parameters (\mH, \mX, \cTau) that do not require lifetime reweighting.
 Some values are omitted, corresponding to signal samples with zero efficiency or statistical uncertainty greater than 50\%.
 
 \begin{table}
