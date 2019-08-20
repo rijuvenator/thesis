@@ -8,12 +8,12 @@
 \vspace*{-0.75\baselineskip}
 The work described in this appendix was performed in full collaboration with fellow UCLA graduate student Christian Schnaible under the supervision of our common advisor, Professor Robert Cousins.
 Together the two students wrote a detailed draft of internal CMS Detector Note DN-2017/019, reproduced below.
-Professor Cousins also provided editing assistance, particularly in \Sec~\ref{sec:chargeperhit}.
+Professor Cousins also provided editing assistance, particularly in \Sec~\ref{sec:datamc}.
 Abhigyan Dasgupta presented this work in a poster session \cite{Dasgupta:Poster} at the 2017 European Physical Society Conference on High-Energy Physics (EPS-HEP), and wrote a conference note for the Proceedings \cite{Dasgupta:Proceedings}.
 Christian Schnaible presented this work in a talk at the the 2017 American Physical Society Meeting of the Division of Particles \& Fields (APS-DPF) \cite{Schnaible:Talk}.
 
 \vspace*{-0.75\baselineskip}
-\section{Abstract}
+\section{Abstract of the Appendix}
 \vspace*{-0.75\baselineskip}
 Among the many challenges to be brought by the high luminosities of the HL-LHC is the impact of increased hit rates in the cathode strip chambers of the CMS endcap muon system. These chambers are used for all levels of trigger as well as offline reconstruction. Neutrons induce background hits via nuclear interactions and capture, followed by gamma emission and (mainly) Compton scatter off electrons that subsequently ionize the chamber gas. This note describes recent efforts to improve the understanding of such neutron-induced background through detailed comparison of CMS pp collision data, \GEANTfour simulation, and the response of CMS cathode strip chambers placed in the CERN high-intensity gamma irradiation facility, GIF++. Projections for the effect of such neutron-induced background hits on muon triggering and reconstruction at the HL-LHC are described.
 
@@ -993,7 +993,7 @@ To summarize the results:
 These results are important for reconstruction studies, where the total\unit{hits/s} is the strongest indicator of trigger and software performance. This means that at equal\unit{hits/s} for CSCs at GIF++ and CMS (effects on muon reconstruction are roughly the same), the HV current will differ by the same amount as\unit{charge/hit}. So, when using HV current for correspondence between GIF++ source intensities and ME1/1, these results at face value imply that at an equal\unit{hits/s} the chamber at GIF++ will have a factor of 2.5 larger HV current than chambers in CMS. Similarly, for the ME2/1 chamber correspondence, the ME2/1 at GIF++ will have a 20--30\% larger HV current than the chambers in CMS assuming an equal\unit{hits/s} (depending on HV segment). However, further understanding of possible miscalibration of HV current ADC to \muA conversion is necessary in the calculation of ME2/1\unit{charge/hit}.
 
 \pagebreak
-\section{Acknowledgments}
+\section{Acknowledgments of the Appendix}
 \label{sec:acknowledgments}
 
 	We would like to thank everyone on the CSC GIF++ team, the CMS UCLA group, and everyone whose work we have built on or partially reproduced and who have contributed valuable knowledge and advice, including Cameron Bravo, Tim Cox, Alice Florent, Jay Hauser, Misha Ignatenko, Vladimir Ivantchenko, Evaldas Juska, Alexey Kamenev, Andrey Korytov, Katerina Kuznetsova, Armando Lanaro, Paul Lujan, Alex Madorsky, Nick McColl, Hualin Mei, Yuriy Pakhotin, Vladimir Palchik, Victor Perelygin, Jian Wang, Wells Wulsin, and Piet Verwilligen. This work was partially supported by the U.S.\ Department of Energy under Award Number {DE}--{SC}0009937.
