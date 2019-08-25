@@ -1206,7 +1206,7 @@ The values of the QCD transfer factors are therefore computed in each mass windo
 
 Events in data with $\LxySig < 6$ are used to cross check these transfer factors.
 The histograms of events in the control region \CR{\Full}{<6}{\pi} and in the control region \CR[SS]{\Full}{<6}{0} are scaled according to transfer factors obtained from the histograms of events in the control regions with $\LxySig > 6$ for estimating DY background and QCD background (respectively), and compared to the control region \CR{\Full}{<6}{0}.
-These plots are given in \Fig~\ref{fig:dd:TFLess}.
+These plots are given in \Fig~\ref{fig:dd:TFLess}, with rough estimates of error bars.
 \begin{itemize}
   \item The top left plot of \Fig~\ref{fig:dd:TFLess} shows the events passing the full selection in data for $\CR{\Full}{<6}{0}$ (labeled ``SR'', colored red) and for $\CR{\Full}{<6}{\pi}$ (labeled ``CR'', colored blue), showing general agreement between the $\DeltaPhi < \pi/4$ and $\DeltaPhi > 3\pi/4$ regions.
   \item The binwise ratio of the \CR{DY}{<6}{0} and \CR{DY}{<6}{\pi} histograms gives a weight factor for each \LxySig bin; binwise scaling \CR{\Full}{<6}{\pi} by these weights gives the top right plot of \Fig~\ref{fig:dd:TFLess}, with the modified histogram labeled ``CR w/ DY'' and colored green, to represent a correction by the Drell-Yan transfer factor.
@@ -1374,11 +1374,14 @@ The LHC-style test statistic \cite{CombineManual} is then defined, based on a ra
   q_\text{LHC}(\sigstr) = -2\ln\left[\frac{\pazocal{L}\left(\sigstr, \hat{\hat{\theta}}_\sigstr \,\vert\, X\right)}{\pazocal{L}\left(\sigstr = \hat{\sigstr}, \theta=\hat{\theta}\,\vert\,  X\right)}\right]
   \label{eq:dd:qLHC}
 \end{equation}
-The likelihoods are evaluated following the Cousins-Highland prescription of treating the signal strength in a frequentist manner and incorporating the systematic uncertainties by marginalizing (or integrating over) them (treating them in a Bayesian manner by designating their prior pdfs) \cite{CousinsHighland:SystUnc1992}.
+The likelihoods are evaluated by treating the signal strength in a frequentist manner and incorporating the systematic uncertainties in a fully frequentist manner by profiling them.
+Limits were also calculated by marginalizing (or integrating over) the systematic uncertainties, following the Cousins-Highland prescription of treating the uncertainties in a Bayesian manner \cite{CousinsHighland:SystUnc1992}.
+The upper limits were in general a little lower, which can be attributed to marginalization of the mean number of background events, leading to some mild under-coverage when the true background mean is small.
+Thus the profiling of nuisance parameters is preferred.
 
-For most types of systematic uncertainties, the prior pdfs are assumed to follow a log-normal distribution, with one exception.
+For most types of systematic uncertainties, the pdfs are assumed to follow a log-normal distribution, with one exception.
 There is a systematic uncertainty on the estimated background associated with the statistical uncertainty arising from estimating the expected background in the signal region from a number of observed events in the control region.
-The prior pdf for this systematic uncertainty is assumed to follow a gamma distribution, which has good frequentist properties; from a Bayesian point of view, it is the posterior pdf for the background mean if the prior pdf is uniform and the likelihood function is from one sample of a Poisson distribution \cite{Cousins:ZBi2008, Cousins:LogNormal}.
+The pdf for this systematic uncertainty is assumed to follow a gamma distribution, which has good frequentist properties; from a Bayesian point of view, it is the posterior pdf for the background mean if the prior pdf is uniform and the likelihood function is from one sample of a Poisson distribution \cite{Cousins:ZBi2008, Cousins:LogNormal}.
 
 For some observation $X$, the minimum value $Q(X)$ of the test statistic $q_\text{LHC}(\sigstr)$ corresponds to the value of \sigstr with maximum likelihood.
 Then the pdf of the minimum value of the test statistic $\pazocal{P}(Q;\sigstr)$, given a signal strength \sigstr, is computed, by sampling observations $X$ from ensembles of toy experiments generated using Monte Carlo methods, computing the likelihood functions, and minimizing the test statistic.
@@ -1410,16 +1413,16 @@ For this reason, the procedure and the command-line options to \combine are docu
 
 Using \combine begins with providing an expected number of signal events (given a model), an expected number of background events, (nominal) values for the systematic uncertainties along with the functional form of their distributions, and an observed number of events in data.
 The \combine program is then run with the following configurations controlling the statistical treatment:
+\pagebreak
 \begin{itemize}
-  \item \texttt{--rule CLs}: computes the \CLs upper limit.
-  \item \texttt{--cl 0.95}: computes the upper limit at a 95\% confidence level.
+  \item \texttt{--rule CLs --cl 0.95}: computes the \CLs upper limit at a 95\% confidence level.
   \item \texttt{--method HybridNew}: generates toy experiments to compute the distribution of the test statistic, instead of using the asymptotic frequentist approximations of the distribution valid only for large numbers of events.
   \item \texttt{--toysH 5000}: generates 5000 toy experiments each iteration.
   \item \texttt{--iterations 1}: generates \texttt{toysH} toy experiments 1 time.
   \item \texttt{--seed -1}: randomizes the seed
   \item \texttt{--hintMethod AsymptoticLimits}: estimate the upper limit on the signal strength using asymptotic frequentist methods, and use the result to inform the range of signal strengths over which to search when running toy experiments.
   \item \texttt{--testStat LHC}: compute the distribution of the LHC-style test statistic.
-  \item \texttt{--generateNuisances 1 --fitNuisances 0}: treats the nuisance parameters in a Bayesian manner by integrating over them. For each toy experiment, the value of the nuisance parameters are randomized within their pdfs.
+  \item \texttt{--generateNuisances 0 --generateExternalMeasurements 1 --fitNuisances 1}: treats the nuisance parameters in a frequentist manner by profiling them. For each toy experiment, the value of the nuisance parameters are fixed to their post-fit values, making the method sensitive to observations in data.
   \item \texttt{--expectedFromGrid [QUANTILE]}: computes the \texttt{QUANTILE} quantile of the expected upper limit. When omitted, the program computes the observed limit; otherwise, \texttt{QUANTILE} is 0.5 for the median of the distribution under the background-only hypothesis; 0.16 and 0.84 for the lower and upper edges of the 68\% quantile; and 0.025 and 0.975 for the lower and upper edges of the 95\% quantile. 
 \end{itemize}
 
@@ -1622,49 +1625,49 @@ Some values are omitted, corresponding to signal samples with zero efficiency or
     \hline
     \mH (\GeVns) & \mX (\GeVns) & \cTau (\mm) & Expected $[\sigma B]_\text{UL}$ [pb] & Observed $[\sigma B]_\text{UL}$ [pb] \\
     \hline
-    \multirow{3}{*}{1000}  & \multirow{3}{*}{350} & 35   & $5.24 \times 10^{-2}$ & $4.23 \times 10^{-2}$ \\
-                           &                      & 350  & $2.22 \times 10^{-3}$ & $1.97 \times 10^{-3}$ \\
-                           &                      & 3500 & $4.26 \times 10^{-3}$ & $3.60 \times 10^{-3}$ \\
+    \multirow{3}{*}{1000}  & \multirow{3}{*}{350} & 35   & $3.47 \times 10^{-2}$ & $3.99 \times 10^{-2}$ \\
+                           &                      & 350  & $1.69 \times 10^{-3}$ & $1.75 \times 10^{-3}$ \\
+                           &                      & 3500 & $2.98 \times 10^{-3}$ & $3.38 \times 10^{-3}$ \\
     \hline
-    \multirow{3}{*}{1000}  & \multirow{3}{*}{150} & 10   & $2.87 \times 10^{-1}$ & $3.47 \times 10^{-1}$ \\
-                           &                      & 100  & $3.01 \times 10^{-3}$ & $3.67 \times 10^{-3}$ \\
-                           &                      & 1000 & $2.00 \times 10^{-3}$ & $2.37 \times 10^{-3}$ \\
+    \multirow{3}{*}{1000}  & \multirow{3}{*}{150} & 10   & $2.53 \times 10^{-1}$ & $3.40 \times 10^{-1}$ \\
+                           &                      & 100  & $2.74 \times 10^{-3}$ & $3.67 \times 10^{-3}$ \\
+                           &                      & 1000 & $1.74 \times 10^{-3}$ & $2.35 \times 10^{-3}$ \\
     \hline
     \multirow{3}{*}{1000}  & \multirow{3}{*}{ 50} & 4    & - & -                                         \\
-                           &                      & 40   & $4.96 \times 10^{-3}$ & $5.53 \times 10^{-3}$ \\
-                           &                      & 400  & $2.18 \times 10^{-3}$ & $2.49 \times 10^{-3}$ \\
+                           &                      & 40   & $4.24 \times 10^{-3}$ & $5.42 \times 10^{-3}$ \\
+                           &                      & 400  & $1.86 \times 10^{-3}$ & $2.32 \times 10^{-3}$ \\
     \hline
     \multirow{3}{*}{1000}  & \multirow{3}{*}{ 20} & 2    & - & -                                         \\
-                           &                      & 20   & $1.57 \times 10^{-2}$ & $9.56 \times 10^{-3}$ \\
-                           &                      & 200  & $8.47 \times 10^{-3}$ & $5.42 \times 10^{-3}$ \\
+                           &                      & 20   & $1.12 \times 10^{-2}$ & $9.38 \times 10^{-3}$ \\
+                           &                      & 200  & $6.34 \times 10^{-3}$ & $5.40 \times 10^{-3}$ \\
     \hline
-    \multirow{3}{*}{ 400}  & \multirow{3}{*}{150} & 40   & $3.87 \times 10^{-2}$ & $4.79 \times 10^{-2}$ \\
-                           &                      & 400  & $2.10 \times 10^{-3}$ & $2.53 \times 10^{-3}$ \\
-                           &                      & 4000 & $5.49 \times 10^{-3}$ & $6.25 \times 10^{-3}$ \\
+    \multirow{3}{*}{ 400}  & \multirow{3}{*}{150} & 40   & $3.48 \times 10^{-2}$ & $4.70 \times 10^{-2}$ \\
+                           &                      & 400  & $2.04 \times 10^{-3}$ & $2.53 \times 10^{-3}$ \\
+                           &                      & 4000 & $4.72 \times 10^{-3}$ & $6.09 \times 10^{-3}$ \\
     \hline
     \multirow{3}{*}{ 400}  & \multirow{3}{*}{ 50} & 8    & - & -                                         \\
-                           &                      & 80   & $3.96 \times 10^{-3}$ & $4.58 \times 10^{-3}$ \\
-                           &                      & 800  & $2.23 \times 10^{-3}$ & $2.55 \times 10^{-3}$ \\
+                           &                      & 80   & $3.44 \times 10^{-3}$ & $4.53 \times 10^{-3}$ \\
+                           &                      & 800  & $2.17 \times 10^{-3}$ & $2.50 \times 10^{-3}$ \\
     \hline
     \multirow{3}{*}{ 400}  & \multirow{3}{*}{ 20} & 4    & - & -                                         \\
-                           &                      & 40   & $1.02 \times 10^{-2}$ & $6.60 \times 10^{-3}$ \\
-                           &                      & 400  & $5.59 \times 10^{-3}$ & $3.45 \times 10^{-3}$ \\
+                           &                      & 40   & $7.61 \times 10^{-3}$ & $6.51 \times 10^{-3}$ \\
+                           &                      & 400  & $4.29 \times 10^{-3}$ & $3.27 \times 10^{-3}$ \\
     \hline
-    \multirow{3}{*}{ 200}  & \multirow{3}{*}{ 50} & 20   & $4.50 \times 10^{-1}$ & $5.13 \times 10^{-1}$ \\
-                           &                      & 200  & $4.98 \times 10^{-3}$ & $5.66 \times 10^{-3}$ \\
-                           &                      & 2000 & $8.69 \times 10^{-3}$ & $9.72 \times 10^{-3}$ \\
+    \multirow{3}{*}{ 200}  & \multirow{3}{*}{ 50} & 20   & $3.90 \times 10^{-1}$ & $5.10 \times 10^{-1}$ \\
+                           &                      & 200  & $4.58 \times 10^{-3}$ & $5.62 \times 10^{-3}$ \\
+                           &                      & 2000 & $7.43 \times 10^{-3}$ & $9.48 \times 10^{-3}$ \\
     \hline
     \multirow{3}{*}{ 200}  & \multirow{3}{*}{ 20} & 7    & - & -                                         \\
-                           &                      & 70   & $1.39 \times 10^{-2}$ & $8.47 \times 10^{-3}$ \\
-                           &                      & 700  & $1.03 \times 10^{-2}$ & $6.37 \times 10^{-3}$ \\
+                           &                      & 70   & $1.03 \times 10^{-2}$ & $8.73 \times 10^{-3}$ \\
+                           &                      & 700  & $7.40 \times 10^{-3}$ & $6.38 \times 10^{-3}$ \\
     \hline
-    \multirow{3}{*}{ 125}  & \multirow{3}{*}{ 50} & 50   & $1.25 \times 10^{-1}$ & $1.39 \times 10^{-1}$ \\
-                           &                      & 500  & $1.01 \times 10^{-2}$ & $1.12 \times 10^{-2}$ \\
-                           &                      & 5000 & $3.44 \times 10^{-2}$ & $3.88 \times 10^{-2}$ \\
+    \multirow{3}{*}{ 125}  & \multirow{3}{*}{ 50} & 50   & $1.05 \times 10^{-1}$ & $1.35 \times 10^{-1}$ \\
+                           &                      & 500  & $9.00 \times 10^{-3}$ & $1.08 \times 10^{-2}$ \\
+                           &                      & 5000 & $2.84 \times 10^{-2}$ & $3.74 \times 10^{-2}$ \\
     \hline
     \multirow{3}{*}{ 125}  & \multirow{3}{*}{ 20} & 13   & - & -                                         \\
-                           &                      & 130  & $2.32 \times 10^{-2}$ & $1.45 \times 10^{-2}$ \\
-                           &                      & 1300 & $2.70 \times 10^{-2}$ & $1.73 \times 10^{-2}$ \\
+                           &                      & 130  & $1.65 \times 10^{-2}$ & $1.40 \times 10^{-2}$ \\
+                           &                      & 1300 & $2.05 \times 10^{-2}$ & $1.69 \times 10^{-2}$ \\
     \hline
   \end{tabular}
   \caption[95\% CL upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for the 33 sets of signal parameters (\mH, \mX, \cTau) in \twoMu simulated signal samples.]{95\% CL expected and observed upper limits on $\sigma(\PHiggs\to \PLLP\PLLP)B(\PLLP\to\Pgm\Pgm)$ for the 33 sets of signal parameters (\mH, \mX, \cTau) in \twoMu simulated signal samples. Omitted entries refer to signal samples with zero efficiency or with a large statistical uncertainty.}
