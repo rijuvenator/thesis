@@ -1,5 +1,5 @@
 == 25 April 2019
-  - [ ] Apollonari book add url to title
+  - [x] Apollonari book add url to title
   - [x] add table of contents to bookmarks
   - [x] figure captions overflowing
 
@@ -8,7 +8,7 @@
   - [x] TDR report numbers should not be italicized
 
 == 30 May 2019
-  - [ ] URLs should also be explicit in references
+  - [x] URLs should also be explicit in references
 
 == 10 Jun 2019
   - [x] Exact version for Pythia
